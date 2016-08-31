@@ -1,0 +1,35 @@
+#!/bin/bash
+
+port="4000"
+case ${@:1:1} in
+    setup)
+
+    ;;
+    watch)
+    ;;
+    go)
+      # Start PHP server
+      pushd public
+      php -S localhost:${port}
+    ;;
+    connect)
+
+    ;;
+    locale)
+
+    ;;
+    **)
+        echo ''
+        echo -e "setup"
+        echo -e "\t" "Sets up your local environment for development."
+
+        echo ''
+        echo -e "go"
+        echo -e "\t" "Run the project at localhost:${port}."
+
+        echo ''
+        echo -e "watch"
+        echo -e "\t" "Run the default preprocessor watch task (gulp, grunt, etc.)."
+
+    ;;
+esac
