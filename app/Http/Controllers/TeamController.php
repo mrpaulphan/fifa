@@ -64,4 +64,14 @@ class TeamController extends Controller
         return redirect()->route('list.player');
 
     }
+
+    public function edit(Request $request, $id) {
+
+    }
+
+    public function destroy(Request $request) {
+      $deleteRowWithID = Player::where('id', $request->id)->delete();
+      $deleteRowWithID;
+      return redirect()->route('list.player');
+    }
 }

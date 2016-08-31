@@ -26,6 +26,7 @@
                         <td>Nationality</td>
                         <td>Value</td>
                         <td>Wages</td>
+                        <td>Actions</td>
                       </tr>
                     </thead>
                     <tbody>
@@ -45,6 +46,13 @@
                             <td>{{$player->nationality }}</td>
                             <td>{{$player->value}}</td>
                             <td>{{$player->wages}}</td>
+                            <td>
+                              <form class="" action="{{route('delete.player')}}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="id" value="{{$player->id}}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                            </td>
                           </tr>
                         @endforeach
 
