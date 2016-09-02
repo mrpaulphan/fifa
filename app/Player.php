@@ -20,6 +20,11 @@ class Player extends Model
     'nationality',
     'value',
     'wages',
-    'status'
+    'status',
+    'user_id',
+    'season',
+    'potential_low',
+    'potential_high'
+
   ];
 }

@@ -2,6 +2,7 @@
 
 ## Requirments
 - [Node.js](https://nodejs.org/en/)
+- Plugins: .editorconfig
 
 ## Installation
 - `./phan setup`

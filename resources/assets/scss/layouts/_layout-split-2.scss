@@ -2,7 +2,10 @@
     @include media('>large') {
         @include autolayout( '|[column]-[column]|');
     }
-
+    &--apart {
+      display: flex;
+      justify-content: space-between;
+    }
     &--aside {
         @include media('>large') {
             @include autolayout( '|-[column(#{percentage(4/6)})]-[column(#{percentage(2/6)})]-|');

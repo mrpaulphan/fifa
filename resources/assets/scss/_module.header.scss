@@ -1,14 +1,8 @@
 .header {
-    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+}
 
-    &__logo {
-        display: inline-block;
-        svg {
-            margin-right: 15px;
-        }
-    }
-
-    &__account {
-        text-align: right;
-    }
+.dropdown-menu {
+    display: none;
 }
