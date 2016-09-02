@@ -23,6 +23,7 @@ Route::get('/', 'PagesController@getIndex');
 Auth::routes();
 Route::get('/home', 'PagesController@getSeasons')->name('show.seasons');
 Route::post('/home/create', 'TeamController@store')->name('post.team');
+Route::put('/home', 'TeamController@edit')->name('edit.team');
 
 
 Route::get('/team', 'PagesController@getPlayers')->name('show.players');
