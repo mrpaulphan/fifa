@@ -9,7 +9,7 @@ use App\Http\Requests;
 class PagesController extends Controller
 {
     public function getIndex() {
-      return view('welcome');
+      return view('landing');
     }
 
     public function getTeam() {

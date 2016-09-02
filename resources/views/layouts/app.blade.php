@@ -11,7 +11,7 @@
     <title>Laravel</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="assets/css/screen.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -21,6 +21,47 @@
     </script>
 </head>
 <body>
+    <header>
+      Fifa careers
+      <div class="">
+        @if (Auth::guest())
+            <li><a href="{{ url('/login') }}">Login</a></li>
+            <li><a href="{{ url('/register') }}">Register</a></li>
+        @else
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="{{ url('/logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        @endif
+      </div>
+    </header>
+    <div class="page">
+      <header>
+
+      </header>
+      <nav>
+        <a href="#">Season</a>
+        <a href="#">Squad</a>
+        <a href="#">Transfers</a>
+        <a href="#">Youth</a>
+        <a href="#">career</a>
+      </nav>
+    </div>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -80,6 +121,6 @@
     @yield('content')
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
