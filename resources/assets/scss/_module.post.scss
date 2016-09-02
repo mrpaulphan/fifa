@@ -1,0 +1,18 @@
+.post {
+
+    &__byline {
+
+        &__category {
+            display: inline-block;
+        }
+
+        &__users {
+            display: inline-block;
+            min-width: 200px;
+        }
+
+        &__date {
+            display: inline-block;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.layout-split-full {
+    @include media('>large') {
+        @include autolayout('|-#{$autolayoutDefaultGutter}-[column]-#{$autolayoutDefaultGutter}-|');
+    }
+    // Used on page header
+    &--shift {
+        @include media('>large') {
+            @include autolayout('|-#{percentage(1/7)}-[column(#{percentage(6/6)})]|');
+        }
+    }
+
+}

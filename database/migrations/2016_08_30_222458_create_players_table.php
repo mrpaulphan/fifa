@@ -28,7 +28,7 @@ class CreatePlayersTable extends Migration
           $table->string('nationality');
           $table->double('value');
           $table->double('wages');
-          $table->string('status');
+          $table->string('status')->default('active');
           $table->timestamps('');
         });
     }

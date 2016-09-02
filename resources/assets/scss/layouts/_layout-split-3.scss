@@ -1,0 +1,10 @@
+.layout-split-3 {
+    & > .column:nth-child(2),
+    & > .column:nth-child(3) {
+        margin-top: 0;
+    }
+
+    @include media('>large') {
+        @include autolayout( '|[column(33.3%)]-[column(33.3%)]-[column(33.3%)]|');
+    }
+}

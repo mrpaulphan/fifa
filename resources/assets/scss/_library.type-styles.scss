@@ -1,0 +1,60 @@
+// See _config.variables.scss for font variables
+// See _library.mixin.scss for mixins
+
+html {
+    color: $black;
+    font-family: $fontRegular, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-smoothing: antialiased;
+    letter-spacing: .02em;
+    line-height: 23px;
+    text-size-adjust: 100%;
+}
+
+h1 {
+    font-family: $fontBold, Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    line-height: 26px;
+}
+
+h2 {
+    font-family: $fontBold, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    letter-spacing: .05em;
+    line-height: 23px;
+}
+
+h3 {
+    font-family: $fontRegular, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    letter-spacing: .02em;
+    line-height: 23px;
+}
+
+h4 {
+    font-family: $fontMedium, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: .05em;
+    line-height: 18px;
+}
+
+h5 {
+    font-family: $fontMedium, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: .05em;
+    line-height: 18px;
+}
+
+p {
+    font-family: $fontRegular, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    letter-spacing: .02em;
+    line-height: 23px;
+}
+
+.small {
+    font-family: $fontMedium, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: .05em;
+    line-height: 18px;
+}

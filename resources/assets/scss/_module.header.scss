@@ -1,0 +1,14 @@
+.header {
+    padding: 25px 0;
+
+    &__logo {
+        display: inline-block;
+        svg {
+            margin-right: 15px;
+        }
+    }
+
+    &__account {
+        text-align: right;
+    }
+}

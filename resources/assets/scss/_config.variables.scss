@@ -1,0 +1,49 @@
+/**
+ *  Colors
+ */
+$black: #111; // All text, large avatar outlines
+$white: #fff; // Background, text and links on a solid color, active navigation tab
+$teal: #16c3b9; // Header bar and navigation background color, small links, heavy horizontal rules
+$darkTeal: #01aea4; // Header bar and navigation background color, small links, heavy horizontal rules
+$violet: #c91b74; // Large links, background colors, button outlines, dropdown buttons
+$darkViolet: #96054f; // Large links hover
+$grey: #767676; // Dimmed text, dimmed content type icons
+$lightGrey: #d0d0d0; //Horizontal rules, small avatar outlines
+$gray: #f2f2f2; // inputs
+$deepSea: #136d68; // Tab 1
+$caribbean: #1a7e78; // Tab 2
+$elm: #1f968f; // Tab 3
+$robinsEgg: #23a49d; // Tab 4
+$turquoise: #28ada6; // Tab 5
+$blue: #009cef; // Used on blue banner
+$link: #009cf2; // Used for links in body text
+$code: #f2f2f2; // <pre>
+$codeBorder: #c5c5c2; // <pre>
+$green: #008000; // borders
+$elm: #1f968f; // Green link hover
+/**
+ *  Spacing
+ */
+$spacingDesktop: 20px;
+$spacingMobile: 14px;
+/**
+ *  Layouts
+ */
+$autolayoutDefaultGutter: 60px;
+$maxWidth: 1160px;
+$extendBackground: 100 - percentage(1 / 7); // For extended background. Matches .layout-split-2--wrapper
+/**
+ *  Fonts
+ */
+$fontBold: 'larsseitbold';
+$fontBoldItalic: 'larsseitbold_italic';
+$fontExtraBold: 'larsseitextrabold';
+$fontExtraBoldItalic: 'larsseitextrabold_italic';
+$fontLight: 'larsseitlight';
+$fontLightItalic: 'larsseitlight_italic';
+$fontMedium: 'larsseitmedium';
+$fontMediumItalic: 'larsseitmedium_italic';
+$fontThin: 'larsseitthin';
+$fontThinItalic: 'larsseitthin_italic';
+$fontRegular: 'larsseitregular';
+$fontItalic: 'larsseititalic';

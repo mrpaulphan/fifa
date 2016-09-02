@@ -1,0 +1,22 @@
+.listing {
+
+    &-item {
+        border-bottom: 2px solid $lightGrey;
+        padding-bottom: 20px;
+        &__byline {
+            color: $grey;
+            &-icon svg {
+
+                .inner {
+                    fill: $black;
+                }
+            }
+        }
+
+        &:first-child {
+            border-top: 2px solid $green;
+            padding-top: 20px;
+
+        }
+    }
+}

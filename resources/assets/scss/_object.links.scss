@@ -1,0 +1,104 @@
+a {
+    color: $darkTeal;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+        color: $white;
+    }
+}
+
+.background-color {
+    &--primary {
+        a {
+            color: $white;
+
+            &:focus,
+            &:hover {
+                color: $black;
+            }
+
+        }
+    }
+
+    &--secondary {
+        a {
+            color: $white;
+
+            &:focus,
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+}
+
+.link {
+    &-color--grey {
+        color: $grey;
+    }
+
+    &-color--black {
+        color: $black;
+    }
+
+    &-color--white {
+        color: $white;
+
+        &:focus,
+        &:hover {
+            color: $black;
+        }
+    }
+
+    &-color--violet {
+        color: $violet;
+
+        &:hover {
+            color: $darkViolet;
+        }
+    }
+
+    &--underline {
+        text-decoration: underline;
+    }
+
+    &--underline-caret {
+        @extend .link--underline;
+
+        &::after {
+            content: '>';
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+
+    &--caret {
+        &::after {
+            content: '>';
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+
+    &--caret-reverse {
+        &::before {
+            content: '<';
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+
+    &--external {
+        fill: $teal;
+        height: 10px;
+        margin-left: 2px;
+        width: 10px;
+
+        svg {
+            width: 10px;
+        }
+    }
+}

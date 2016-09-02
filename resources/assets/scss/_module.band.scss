@@ -1,0 +1,12 @@
+.band {
+    padding: 40px;
+    display: flex;
+
+    &__icon {
+        width: 80px;
+    }
+
+    &__content {
+        margin-left: 50px;
+    }
+}

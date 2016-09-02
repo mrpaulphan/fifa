@@ -1,0 +1,125 @@
+/*------------------------------------*\
+    Default
+\*------------------------------------*/
+[class^="icon"] {
+    height: 50px;
+    width: 50px;
+}
+
+.icon {
+    &__logo {
+        height: 40px;
+        width: 40px;
+
+        .inner,
+        .outer {
+            fill: $white;
+        }
+    }
+
+    &__arrow-down--thick {
+        svg {
+            height: 6px;
+            width: 11px;
+        }
+
+        .inner {
+            fill: $white;
+        }
+    }
+
+    &__github {
+        height: 20px;
+        width: 20px;
+
+        .inner {
+            fill: $black;
+        }
+    }
+
+    &__model {
+        height: 20px;
+        width: 20px;
+
+        .inner {
+            fill: $white;
+        }
+    }
+
+    &__guide {
+        height: 20px;
+        width: 20px;
+
+        .inner {
+            fill: $white;
+        }
+    }
+
+    &__library {
+        height: 20px;
+        width: 20px;
+
+        .inner {
+            fill: $white;
+        }
+    }
+
+    &__product {
+        height: 20px;
+        width: 20px;
+
+        .inner {
+            fill: $white;
+        }
+    }
+
+    &__api {
+        height: 20px;
+        width: 20px;
+
+        .inner {
+            fill: $white;
+        }
+    }
+
+    &__contribute {
+        width: 60px;
+
+        .inner {
+            fill: $white;
+        }
+    }
+
+    &__video-play {
+        .outer {
+            fill: $teal;
+        }
+
+        .inner {
+            fill: $white;
+        }
+    }
+
+    &__home svg {
+        height: 20px;
+        width: 20px;
+    }
+
+    &--violet {
+        .inner {
+            fill: $violet;
+        }
+    }
+
+    &--black {
+        .inner {
+            fill: $black;
+        }
+    }
+
+    &--white {
+        .inner {
+            fill: $white;
+        }
+    }
+}

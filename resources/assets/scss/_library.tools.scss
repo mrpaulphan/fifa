@@ -1,0 +1,11 @@
+.dot {
+    padding: 0 10px;
+}
+
+.padding-top--double {
+    padding-top: $spacingMobile * 2;
+
+    @include media('>large') {
+        padding-top: $spacingDesktop * 2;
+    }
+}

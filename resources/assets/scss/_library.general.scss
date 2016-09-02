@@ -1,0 +1,78 @@
+html {
+    background: linear-gradient(
+    to right,
+    $teal 0%,
+    $teal 50%,
+    $white 50%,
+    $white 100%
+  );
+}
+
+body,
+html {
+    height: 100%;
+    max-width: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+iframe,
+img,
+object,
+svg,
+video {
+    border: 0;
+    max-width: 100%;
+}
+
+svg {
+    max-height: 100%;
+}
+
+figure {
+    margin: 0;
+    max-width: 100%;
+}
+
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+select {
+    appearance: none;
+    outline: none;
+}
+
+pre {
+    background-color: $code;
+    border: 1px solid $codeBorder;
+    padding: 20px;
+    white-space: pre-wrap;
+}
+
+footer {
+    padding-bottom: 20px;
+}

@@ -1,0 +1,91 @@
+#!/bin/bash
+
+port="4000"
+
+case ${@:1:1} in
+    setup)
+    # Setup .env file
+    if [ ! -f ".env" ]; then
+      echo "Creating .env file."
+      cp .env.example .env
+    fi
+    # NPM
+    if [ -f "package.json" ]; then
+      # Does node_modules directory exist?
+      if [ -d "node_modules" ]; then
+        echo "Do you wish to updated your dependencies?"
+        echo "y/n"
+        default=y
+        read response
+        if [ $response = "y" ] || [ $response = "Y" ]; then
+          echo "Updating your dependencies..."
+          npm install
+
+          elif [ $response = "n" ] || [ $response = "N" ]; then
+            echo "No"
+
+          else
+            echo "Error: Please type in \"y\" or \"n\""
+            exit
+        fi
+
+      else
+          echo -e "\t Installing npm dependencies..."
+          npm install
+      fi
+    fi
+    if [[ -f "composer.json" ]]; then
+      if [[ -d "vendor" ]]; then
+        echo "Would you like to update your binaries?"
+        echo "y/n"
+        default=y
+        read response
+        if [ $response = "y" ] || [ $response = "Y" ]; then
+          echo "Updating your binaries..."
+          composer install
+
+          elif [ $response = "n" ] || [ $response = "N" ]; then
+            echo "No"
+
+          else
+            echo "Error: Please type in \"y\" or \"n\""
+            exit
+        fi
+
+      else
+          echo -e "\t Installing composer binaries..."
+          composer install
+          composer global require "laravel/installer"
+
+      fi
+    fi
+    ;;
+    watch)
+    ;;
+    go)
+      # Start PHP server
+      pushd public
+      php -S localhost:${port}
+    ;;
+    dev)
+    gulp dev
+
+    ;;
+    locale)
+
+    ;;
+    **)
+        echo ''
+        echo -e "setup"
+        echo -e "\t" "Sets up your local environment for development."
+
+        echo ''
+        echo -e "go"
+        echo -e "\t" "Run the project at localhost:${port}."
+
+        echo ''
+        echo -e "watch"
+        echo -e "\t" "Run the default preprocessor watch task (gulp, grunt, etc.)."
+
+    ;;
+esac

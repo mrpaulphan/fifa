@@ -1,0 +1,82 @@
+.nav {
+    &__item {
+        display: inline-block;
+    }
+
+    &__link {
+        display: block;
+        padding: 10px;
+    }
+}
+
+.nav-main {
+    width: 100%;
+
+    &::before {
+        background-color: $teal;
+        content: '';
+    }
+
+    &__item {
+        display: block;
+
+        &:nth-child(1) {
+            background-color: $deepSea;
+        }
+
+        &:nth-child(2) {
+            background-color: $caribbean;
+        }
+
+        &:nth-child(3) {
+            background-color: $elm;
+        }
+
+        &:nth-child(4) {
+            background-color: $robinsEgg;
+        }
+
+        &:nth-child(5) {
+            background-color: $turquoise;
+        }
+
+        &:focus,
+        &:hover {
+            background-color: $violet;
+
+            .nav-main__link {
+                color: $white;
+            }
+
+            .inner {
+                fill: $white;
+            }
+        }
+    }
+
+    &__item.active {
+        background: $white;
+
+        .nav-main__link {
+            color: $black;
+        }
+
+        .inner {
+            fill: $black;
+        }
+    }
+
+    &__link {
+        display: block;
+        padding: 20px 0;
+
+        svg {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        &:hover svg > * {
+            fill: $black;
+        }
+    }
+}

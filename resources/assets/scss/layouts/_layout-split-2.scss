@@ -1,0 +1,40 @@
+.layout-split-2 {
+    @include media('>large') {
+        @include autolayout( '|[column]-[column]|');
+    }
+
+    &--aside {
+        @include media('>large') {
+            @include autolayout( '|-[column(#{percentage(4/6)})]-[column(#{percentage(2/6)})]-|');
+        }
+    }
+
+    &--sidebar {
+        @include media('>large') {
+            @include autolayout( '|[column(#{percentage(4/6)})]-[column(#{percentage(2/6)})]|');
+        }
+    }
+    // Used for page header
+    &--header {
+        @include media('>large') {
+            @include autolayout( '|[column(#{percentage(4/7)})]-[column(#{percentage(2/7)})]|');
+        }
+    }
+    // Used for page wrapper
+    &--wrapper {
+        display: flex; // Nav Specific
+        @include media('>large') {
+            @include autolayout( '|[column(#{percentage(1/7)})][column(#{percentage(6/7)})]|');
+        }
+    }
+}
+
+// Allows you to apply spacing class to parent div
+[class*="layout-split-2"] {
+    @include media('>large') {
+        & > .column:nth-child(1),
+        & > .column:nth-child(2) {
+            margin-top: 0;
+        }
+    }
+}

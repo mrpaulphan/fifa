@@ -19,6 +19,7 @@ class Player extends Model
     'contract',
     'nationality',
     'value',
-    'wages'
+    'wages',
+    'status'
   ];
 }

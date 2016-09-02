@@ -1,0 +1,168 @@
+/**
+ *  Default Spacing
+*/
+[spacing^="0"]  > * + * {
+    margin-top: 0;
+
+    @include media('>large') {
+        margin-top: 0;
+     }
+}
+
+[spacing^=".25"]  > * + * {
+    margin-top: $spacingMobile * .25;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * .25;
+    }
+}
+
+[spacing^=".5"]  > * + * {
+    margin-top: $spacingMobile * .5;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * .5;
+    }
+}
+
+[spacing^=".75"]  > * + * {
+    margin-top: $spacingMobile * .75;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * .75;
+    }
+}
+
+[spacing^="1"]  > * + * {
+    margin-top: $spacingMobile;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop;
+    }
+}
+
+[spacing-top^="1"] {
+    margin-top: $spacingMobile;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop;
+    }
+}
+
+[spacing^="1.5"]  > * + * {
+    margin-top: $spacingMobile * 1.5;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * 1.5;
+    }
+}
+
+[spacing^="2"]  > * + * {
+    margin-top: $spacingMobile * 2;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * 2;
+    }
+}
+
+[spacing-top^="2"] {
+    margin-top: $spacingMobile * 2;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * 2;
+    }
+}
+
+[spacing^="2.5"]  > * + * {
+    margin-top: $spacingMobile * 2.5;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * 2.5;
+    }
+}
+
+[spacing^="3"]  > * + * {
+    margin-top: $spacingMobile * 3;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * 3;
+    }
+}
+
+[spacing^="3.5"]  > * + * {
+    margin-top: $spacingMobile * 3.5;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * 3.5;
+    }
+}
+
+[spacing^="4"]  > * + * {
+    margin-top: $spacingMobile * 4;
+
+    @include media('>large') {
+        margin-top: $spacingDesktop * 4;
+    }
+}
+
+/**
+*  Breakpoints - Only
+*/
+// $xsmall only
+@include media('>=xsmall', '<small') {
+    [spacing*="xsmall(1)"] > * + * {
+        margin-top: $spacingMobile;
+    }
+}
+// $small only
+@include media('>=small', '<medium') {
+    [spacing*="small(1)"] > * + * {
+        margin-top: $spacingMobile;
+    }
+}
+// $medium only
+@include media('>=medium', '<large') {
+    [spacing*="medium(1)"] > * + * {
+        margin-top: $spacingMobile;
+    }
+}
+// $large only
+@include media('>=large', '<mlarge') {
+    [spacing*="large(1)"] > * + * {
+        margin-top: $spacingMobile * 8;
+    }
+}
+// $mlarge only
+@include media('>=mlarge', '<xlarge') {
+    [spacing*="mlarge(1)"] > * + * {
+        margin-top: $spacingMobile;
+    }
+}
+// $xlarge only
+@include media('>=xlarge', '<xxlarge') {
+    [spacing*="xlarge(1)"] > * + * {
+        margin-top: $spacingMobile;
+    }
+}
+// $xxlarge only
+@include media('>=xxlarge', '<xxxlarge') {
+    [spacing*="xxlarge(1)"] > * + * {
+        margin-top: $spacingMobile;
+    }
+}
+
+/**
+*  Breakpoints - Range
+*/
+// $xsmall to $large
+@include media('>=xsmall', '<large') {
+    [spacing*="xsmall-large(1)"] > * + * {
+        margin-top: $spacingMobile;
+    }
+}
+// $xxxlarge and up
+@include media('>=xxxlarge') {
+    [spacing*=">xlarge(1)"] > * + * {
+        margin-top: $spacingMobile;
+    }
+}
