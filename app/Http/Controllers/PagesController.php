@@ -10,25 +10,15 @@ use App\Http\Requests;
 
 class PagesController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
 
 
-    public function getIndex() {
-      return view('landing');
-    }
+
+      public function getIndex() {
+        return view('landing');
+      }
 
 
-    public function getSeasons() {
 
-      $userID = Auth::user()->id;
-      $team = Team::where('user_id', $userID)->get();
-      // return teams that belong to current user
-      return view('index')->with('team', $team);
-
-    }
     public function getPlayers() {
       return view('team.index');
     }

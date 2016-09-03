@@ -1,0 +1,13 @@
+machine:
+  node:
+    version: 5.10.1
+dependencies:
+  override:
+    - npm install --global gulp-cli
+    - npm install
+    - composer install
+  cache_directories:
+    - "node_modules"
+    - "vendor"
+test:
+  override:

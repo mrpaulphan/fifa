@@ -12,10 +12,14 @@ class TeamController extends Controller
     {
         $this->middleware('auth');
     }
-    public function getIndex()
-    {
-    }
+    public function getSeasons() {
 
+      $userID = Auth::user()->id;
+      $team = Team::where('user_id', $userID)->get();
+      // return teams that belong to current user
+      return view('index')->with('team', $team);
+
+    }
     public function store(Request $request)
     {
         // Validate
