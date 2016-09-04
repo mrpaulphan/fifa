@@ -17,7 +17,7 @@ Route::get('/team/create', 'PlayerController@getIndex')->name('create.player');
 Route::post('/team/create', 'PlayerController@store')->name('post.player');
 Route::post('/team/delete', 'PlayerController@destroy')->name('delete.player');
 
-Route::get('transfers', 'PagesController@getTransfers');
+Route::get('/transfers', 'PagesController@getTransfers');
 
 Route::get('/', 'PagesController@getIndex');
 Auth::routes();

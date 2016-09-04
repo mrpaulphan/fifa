@@ -129,8 +129,8 @@ gulp.task('dev', [
 /*
  *  Staging Deployment Task
  */
-gulp.task('stage', [
-    'styles',
-    'scripts',
-    'sync'
+ gulp.task('stage', [
+     'styles',
+     'scripts',
+     'sync'
 ]);

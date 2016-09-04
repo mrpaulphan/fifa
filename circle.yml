@@ -6,6 +6,7 @@ dependencies:
     - npm install --global gulp-cli
     - npm install
     - composer install
+    - composer global require "laravel/installer"
   cache_directories:
     - "node_modules"
     - "vendor"
