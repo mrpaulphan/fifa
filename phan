@@ -84,6 +84,11 @@ case ${@:1:1} in
     gulp dev
 
     ;;
+
+    staging)
+    gulp stage
+
+    ;;
     deploy)
     php artisan migrate
     gulp stage
