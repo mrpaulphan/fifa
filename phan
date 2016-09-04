@@ -72,7 +72,6 @@ case ${@:1:1} in
         fi
     fi
     echo ''
-    fi
     ;;
     watch)
     ;;
