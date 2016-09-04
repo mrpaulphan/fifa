@@ -12,5 +12,3 @@ dependencies:
     - "vendor"
 test:
   override:
-    - php artisan migrate
-    - 
