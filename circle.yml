@@ -1,6 +1,8 @@
 machine:
   node:
     version: 5.10.1
+  php:
+    version: 5.4.21
 dependencies:
   override:
     - npm install --global gulp-cli
