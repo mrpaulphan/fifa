@@ -22,7 +22,6 @@ var paths = {
         "dest": "public/assets/css"
     },
     "js": {
-
         "src": "resources/assets/js/**/*.js",
         "dest": "public/assets/js"
     },
@@ -101,6 +100,7 @@ gulp.task('sync', shell.task([
     'cp -R ' + paths.svgs.src + ' ' + paths.svgs.dest + ''
 ]));
 
+
 /*
  *  Watch Task
  */
@@ -130,6 +130,5 @@ gulp.task('dev', [
  */
  gulp.task('stage', [
      'styles',
-     'scripts',
-     'sync'
+     'scripts'
 ]);
