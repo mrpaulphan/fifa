@@ -17,23 +17,23 @@ var shell = require('gulp-shell')
 var paths = {
     "scss": {
         "src": [
-            "resources/assets/scss/*.scss"
+            "/resources/assets/scss/*.scss"
         ],
-        "dest": "public/assets/css"
+        "dest": "/public/assets/css"
     },
     "js": {
 
-        "src": "resources/assets/js/**/*.js",
-        "dest": "public/assets/js"
+        "src": "/resources/assets/js/**/*.js",
+        "dest": "/public/assets/js"
     },
     "fonts": {
-        "src": "resources/assets/fonts/",
-        "dest": "public/assets/fonts/"
+        "src": "/resources/assets/fonts/",
+        "dest": "/public/assets/fonts/"
     },
     "svgs": {
-        "src": "resources/assets/svgs/",
-        "watch": "public/assets/svgs/*.svg",
-        "dest": "public/assets/svgs/"
+        "src": "/resources/assets/svgs/",
+        "watch": "/public/assets/svgs/*.svg",
+        "dest": "/public/assets/svgs/"
     }
 };
 
