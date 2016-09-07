@@ -1420,3 +1420,22 @@ select {
 
 .dropdown-menu {
   display: none; }
+
+.modal {
+  background: white;
+  box-sizing: border-box;
+  left: 50%;
+  max-height: calc(100% - 100px);
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 51; }
+  .modal-overlay {
+    background: black;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 50; }
+  .modal__header {
+    background: blue; }

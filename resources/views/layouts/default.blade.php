@@ -56,7 +56,7 @@
       </div>
 
     </header>
-    <main class="page">
+    <main class="">
 
       <header class="layout-split-2--apart">
         <div class="column">
