@@ -78,7 +78,7 @@ case ${@:1:1} in
     composer global require "laravel/installer"
     echo 'Generating New Key'
     php artisan key:generate
-    echo 'Setup complet. Please configure your .env file'
+    echo 'Setup complete. Please configure your .env file'
 
     ;;
     watch)
