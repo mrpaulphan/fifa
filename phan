@@ -45,6 +45,8 @@ case ${@:1:1} in
             fi
         fi
     fi
+    echo'Installing Gulp'
+    npm install --global gulp-cli
     # bower
     if [ -f "bower.json" ]; then
         if [ -f "node_modules" ]; then
@@ -72,6 +74,12 @@ case ${@:1:1} in
         fi
     fi
     echo ''
+    echo 'Installing Laravel'
+    composer global require "laravel/installer"
+    echo 'Generating New Key'
+    php artisan key:generate
+    echo 'Setup complet. Please configure your .env file'
+
     ;;
     watch)
     ;;
