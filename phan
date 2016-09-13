@@ -38,6 +38,7 @@ case ${@:1:1} in
           npm install
       fi
     fi
+    # check to see if you have composer
     if [[ -f "composer.json" ]]; then
       if [[ -d "vendor" ]]; then
         echo "Would you like to update your binaries?"

@@ -1,40 +1,39 @@
 .layout-split-2 {
-    @include media('>large') {
-        @include autolayout( '|[column]-[column]|');
+    @include media ('>large') {
+        @include autolayout( '|-[column]-[column]-|');
     }
     &--apart {
-      display: flex;
-      justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
     }
-    &--aside {
-        @include media('>large') {
-            @include autolayout( '|-[column(#{percentage(4/6)})]-[column(#{percentage(2/6)})]-|');
-        }
-    }
-
-    &--sidebar {
-        @include media('>large') {
-            @include autolayout( '|[column(#{percentage(4/6)})]-[column(#{percentage(2/6)})]|');
-        }
-    }
-    // Used for page header
-    &--header {
-        @include media('>large') {
-            @include autolayout( '|[column(#{percentage(4/7)})]-[column(#{percentage(2/7)})]|');
-        }
-    }
-    // Used for page wrapper
     &--wrapper {
         display: flex; // Nav Specific
-        @include media('>large') {
-            @include autolayout( '|[column(#{percentage(1/7)})][column(#{percentage(6/7)})]|');
+        @include media ('>large') {
+            @include autolayout( '|-30px-[column(#{percentage(5/12)})]-30px-[column(#{percentage(7/12)})]-30px-|');
+        }
+
+
+    }
+    &--table{
+        @include media ('>large') {
+            @include autolayout( '|-15px-[column(#{percentage(4/10)})]-15px-[column(#{percentage(6/10)})]-15px-|');
         }
     }
-}
+    &--wrapper-gutterless {
+        display: flex; // Nav Specific
+        @include media ('>large') {
+            @include autolayout( '|[column(#{percentage(5/12)})]-[column(#{percentage(7/12)})]|');
+        }
 
+
+    }
+
+
+
+}
 // Allows you to apply spacing class to parent div
 [class*="layout-split-2"] {
-    @include media('>large') {
+    @include media ('>large') {
         & > .column:nth-child(1),
         & > .column:nth-child(2) {
             margin-top: 0;

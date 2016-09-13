@@ -18,7 +18,9 @@ var shell = require('gulp-shell')
 var paths = {
     "scss": {
         "src": [
-            "resources/assets/scss/*.scss"
+            "resources/assets/scss/*.scss",
+            "resources/assets/scss/**/*.scss"
+
         ],
         "dest": "public/assets/css"
     },

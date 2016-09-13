@@ -1,0 +1,48 @@
+.block {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        background-color: $teamColor;
+        padding: 5px 0;
+        color: $white;
+        text-align: center;
+        border-radius:7px 7px 0 0;
+
+    }
+    &__content{
+        border: 1px solid #666;
+        border-top: 0;
+
+
+
+    }
+
+
+
+
+    &__edit {
+          display: none;
+          cursor: pointer;
+       svg{
+             width: 10px;
+             height: 10px;
+          }
+       }
+
+
+}
+.overview{
+
+    &__chart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-img{
+            width:50%
+        }
+    }
+
+
+
+}

@@ -20,19 +20,21 @@
         ]); ?>
     </script>
 </head>
-<body>
-    <header class="page">
+<body class="body__background">
+    <header class="page-gutterless">
       <div class="header layout-split-2--apart">
-        <div class="logo column">
-          Fifa careers
+        <div class="logo__column ">
+            <img class="logo__column-img" src="assets/img/Fifa_careers_logo.png" alt="" />
+          <h1 class="bold">FIFA Careers</h1>
         </div>
 
-        <div class="account column">
+        <div class="account__column">
           @if (Auth::guest())
               <li><a href="{{ url('/login') }}">Login</a></li>
               <li><a href="{{ url('/register') }}">Register</a></li>
           @else
               <li class="dropdown">
+                  <img class="account__column-img" src="assets/img/account_image.jpg" alt="" />
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                       {{ Auth::user()->name }} <span class="caret"></span>
                   </a>
@@ -56,11 +58,21 @@
       </div>
 
     </header>
-    <main class="page">
 
-      <header class="layout-split-2--apart">
-        <div class="column">
-            Jeff Matthews Bimingham city
+
+
+
+
+
+    <main class="page main__content" spacing="1" >
+
+      <header class="layout-split-2--apart" >
+        <div class="team__content column">
+            <img src="assets/img/team_image.png" alt="" />
+            <div class="team__content-text">
+                <h2>Jeff Matthews</h2><span class="team__name">Bimingham city</span>
+            </div>
+
         </div>
         <div class="column">
           <select class="" name="">
@@ -70,18 +82,19 @@
           </select>
         </div>
       </header>
-      <nav>
-        <a href="{{ route('show.seasons')}}">Season</a>
-        <a href="{{ route('show.players')}}">Team</a>
-        <a href="{{ route('show.transfers')}}">Transfers</a>
-        <a href="{{ route('show.youth')}}">Youth</a>
-        <a href="{{ route('show.careers')}}">career</a>
+      <nav class="menu__nav" >
+        <a  class="nav__link active" href="{{ route('show.seasons')}}">Season</a>
+        <a class="nav__link" href="{{ route('show.players')}}">Team</a>
+        <a class="nav__link" href="{{ route('show.transfers')}}">Transfers</a>
+        <a class="nav__link" href="{{ route('show.youth')}}">Youth</a>
+        <a class="nav__link" href="{{ route('show.teamselect')}}">careers</a>
       </nav>
 
 
 
     @yield('content')
     </main>
+
     <!-- Scripts -->
     <script src="assets/js/script.js"></script>
 </body>

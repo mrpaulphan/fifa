@@ -12,14 +12,54 @@ html {
 }
 
 h1 {
-    font-family: $fontBold, Helvetica, Arial, sans-serif;
-    font-size: 24px;
-    line-height: 26px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+}
+.bold{
+    font-weight: bold;
+}
+.team__name{
+    font-size: 16px;
+    color: $teamColor;
+}
+.nav__link{
+ font-size: 14px;
+ color: $navLink;
+ text-decoration: none;
+
+}
+.active {
+    color: $teamColor;
+     border-bottom: 3px solid $teamColor;
+}
+.text-align-right{
+    text-align: right;
 }
 
+.posG{
+    color: $posG;
+}
+
+.posD{
+    color: $posD;
+}
+.posM{
+    color: $posM;
+}
+.posA {
+    color: $posA;
+}
+
+
+
+
+
+
+
 h2 {
-    font-family: $fontBold, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-family:  Helvetica, Arial, sans-serif;
+    font-size: 20px;
     letter-spacing: .05em;
     line-height: 23px;
 }
