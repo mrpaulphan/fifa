@@ -13,7 +13,7 @@ class PagesController extends Controller
       public function getIndex() {
           if (Auth::check())
           {
-              return redirect()->route('show.seasons');
+              return redirect()->route('show.saves');
 
           } else {
               return view('landing');
@@ -29,6 +29,10 @@ class PagesController extends Controller
     }
     public function getStyleGuide() {
       return view('styleguide.index');
+    }
+
+    public function getSaves() {
+      return view('saves.index');
     }
 
     public function getTransfers()

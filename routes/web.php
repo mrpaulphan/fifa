@@ -20,6 +20,7 @@ Route::get('/styleguide', 'PagesController@getStyleGuide')->name('show.styleguid
 
 Route::get('/', 'PagesController@getIndex');
 Auth::routes();
+Route::get('/saves', 'PagesController@getSaves')->name('show.saves');
 Route::get('/season', 'TeamController@getSeasons')->name('show.seasons');
 Route::post('/season/create', 'TeamController@store')->name('post.team');
 Route::get('/season/create', 'TeamController@create')->name('create.team');
