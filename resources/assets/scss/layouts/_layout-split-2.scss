@@ -2,10 +2,18 @@
     @include media ('>large') {
         @include autolayout( '|-[column]-[column]-|');
     }
+    &--sidebar {
+        @include media ('>large') {
+            @include autolayout( '|[column(#{percentage(4/12)})]-[column(#{percentage(8/12)})]|');
+        }
+
+
+    }
     &--apart {
         display: flex;
         justify-content: space-between;
     }
+
     &--wrapper {
         display: flex; // Nav Specific
         @include media ('>large') {

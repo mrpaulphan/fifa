@@ -14,3 +14,10 @@
         width: 100%;
     }
 }
+
+.layout-split-example {
+    .column {
+        background: $grey;
+        min-height: 400px;
+    }
+}

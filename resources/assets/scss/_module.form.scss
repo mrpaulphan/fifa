@@ -1,5 +1,6 @@
 input,
 select {
+    appearance: none;
     background: $gray;
     border: 0;
     border-radius: 0;
@@ -11,131 +12,20 @@ select {
     }
 }
 
-.dropdown {
-    position: relative;
+.form {
+    background: $white;
+    padding: 0 20px;
+    &__group {
 
-    &__list {
-        border: 0;
-        border-radius: none;
-        cursor: pointer;
-        padding-left: 10px;
-        width: 100%;
-    }
 
-    &__icon {
-        background-color: $violet;
-        height: 32px;
-        pointer-events: none;
-        position: absolute;
-        right: 0;
-        text-align: center;
-        top: 0;
-        width: 32px;
-
-        svg {
-            width: 10px;
-        }
-    }
-}
-
-.search {
-    display: flex;
-
-    &__input {
-        flex: 1;
-    }
-
-    &__button {
-        background-color: $violet;
-        border: 0;
-        cursor: pointer;
-        height: 32px;
-        width: 32px;
-
-        &:focus {
-            outline: none;
-        }
-
-        svg {
-            height: 20px;
-            width: 20px;
-        }
-    }
-}
-
-.filter-list {
-    display: flex;
-    flex-wrap: wrap;
-
-    &__input {
-        flex: 1;
-    }
-
-    &__arrow {
-        background-color: $violet;
-        cursor: pointer;
-        height: 32px;
-        text-align: center;
-        width: 32px;
-
-        svg {
-            width: 10px;
-        }
-    }
-
-    &__dropdown {
-        border: 1px solid $lightGrey;
-        display: none;
-        padding: 10px;
-        width: 100%;
-    }
-}
-
-.filter-checkbox {
-    &__input {
-        display: none;
-        // checkbox default
-        .filter-checkbox__box {
-            svg {
-                fill: $white;
-            }
-        }
-        // checkbox checked default
-        &:checked + .filter-checkbox__label .filter-checkbox__box {
-            border-color: $teal;
-
-            svg {
-                background: $teal;
-            }
-        }
-    }
-
-    &__icon {
-        margin-right: 5px;
-    }
-
-    &__box {
-        border: 1px solid $teal;
-        height: 15px;
-        margin-right: 5px;
-        width: 15px;
-
-        svg {
-            fill: $white;
-            height: 15px;
-            padding: 2px;
-            vertical-align: super;
-            width: 15px;
-        }
     }
 
     &__label {
-        align-items: center;
-        cursor: pointer;
-        display: inline-flex;
+        display: block;
     }
 
-    &__total {
-        color: $grey;
+    &__input {
+        display: block;
+        width: 100%;
     }
 }

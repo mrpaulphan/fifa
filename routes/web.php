@@ -16,12 +16,14 @@ Route::post('/team/create', 'PlayerController@store')->name('post.player');
 Route::post('/team/delete', 'PlayerController@destroy')->name('delete.player');
 
 Route::get('/transfers', 'PagesController@getTransfers');
+Route::get('/styleguide', 'PagesController@getStyleGuide')->name('show.styleguide');
 
 Route::get('/', 'PagesController@getIndex');
 Auth::routes();
-Route::get('/home', 'TeamController@getSeasons')->name('show.seasons');
-Route::post('/home/create', 'TeamController@store')->name('post.team');
-Route::put('/home', 'TeamController@edit')->name('edit.team');
+Route::get('/season', 'TeamController@getSeasons')->name('show.seasons');
+Route::post('/season/create', 'TeamController@store')->name('post.team');
+Route::get('/season/create', 'TeamController@create')->name('create.team');
+Route::put('/season', 'TeamController@edit')->name('edit.team');
 
 Route::get('/team', 'PagesController@getPlayers')->name('show.players');
 Route::get('/transfer', 'PagesController@getTransfers')->name('show.transfers');

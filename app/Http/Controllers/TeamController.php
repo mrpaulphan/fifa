@@ -20,6 +20,10 @@ class TeamController extends Controller
       return view('index')->with('team', $team);
 
     }
+
+    public function create() {
+        return view('season.create');
+    }
     public function store(Request $request)
     {
         // Validate

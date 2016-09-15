@@ -27,6 +27,9 @@ class PagesController extends Controller
     public function getPlayers() {
       return view('team.index');
     }
+    public function getStyleGuide() {
+      return view('styleguide.index');
+    }
 
     public function getTransfers()
     {
