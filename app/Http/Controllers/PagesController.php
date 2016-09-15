@@ -11,7 +11,15 @@ class PagesController extends Controller
 
 
       public function getIndex() {
-        return view('landing');
+          if (Auth::check())
+          {
+              return redirect()->route('show.seasons');
+
+          } else {
+              return view('landing');
+
+          }
+
       }
 
 

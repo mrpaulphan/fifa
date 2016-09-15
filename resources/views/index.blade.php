@@ -1,4 +1,6 @@
-@extends('layouts.default') @section('content') @if($team->isEmpty()) {{-- Empty --}} Please create a team
+@extends('layouts.default')
+@section('content')
+    @if($team->isEmpty()) {{-- Empty --}} Please create a team
 <form class="" role="form" method="POST" action="{{ route('post.team') }}">
    {{ csrf_field() }}
    <label for="">Team</label>
