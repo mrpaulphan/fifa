@@ -1,10 +1,22 @@
+
+
 .layout-split-3 {
-    & > .column:nth-child(2),
-    & > .column:nth-child(3) {
-        margin-top: 0;
+    @include media ('>large') {
+        @include autolayout( '|-[column]-[column]-[column]-|');
     }
 
-    @include media('>large') {
-        @include autolayout( '|[column(33.3%)]-[column(33.3%)]-[column(33.3%)]|');
+
+    }
+
+
+
+
+// Allows you to apply spacing class to parent div
+[class*="layout-split-3"] {
+    @include media ('>large') {
+        & > .column:nth-child(1),
+        & > .column:nth-child(2) {
+            margin-top: 0;
+        }
     }
 }

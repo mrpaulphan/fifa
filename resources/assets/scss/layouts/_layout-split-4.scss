@@ -1,0 +1,5 @@
+.layout-split-4 {
+    @include autolayout( '|-30px-[column(25%)]-30px-[column(25%)]-30px-[column(25%)]-30px-[column(25%)]-30px-|');
+
+
+}

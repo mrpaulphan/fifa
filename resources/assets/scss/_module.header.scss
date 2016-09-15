@@ -1,8 +1,69 @@
 .header {
     display: flex;
     justify-content: space-between;
+    margin: 12px 0;
+    color: $textColor;
+    padding: 0;
 }
-
+.body__background {
+    background-color: $bgColor;
+}
+.logo__column {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    &-img {
+        margin-right: 4px;
+        width: 10px;
+        height: auto;
+    }
+}
+.account__column {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    & li {
+        margin-left: 4px;
+    }
+    &-img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #333;
+    }
+}
+.main__content {
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,0.35);
+    & header {
+        margin: 12px 0;
+    }
+}
+.team__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &-text {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        & > * {
+            margin-right: 10px;
+        }
+    }
+    & > * {
+        margin-right: 10px;
+    }
+}
 .dropdown-menu {
     display: none;
+}
+
+.menu__nav{
+    display: flex;
+border-bottom: 1px solid #ededed;
+     a{
+        margin-right: 45px;
+    }
+
 }
