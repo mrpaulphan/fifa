@@ -1,6 +1,7 @@
 # Mangr
 
 ## Requirments
+- PHP version >= 5.6
 - [Node.js](https://nodejs.org/en/)
 - [Composer](https://getcomposer.org/)
 - Plugins: .editorconfig

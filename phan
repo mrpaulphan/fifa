@@ -2,6 +2,30 @@
 
 port="4000"
 
+ask() {
+    while true; do
+        if [ "${2:-}" = "Y" ]; then
+            prompt="Y/n"
+            default=Y
+        elif [ "${2:-}" = "N" ]; then
+            prompt="y/N"
+            default=N
+        else
+            prompt="y/n"
+            default=
+        fi
+        read -p "$1 [$prompt] " REPLY </dev/tty
+        if [ -z "$REPLY" ]; then
+            REPLY=$default
+        fi
+        case "$REPLY" in
+            Y*|y*) return 0 ;;
+            N*|n*) return 1 ;;
+        esac
+    done
+}
+
+
 case ${@:1:1} in
     setup)
     # Setup .env file
@@ -9,60 +33,53 @@ case ${@:1:1} in
       echo "Creating .env file."
       cp .env.example .env
     fi
-    # NPM
+        # node
     if [ -f "package.json" ]; then
-      # Does node_modules directory exist?
-      if [ -d "node_modules" ]; then
-        echo "Do you wish to updated your dependencies?"
-        echo "y/n"
-        default=y
-        read response
-
-        while true; do
-
-
-        if [ $response = "y" ] || [ $response = "Y" ]; then
-          echo "Updating your dependencies..."
-          npm install
-
-          elif [ $response = "n" ] || [ $response = "N" ]; then
-            echo "No"
-
-          else
-            echo "Error: Please type in \"y\" or \"n\""
-            response=
+        if [ -f "node_modules" ]; then
+            echo -e "\t Installing npm dependencies..."
+            npm install
+        else
+            if ask "Would you like to update your npm dependencies?"; then
+                echo -e "\t Updating npm dependencies..."
+                npm update
+            fi
         fi
-        done
-      else
-          echo -e "\t Installing npm dependencies..."
-          npm install
-      fi
     fi
-    # check to see if you have composer
-    if [[ -f "composer.json" ]]; then
-      if [[ -d "vendor" ]]; then
-        echo "Would you like to update your binaries?"
-        echo "y/n"
-        default=y
-        read response
-        if [ $response = "y" ] || [ $response = "Y" ]; then
-          echo "Updating your binaries..."
-          composer install
-
-          elif [ $response = "n" ] || [ $response = "N" ]; then
-            echo "No"
-
-          else
-            echo "Error: Please type in \"y\" or \"n\""
+    echo'Installing Gulp'
+    npm install --global gulp-cli
+    # bower
+    if [ -f "bower.json" ]; then
+        if [ -f "node_modules" ]; then
+            echo -e "\t Installing bower dependencies..."
+            bower install
+        else
+            if ask "Would you like to update your bower dependencies?"; then
+                echo -e "\t Updating bower dependencies..."
+                bower update
+            fi
         fi
-
-      else
-          echo -e "\t Installing composer binaries..."
-          composer install
-          composer global require "laravel/installer"
-
-      fi
     fi
+    echo ''
+
+    # composer
+    if [ -f "composer.json" ]; then
+        if [ -f "composer.lock" ]; then
+            if ask "Would you like to update your composer dependencies?"; then
+                echo -e "\t Updating composer dependencies..."
+                composer update
+            fi
+        else
+            echo -e "\t Installing composer dependencies..."
+            composer install
+        fi
+    fi
+    echo ''
+    echo 'Installing Laravel'
+    composer global require "laravel/installer"
+    echo 'Generating New Key'
+    php artisan key:generate
+    echo 'Setup complete. Please configure your .env file'
+
     ;;
     watch)
     ;;
@@ -75,8 +92,22 @@ case ${@:1:1} in
     gulp dev
 
     ;;
-    dump)
-    printenv
+
+    staging)
+    php artisan migrate
+    gulp stage
+
+    ;;
+    deploy)
+    php artisan migrate
+    gulp stage
+    git fetch --all
+    git reset --hard origin/master
+    git pull origin master
+
+
+
+
     ;;
     **)
         echo ''

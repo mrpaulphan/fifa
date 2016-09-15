@@ -9,7 +9,6 @@ var scss = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
 var reload = browserSync.reload;
-var dirSync = require('gulp-directory-sync');
 var shell = require('gulp-shell')
 
 /*
@@ -25,18 +24,17 @@ var paths = {
         "dest": "public/assets/css"
     },
     "js": {
-
         "src": "resources/assets/js/**/*.js",
         "dest": "public/assets/js"
     },
     "fonts": {
-        "src": "resources/assets/fonts",
-        "dest": "public/assets/fonts"
+        "src": "resources/assets/fonts/",
+        "dest": "public/assets/fonts/"
     },
     "svgs": {
-        "src": "resources/assets/svgs",
+        "src": "resources/assets/svgs/",
         "watch": "public/assets/svgs/*.svg",
-        "dest": "public/assets/svgs"
+        "dest": "public/assets/svgs/"
     }
 };
 
@@ -104,6 +102,7 @@ gulp.task('sync', shell.task([
     'cp -R ' + paths.svgs.src + ' ' + paths.svgs.dest + ''
 ]));
 
+
 /*
  *  Watch Task
  */
@@ -131,8 +130,7 @@ gulp.task('dev', [
 /*
  *  Staging Deployment Task
  */
-gulp.task('stage', [
-    'styles',
-    'scripts',
-    'sync'
+ gulp.task('stage', [
+     'styles',
+     'scripts'
 ]);
