@@ -11,16 +11,13 @@
 |
 */
 
-Route::get('/team/create', 'PlayerController@getIndex')->name('create.player');
-Route::post('/team/create', 'PlayerController@store')->name('post.player');
-Route::post('/team/delete', 'PlayerController@destroy')->name('delete.player');
-
-Route::get('/transfers', 'PagesController@getTransfers');
-Route::get('/styleguide', 'PagesController@getStyleGuide')->name('show.styleguide');
-
 Route::get('/', 'PagesController@getIndex');
 Auth::routes();
-Route::get('/saves', 'PagesController@getSaves')->name('show.saves');
+Route::get('{username}/saves', 'PagesController@getSaves')->name('show.saves');
+Route::post('{username}/saves/create', 'SavesController@store')->name('post.saves');
+Route::put('{username}/saves/edit', 'SavesController@edit')->name('update.saves');
+Route::delete('{username}/saves/delete', 'SavesController@delete')->name('delete.saves');
+
 Route::get('/season', 'TeamController@getSeasons')->name('show.seasons');
 Route::post('/season/create', 'TeamController@store')->name('post.team');
 Route::get('/season/create', 'TeamController@create')->name('create.team');
@@ -31,3 +28,11 @@ Route::get('/transfer', 'PagesController@getTransfers')->name('show.transfers');
 Route::get('/youth', 'PagesController@getYouth')->name('show.youth');
 Route::get('/career', 'PagesController@getCareers')->name('show.careers');
 Route::get('/teamselect', 'PagesController@getTeamSelect')->name('show.teamselect');
+
+
+Route::get('/team/create', 'PlayerController@getIndex')->name('create.player');
+Route::post('/team/create', 'PlayerController@store')->name('post.player');
+Route::post('/team/delete', 'PlayerController@destroy')->name('delete.player');
+
+Route::get('/transfers', 'PagesController@getTransfers');
+Route::get('/styleguide', 'PagesController@getStyleGuide')->name('show.styleguide');

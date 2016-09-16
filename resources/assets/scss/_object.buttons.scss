@@ -1,7 +1,14 @@
 .button {
-    background: $blue;
-    color: $white;
     display: inline-block;
     padding: 10px;
     text-decoration: none;
+    &--primary {
+        background: $royalBlue;
+        color: $white;
+    }
+    &--secondary {
+        border: 1px solid black;
+        background: $green;
+        color: $white;
+    }
 }

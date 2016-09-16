@@ -10165,8 +10165,11 @@ module.exports = (function() {
                     case 'contributor':
                         thisTarget.slideToggle(duration, easing);
                         break;
+                        case 'edit-save':
+                            thisTarget.show();
+                            break;
                     default:
-                        thisTarget.slideToggle(duration, easing);
+                        thisTarget.show();
                 }
             });
         },

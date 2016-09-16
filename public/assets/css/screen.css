@@ -840,11 +840,16 @@ p {
   display: none; }
 
 .button {
-  background: #009cef;
-  color: #fff;
   display: inline-block;
   padding: 10px;
   text-decoration: none; }
+  .button--primary {
+    background: #0567c7;
+    color: #fff; }
+  .button--secondary {
+    border: 1px solid black;
+    background: #008000;
+    color: #fff; }
 
 .page {
   margin-left: auto;
@@ -874,9 +879,9 @@ p {
     float: left;
     box-sizing: border-box; }
   .layout-split-full > .column:nth-child(1n+1) {
-    width: calc(100% - 60px - 60px);
-    margin-left: 60px;
-    margin-right: 60px;
+    width: calc(100% - 20px - 20px);
+    margin-left: 20px;
+    margin-right: 20px;
     clear: left; } }
 
 @media (min-width: 46.885em) {
@@ -902,14 +907,14 @@ p {
     float: left;
     box-sizing: border-box; }
   .layout-split-2 > .column:nth-child(2n+1) {
-    width: calc(50% - 60px - 30px);
-    margin-left: 60px;
-    margin-right: 30px;
+    width: calc(50% - 20px - 10px);
+    margin-left: 20px;
+    margin-right: 10px;
     clear: left; }
   .layout-split-2 > .column:nth-child(2n+2) {
-    width: calc(50% - 30px - 60px);
-    margin-left: 30px;
-    margin-right: 60px; } }
+    width: calc(50% - 10px - 20px);
+    margin-left: 10px;
+    margin-right: 20px; } }
 
 @media (min-width: 46.885em) {
   .layout-split-2--sidebar:after {
@@ -920,13 +925,13 @@ p {
     float: left;
     box-sizing: border-box; }
   .layout-split-2--sidebar > .column:nth-child(2n+1) {
-    width: calc(33.33333% - 0px - 30px);
+    width: calc(33.33333% - 0px - 10px);
     margin-left: 0px;
-    margin-right: 30px;
+    margin-right: 10px;
     clear: left; }
   .layout-split-2--sidebar > .column:nth-child(2n+2) {
-    width: calc(66.66667% - 30px - 0px);
-    margin-left: 30px;
+    width: calc(66.66667% - 10px - 0px);
+    margin-left: 10px;
     margin-right: 0px; } }
 
 .layout-split-2--apart {
@@ -986,13 +991,13 @@ p {
       float: left;
       box-sizing: border-box; }
     .layout-split-2--wrapper-gutterless > .column:nth-child(2n+1) {
-      width: calc(41.66667% - 0px - 30px);
+      width: calc(41.66667% - 0px - 10px);
       margin-left: 0px;
-      margin-right: 30px;
+      margin-right: 10px;
       clear: left; }
     .layout-split-2--wrapper-gutterless > .column:nth-child(2n+2) {
-      width: calc(58.33333% - 30px - 0px);
-      margin-left: 30px;
+      width: calc(58.33333% - 10px - 0px);
+      margin-left: 10px;
       margin-right: 0px; } }
 
 @media (min-width: 46.885em) {
@@ -1009,22 +1014,23 @@ p {
     float: left;
     box-sizing: border-box; }
   .layout-split-3 > .column:nth-child(3n+1) {
-    width: calc(33.33333% - 60px - 30px);
-    margin-left: 60px;
-    margin-right: 30px;
+    width: calc(33.33333% - 0px - 10px);
+    margin-left: 0px;
+    margin-right: 10px;
     clear: left; }
   .layout-split-3 > .column:nth-child(3n+2) {
-    width: calc(33.33333% - 30px - 30px);
-    margin-left: 30px;
-    margin-right: 30px; }
+    width: calc(33.33333% - 10px - 10px);
+    margin-left: 10px;
+    margin-right: 10px; }
   .layout-split-3 > .column:nth-child(3n+3) {
-    width: calc(33.33333% - 30px - 60px);
-    margin-left: 30px;
-    margin-right: 60px; } }
+    width: calc(33.33333% - 10px - 0px);
+    margin-left: 10px;
+    margin-right: 0px; } }
 
 @media (min-width: 46.885em) {
   [class*="layout-split-3"] > .column:nth-child(1),
-  [class*="layout-split-3"] > .column:nth-child(2) {
+  [class*="layout-split-3"] > .column:nth-child(2),
+  [class*="layout-split-3"] > .column:nth-child(3) {
     margin-top: 0; } }
 
 .layout-split-4:after {
@@ -1059,9 +1065,6 @@ p {
 
 input,
 select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   background: #f2f2f2;
   border: 0;
   border-radius: 0;
@@ -1317,3 +1320,33 @@ select {
     background-color: #E77E23; }
   .ovr4 {
     background-color: #E9573E; }
+
+.border-top.navyBlue {
+  border-top: 10px solid #203d8a; }
+
+.border-top.royalBlue {
+  border-top: 10px solid #0567c7; }
+
+.border-top.paleBlue {
+  border-top: 10px solid #4f9cd4; }
+
+.border-top.turqouise {
+  border-top: 10px solid #02a098; }
+
+.border-top.green {
+  border-top: 10px solid #008000; }
+
+.border-top.darkGrey {
+  border-top: 10px solid #2c3e50; }
+
+.border-top.purple {
+  border-top: 10px solid #8e44ad; }
+
+.border-top.magenta {
+  border-top: 10px solid #a3214b; }
+
+.border-top.red {
+  border-top: 10px solid #d33120; }
+
+.border-top.gold {
+  border-top: 10px solid #f39c12; }

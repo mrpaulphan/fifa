@@ -19,7 +19,16 @@ $ovr2:#F6BB43;
 $ovr3:#E77E23;
 $ovr4:#E9573E;
 
-
+$navyBlue: #203d8a;
+$royalBlue: #0567c7;
+$paleBlue: #4f9cd4;
+$turqouise: #02a098;
+$green: #1da155;
+$darkGrey: #2c3e50;
+$purple: #8e44ad;
+$magenta: #a3214b;
+$red: #d33120;
+$gold: #f39c12;
 
 
 $navLink: #666666;
@@ -46,7 +55,7 @@ $spacingMobile: 14px;
 /**
  *  Layouts
  */
-$autolayoutDefaultGutter: 60px;
+$autolayoutDefaultGutter: 20px;
 $maxWidth: 1160px;
 $extendBackground: 100 - percentage(1 / 7); // For extended background. Matches .layout-split-2--wrapper
 /**

@@ -1,0 +1,41 @@
+.border-top {
+    &.navyBlue {
+        border-top: 10px solid $navyBlue;
+    }
+
+    &.royalBlue {
+        border-top: 10px solid $royalBlue;
+    }
+
+    &.paleBlue {
+        border-top: 10px solid $paleBlue;
+    }
+
+    &.turqouise {
+        border-top: 10px solid $turqouise;
+    }
+
+    &.green {
+        border-top: 10px solid $green;
+    }
+
+    &.darkGrey {
+        border-top: 10px solid $darkGrey;
+    }
+
+    &.purple {
+        border-top: 10px solid $purple;
+    }
+
+    &.magenta {
+        border-top: 10px solid $magenta;
+    }
+
+    &.red {
+        border-top: 10px solid $red;
+    }
+
+    &.gold {
+        border-top: 10px solid $gold;
+    }
+}
