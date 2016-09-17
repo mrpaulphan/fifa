@@ -10076,27 +10076,6 @@ return jQuery;
 
 },{}],2:[function(require,module,exports){
 var $ = require('jquery');
-
-// Modules Dependencies
-var toggle = require('./modules/toggle');
-var relatedResources = require('./modules/relatedResources');
-var skipLink = require('./modules/skipLink');
-var ajax = require('./modules/ajax');
-
-/*-------------------------------------------
-  DOCUMENT READY FUNCTIONS
-  All functions to be called on
-  doc ready
--------------------------------------------*/
-$(document).ready(function() {
-    toggle.init();
-    relatedResources();
-    skipLink.init();
-    ajax.storeTeam();
-});
-
-},{"./modules/ajax":3,"./modules/relatedResources":4,"./modules/skipLink":5,"./modules/toggle":6,"jquery":1}],3:[function(require,module,exports){
-var $ = require('jquery');
 module.exports = {
     storeTeam: function() {
         // $('[data-ajax="storeTeam"]').click(function(){
@@ -10111,91 +10090,5 @@ module.exports = {
         //   });
     }
 };
-
-},{"jquery":1}],4:[function(require,module,exports){
-var $ = require('jquery');
-
-module.exports = function() {
-    var tab = $('[data-related-tab]');
-
-    tab.click(function(e) {
-        e.preventDefault();
-        var type = 'GET',
-            url = '/data/related-resources/',
-            data = {
-                'targetType': $(this).data('related-target'),
-                'sourceType': $(this).closest('ul').data('related-source-type'),
-                'sourceId': $(this).closest('ul').data('related-source-id')
-            };
-        $.ajax({
-            type: type,
-            url: url,
-            data: data,
-            cache: false,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            success: function(json) {
-                $('#related-resources').html(json.response);
-            }
-        });
-
-    });
-
-};
-
-},{"jquery":1}],5:[function(require,module,exports){
-var $ = require('jquery');
-
-
-/*
- *   skipLink();
- *   -----------------------------------
- *   Used to prevent default behavior on
- *   any link with an attribute href="#"
- */
-module.exports = {
-    init: function() {
-        $('a[href="#"]').click(function(event) {
-            event.preventDefault();
-        });
-    }
-};
-
-},{"jquery":1}],6:[function(require,module,exports){
-var $ = require('jquery');
-
-module.exports = (function() {
-    return {
-        init: function() {
-            var toggle = $('[data-toggle]');
-            var toggleAttr = 'data-toggle';
-            var target = $('[data-target]');
-            var duration = 200;
-            var easing = 'swing';
-
-            toggle.click(function(e) {
-                e.stopPropagation;
-                var toggleId = $(this).attr('data-toggle');
-                var thisTarget = $('[data-target="' + toggleId + '"]');
-                var thisText = $('[data-toggle-text="' + toggleId + '"]');
-                var currentText = thisText.text();
-
-                switch (toggleId) {
-                    case 'contributor':
-                        thisTarget.slideToggle(duration, easing);
-                        break;
-                        case 'edit-save':
-                            thisTarget.show();
-                            break;
-                    default:
-                        thisTarget.show();
-                }
-            });
-        },
-        closeAll: function() {
-            console.log('closeall');
-        }
-    }
-})();
 
 },{"jquery":1}]},{},[2])

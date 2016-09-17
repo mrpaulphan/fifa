@@ -8,14 +8,16 @@ class Team extends Model
 {
   protected $fillable = [
     'user_id',
-    'team',
-    'age',
-    'body',
-    'worth',
-    'budget',
-    'win',
-    'loss',
-    'tie',
-    'season'
+    'save_id',
+    'season',
+    'team_color',
+    'team_name',
+    'domestic_objective',
+    'continental_objective',
+    'brand_objective',
+    'financial_objective',
+    'youth_objective',
+    'club_worth',
+    'transfer_budget'
   ];
 }

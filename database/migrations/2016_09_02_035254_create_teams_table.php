@@ -16,14 +16,17 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
             $table->double('user_id');
-            $table->string('team');
-            $table->longText('body')->nullable();
-            $table->double('worth');
-            $table->double('budget');
-            $table->double('win')->nullable();
-            $table->double('loss')->nullable();
-            $table->double('tie')->nullable();
-            $table->string('season');
+            $table->double('save_id');
+            $table->double('season')->default('2016');
+            $table->string('team_color');
+            $table->string('team_name')->default('--');
+            $table->string('domestic_objective')->default('--');
+            $table->string('continental_objective')->default('--');
+            $table->string('brand_objective')->default('--');
+            $table->string('financial_objective')->default('--');
+            $table->string('youth_objective')->default('--');
+            $table->integer('club_worth')->default('0');
+            $table->integer('transfer_budget')->default('0');
             $table->timestamps();
         });
     }

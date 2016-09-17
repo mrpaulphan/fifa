@@ -1,0 +1,15 @@
+.layout-split-5 {
+    @include autolayout( '|[column(20%)]-[column(20%)]-[column(20%)]-[column(20%)]-[column(20%)]|');
+}
+
+[class*="layout-split-5"] {
+    @include media('>large') {
+        & > .column:nth-child(1),
+        & > .column:nth-child(2),
+        & > .column:nth-child(3),
+        & > .column:nth-child(4),
+        & > .column:nth-child(5) {
+            margin-top: 0;
+        }
+    }
+}

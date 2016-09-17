@@ -4,6 +4,7 @@ var $ = require('jquery');
 var toggle = require('./modules/toggle');
 var relatedResources = require('./modules/relatedResources');
 var skipLink = require('./modules/skipLink');
+var ajax = require('./modules/ajax');
 
 /*-------------------------------------------
   DOCUMENT READY FUNCTIONS
@@ -14,4 +15,5 @@ $(document).ready(function() {
     toggle.init();
     relatedResources();
     skipLink.init();
+    ajax.storeTeam();
 });

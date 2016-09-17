@@ -20,21 +20,6 @@
                             <label for="">Manager Name</label>
                             <input type="text" name="saveManager" value="" required="required">
 
-                            <!-- <label for="">Team Name</label>
-                            <input type="text" name="teamName" value="" required="required">
-
-                            <label for="">Color</label>
-                            <input type="radio" name="saveColor" value="navyBlue" checked="checked">
-                            <input type="radio" name="saveColor" value="royalBlue">
-                            <input type="radio" name="saveColor" value="paleBlue">
-                            <input type="radio" name="saveColor" value="turqouise">
-                            <input type="radio" name="saveColor" value="green">
-                            <input type="radio" name="saveColor" value="darkGrey">
-                            <input type="radio" name="saveColor" value="purple">
-                            <input type="radio" name="saveColor" value="magenta">
-                            <input type="radio" name="saveColor" value="red">
-                            <input type="radio" name="saveColor" value="gold">
-                             -->
                         <button type="submit" name="button">Save</button>
 
                     </form>
@@ -57,21 +42,6 @@
                     <label for="">Manager Name</label>
                     <input type="text" name="saveManager" value="" required="required">
 
-                <!--     <label for="">Team Name</label>
-                <input type="text" name="teamName" value="" required="required">
-
-                <label for="">Color</label>
-                <input type="radio" name="saveColor" value="navyBlue" checked="checked">
-                <input type="radio" name="saveColor" value="royalBlue">
-                <input type="radio" name="saveColor" value="paleBlue">
-                <input type="radio" name="saveColor" value="turqouise">
-                <input type="radio" name="saveColor" value="green">
-                <input type="radio" name="saveColor" value="darkGrey">
-                <input type="radio" name="saveColor" value="purple">
-                <input type="radio" name="saveColor" value="magenta">
-                <input type="radio" name="saveColor" value="red">
-                <input type="radio" name="saveColor" value="gold">
-                 -->
                 <button type="submit" name="button">Save</button>
 
             </form>
@@ -107,7 +77,7 @@
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
 
-                            <input type="hidden" name="id" value="{{ $save->id }}">
+                            <input type="hidden" name="save_id" value="{{ $save->id }}">
 
 
                                 <label for="">Save Name</label>
@@ -115,22 +85,6 @@
 
                                 <label for="">Manager Name</label>
                                 <input type="text" name="saveManager" value="{{ $save->save_manager_name }}" required="required">
-
-                                <!-- <label for="">Team Name</label>
-                                <input type="text" name="teamName" value="{{ $save->save_team_name }}" required="required">
-
-                                <label for="">Color</label>
-                                <input type="radio" name="saveColor" value="navyBlue" {{ $save->save_color == 'navyBlue' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="royalBlue" {{ $save->save_color == 'royalBlue' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="paleBlue" {{ $save->save_color == 'paleBlue' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="turqouise" {{ $save->save_color == 'turqouise' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="green" {{ $save->save_color == 'green' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="darkGrey" {{ $save->save_color == 'darkGrey' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="purple" {{ $save->save_color == 'purple' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="magenta" {{ $save->save_color == 'magenta' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="red" {{ $save->save_color == 'red' ? ' checked="checked"' : false }}>
-                                <input type="radio" name="saveColor" value="gold" {{ $save->save_color == 'gold' ? ' checked="checked"' : false }}>
-                                 -->
                             <button type="submit" name="button" formaction="{{ route('update.saves', [Auth::user()->username ]) }}">Save</button>
 
                         </form>

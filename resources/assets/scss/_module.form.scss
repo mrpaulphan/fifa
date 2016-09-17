@@ -1,6 +1,6 @@
 input,
 select {
-//    appearance: none;
+    //    appearance: none;
     background: $gray;
     border: 0;
     border-radius: 0;
@@ -12,13 +12,71 @@ select {
     }
 }
 
-
 .form {
-    background: $white;
-    padding: 0 20px;
-    &__group {
+    &__fieldset {
+        border: 0;
+        margin: 0;
+        min-width: 0;
+        padding: 0;
+    }
 
+    &__radio {
+        display: none;
 
+        &:checked + .form__radio-label {
+            border: 1px solid $black;
+        }
+
+        &-label {
+            background-color: $default;
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: block;
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    &__radio-label {
+        &[for="navyBlue"] {
+            background-color: $navyBlue;
+        }
+
+        &[for="royalBlue"] {
+            background-color: $royalBlue;
+        }
+
+        &[for="paleBlue"] {
+            background-color: $paleBlue;
+        }
+
+        &[for="turqouise"] {
+            background-color: $turqouise;
+        }
+
+        &[for="green"] {
+            background-color: $green;
+        }
+
+        &[for="darkGrey"] {
+            background-color: $darkGrey;
+        }
+
+        &[for="purple"] {
+            background-color: $purple;
+        }
+
+        &[for="magenta"] {
+            background-color: $magenta;
+        }
+
+        &[for="red"] {
+            background-color: $red;
+        }
+
+        &[for="gold"] {
+            background-color: $gold;
+        }
     }
 
     &__label {

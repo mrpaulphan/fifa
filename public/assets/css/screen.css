@@ -651,7 +651,7 @@ h1 {
 
 .team__name {
   font-size: 16px;
-  color: #6251DA; }
+  color: #bfbfbf; }
 
 .nav__link {
   font-size: 14px;
@@ -659,8 +659,8 @@ h1 {
   text-decoration: none; }
 
 .active {
-  color: #6251DA;
-  border-bottom: 3px solid #6251DA; }
+  color: #bfbfbf;
+  border-bottom: 3px solid #bfbfbf; }
 
 .text-align-right {
   text-align: right; }
@@ -907,14 +907,14 @@ p {
     float: left;
     box-sizing: border-box; }
   .layout-split-2 > .column:nth-child(2n+1) {
-    width: calc(50% - 20px - 10px);
-    margin-left: 20px;
+    width: calc(50% - 0px - 10px);
+    margin-left: 0px;
     margin-right: 10px;
     clear: left; }
   .layout-split-2 > .column:nth-child(2n+2) {
-    width: calc(50% - 10px - 20px);
+    width: calc(50% - 10px - 0px);
     margin-left: 10px;
-    margin-right: 20px; } }
+    margin-right: 0px; } }
 
 @media (min-width: 46.885em) {
   .layout-split-2--sidebar:after {
@@ -1063,6 +1063,49 @@ p {
   margin-left: 15px;
   margin-right: 30px; }
 
+.layout-split-5:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.layout-split-5 > .column {
+  float: left;
+  box-sizing: border-box; }
+
+.layout-split-5 > .column:nth-child(5n+1) {
+  width: calc(20% - 0px - 10px);
+  margin-left: 0px;
+  margin-right: 10px;
+  clear: left; }
+
+.layout-split-5 > .column:nth-child(5n+2) {
+  width: calc(20% - 10px - 10px);
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.layout-split-5 > .column:nth-child(5n+3) {
+  width: calc(20% - 10px - 10px);
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.layout-split-5 > .column:nth-child(5n+4) {
+  width: calc(20% - 10px - 10px);
+  margin-left: 10px;
+  margin-right: 10px; }
+
+.layout-split-5 > .column:nth-child(5n+5) {
+  width: calc(20% - 10px - 0px);
+  margin-left: 10px;
+  margin-right: 0px; }
+
+@media (min-width: 46.885em) {
+  [class*="layout-split-5"] > .column:nth-child(1),
+  [class*="layout-split-5"] > .column:nth-child(2),
+  [class*="layout-split-5"] > .column:nth-child(3),
+  [class*="layout-split-5"] > .column:nth-child(4),
+  [class*="layout-split-5"] > .column:nth-child(5) {
+    margin-top: 0; } }
+
 input,
 select {
   background: #f2f2f2;
@@ -1074,14 +1117,60 @@ select {
   select:focus {
     outline: 0; }
 
-.form {
-  background: #fff;
-  padding: 0 20px; }
-  .form__label {
-    display: block; }
-  .form__input {
+.form__fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0; }
+
+.form__radio {
+  display: none; }
+  .form__radio:checked + .form__radio-label {
+    border: 1px solid #111; }
+  .form__radio-label {
+    background-color: #bfbfbf;
+    border: 1px solid transparent;
+    cursor: pointer;
     display: block;
-    width: 100%; }
+    height: 30px;
+    width: 30px; }
+
+.form__radio-label[for="navyBlue"] {
+  background-color: #203d8a; }
+
+.form__radio-label[for="royalBlue"] {
+  background-color: #0567c7; }
+
+.form__radio-label[for="paleBlue"] {
+  background-color: #4f9cd4; }
+
+.form__radio-label[for="turqouise"] {
+  background-color: #02a098; }
+
+.form__radio-label[for="green"] {
+  background-color: #008000; }
+
+.form__radio-label[for="darkGrey"] {
+  background-color: #2c3e50; }
+
+.form__radio-label[for="purple"] {
+  background-color: #8e44ad; }
+
+.form__radio-label[for="magenta"] {
+  background-color: #a3214b; }
+
+.form__radio-label[for="red"] {
+  background-color: #d33120; }
+
+.form__radio-label[for="gold"] {
+  background-color: #f39c12; }
+
+.form__label {
+  display: block; }
+
+.form__input {
+  display: block;
+  width: 100%; }
 
 .hero-home__icon {
   margin-right: 10px; }
@@ -1203,8 +1292,6 @@ select {
 .main__content {
   background-color: #fff;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.35); }
-  .main__content header {
-    margin: 12px 0; }
 
 .team__content {
   display: -ms-flexbox;
@@ -1241,12 +1328,6 @@ select {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column; }
-  .block__title {
-    background-color: #6251DA;
-    border-radius: 7px 7px 0 0;
-    color: #fff;
-    padding: 5px 0;
-    text-align: center; }
   .block__content {
     border-top: 0;
     border: 1px solid #666; }
@@ -1320,6 +1401,19 @@ select {
     background-color: #E77E23; }
   .ovr4 {
     background-color: #E9573E; }
+
+.block__title {
+  border-radius: 7px 7px 0 0;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center; }
+
+.block__content {
+  background-color: #fff;
+  padding: 20px; }
+
+.block-color .block__title {
+  background-color: #bfbfbf; }
 
 .border-top.navyBlue {
   border-top: 10px solid #203d8a; }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Team;
 use App\Save;
 
@@ -40,10 +41,14 @@ class PagesController extends Controller
         return view('saves.index')->with('saves', $saves)->with('id', $id);
     }
 
-    public function getSeasons()
+    public function getSeasons(Request $request)
     {
-
-        return view('seasons.index');
+        $userID = Auth::user()->id;
+        $team = Team::where('user_id', $userID)->get();
+        $save = Save::where('user_id', $userID)->where('slug', $request->slug)->get();
+        // Get first object
+        $save = $save[0];
+        return view('seasons.index')->with('team', $team)->with('slug', $request->slug)->with('save', $save);
     }
 
 

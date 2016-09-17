@@ -1,3 +1,25 @@
+.block {
+    &__title {
+        border-radius: 7px 7px 0 0;
+        color: $white;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+    &__content {
+        background-color: $white;
+        padding: 20px;
+    }
+
+}
+
+.block-color {
+    .block__title {
+        background-color: $default;
+    }
+
+}
+
 .border-top {
     &.navyBlue {
         border-top: 10px solid $navyBlue;

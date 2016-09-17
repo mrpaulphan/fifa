@@ -3,13 +3,6 @@
     display: flex;
     flex-direction: column;
 
-    &__title {
-        background-color: $teamColor;
-        border-radius: 7px 7px 0 0;
-        color: $white;
-        padding: 5px 0;
-        text-align: center;
-    }
 
     &__content {
         border-top: 0;

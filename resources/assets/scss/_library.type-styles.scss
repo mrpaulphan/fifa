@@ -21,7 +21,7 @@ h1 {
 }
 .team__name{
     font-size: 16px;
-    color: $teamColor;
+    color: $default;
 }
 .nav__link{
  font-size: 14px;
@@ -30,8 +30,8 @@ h1 {
 
 }
 .active {
-    color: $teamColor;
-     border-bottom: 3px solid $teamColor;
+    color: $default;
+     border-bottom: 3px solid $default;
 }
 .text-align-right{
     text-align: right;

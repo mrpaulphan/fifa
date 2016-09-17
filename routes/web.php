@@ -19,7 +19,7 @@ Route::put('{username}/saves/edit', 'SavesController@edit')->name('update.saves'
 Route::delete('{username}/saves/delete', 'SavesController@delete')->name('delete.saves');
 
 Route::get('{username}/{slug}/season', 'PagesController@getSeasons')->name('show.seasons');
-Route::post('/season/create', 'TeamController@store')->name('post.team');
+Route::post('{username}/{slug}/season/create', 'TeamController@store')->name('post.team');
 Route::get('/season/create', 'TeamController@create')->name('create.team');
 Route::put('/season', 'TeamController@edit')->name('edit.team');
 

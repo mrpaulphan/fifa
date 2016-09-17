@@ -1,6 +1,6 @@
 .layout-split-2 {
     @include media ('>large') {
-        @include autolayout( '|-[column]-[column]-|');
+        @include autolayout( '|[column]-[column]|');
     }
     &--sidebar {
         @include media ('>large') {
