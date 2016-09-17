@@ -10,6 +10,7 @@ var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
 var reload = browserSync.reload;
 var shell = require('gulp-shell')
+var imagemin = require('gulp-imagemin');
 
 /*
  *    Variables
@@ -26,6 +27,10 @@ var paths = {
     "js": {
         "src": "resources/assets/js/**/*.js",
         "dest": "public/assets/js"
+    },
+    "images": {
+        "src": "resources/assets/images/**/*.jpg",
+        "dest": "public/assets/images"
     },
     "fonts": {
         "src": "resources/assets/fonts/",
@@ -81,6 +86,11 @@ gulp.task('scripts', function() {
         })); // prompts a reload after compilation
 
 });
+gulp.task('images', () =>
+    gulp.src(paths.images.src)
+        .pipe(imagemin())
+        .pipe(gulp.dest(paths.images.dest))
+);
 /*
  *  Server Task
  */
@@ -110,7 +120,8 @@ gulp.task('watch', ['browser-sync'], function() {
     gulp.watch(paths.scss.src, ['styles']);
     gulp.watch(paths.js.src, ['scripts']);
     gulp.watch(paths.fonts.src, ['sync']);
-    gulp.watch(paths.svgs.src, ['sync']);
+    gulp.watch(paths.fonts.src, ['sync']);
+    gulp.watch(paths.images.src, ['sync']);
     gulp.watch(paths.svgs.watch, ['sync']);
     gulp.watch(['./templates/**/*.html']).on('change', reload);
 
@@ -122,6 +133,7 @@ gulp.task('watch', ['browser-sync'], function() {
  */
 gulp.task('dev', [
     'styles',
+    'images',
     'scripts',
     'sync',
     'watch'
@@ -132,5 +144,6 @@ gulp.task('dev', [
  */
  gulp.task('stage', [
      'styles',
-     'scripts'
+     'scripts',
+     'images'
 ]);

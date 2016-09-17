@@ -24,8 +24,8 @@
     <header class="page-gutterless">
       <div class="header layout-split-2--apart">
         <div class="logo__column ">
-            <img class="logo__column-img" src="assets/img/Fifa_careers_logo.png" alt="" />
-          <h1 class="bold">FIFA Careers</h1>
+            <img class="logo__column-img" src="http://placehold.it/200x30" alt="" />
+          
         </div>
 
         <div class="account__column">

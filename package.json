@@ -5,21 +5,22 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
-    "lodash": "^4.14.0",
-    "vue": "^1.0.26",
-    "vue-resource": "^0.9.3",
     "browser-sync": "^2.14.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-browserify": "^0.5.1",
     "gulp-clean": "^0.3.2",
+    "gulp-imagemin": "^3.0.3",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.2",
     "gulp-watch": "^4.3.9",
     "include-media": "^1.4.8",
-    "jquery": "^3.1.0"
+    "jquery": "^3.1.0",
+    "lodash": "^4.14.0",
+    "vue": "^1.0.26",
+    "vue-resource": "^0.9.3"
   },
   "dependencies": {
     "normalize.css": "^4.2.0"

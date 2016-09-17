@@ -24,8 +24,7 @@
     <header class="page-gutterless">
       <div class="header layout-split-2--apart">
         <div class="logo__column ">
-            <img class="logo__column-img" src="assets/img/Fifa_careers_logo.png" alt="" />
-          <h1 class="bold">FIFA Careers</h1>
+            <img class="" src="http://placehold.it/200x30" alt="" />
         </div>
 
         <div class="account__column">
@@ -34,7 +33,7 @@
               <li><a href="{{ url('/register') }}">Register</a></li>
           @else
               <li class="dropdown">
-                  <img class="account__column-img" src="assets/img/account_image.jpg" alt="" />
+                  <img class="account__column-img" src="/assets/images/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" />
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                       {{ Auth::user()->name }} <span class="caret"></span>
                   </a>
