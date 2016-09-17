@@ -5,3 +5,19 @@
 .align-center {
     text-align: center;
 }
+
+.strong {
+    font-weight: bold;
+}
+
+
+.has-error {
+    .form__input {
+        border: 1px solid $error;
+    }
+    
+    .block-help {
+        @extend .strong;
+        color: $error;
+    }
+}

@@ -842,6 +842,15 @@ p {
 .align-center {
   text-align: center; }
 
+.strong, .has-error .block-help {
+  font-weight: bold; }
+
+.has-error .form__input {
+  border: 1px solid #d33120; }
+
+.has-error .block-help {
+  color: #d33120; }
+
 .button, .button--primary, .button--secondary {
   display: inline-block;
   padding: 10px;
