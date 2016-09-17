@@ -83,11 +83,11 @@
         </div>
       </header>
       <nav class="menu__nav" >
-        <a  class="nav__link active" href="{{ route('show.seasons')}}">Season</a>
-        <a class="nav__link" href="{{ route('show.players')}}">Team</a>
-        <a class="nav__link" href="{{ route('show.transfers')}}">Transfers</a>
-        <a class="nav__link" href="{{ route('show.youth')}}">Youth</a>
-        <a class="nav__link" href="{{ route('show.teamselect')}}">careers</a>
+        <a  class="nav__link active" href="">Season</a>
+        <a class="nav__link" href="">Team</a>
+        <a class="nav__link" href="">Transfers</a>
+        <a class="nav__link" href="">Youth</a>
+        <a class="nav__link" href="">careers</a>
       </nav>
 
 

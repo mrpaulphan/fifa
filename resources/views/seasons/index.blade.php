@@ -1,10 +1,7 @@
 @extends('layouts.default')
 
 @section('title', 'Page Title')
-
-
 @section('content')
-    @if($team->isEmpty()) {{-- Empty --}}
 
         Please create team
         <p><a href="#" class="button" data-toggle="create-team">Create Save</a></p>
@@ -18,7 +15,6 @@
 
             </div>
         </div>
-    @else
       {{-- Not Empty --}}
 
 
@@ -30,7 +26,6 @@
               </div>
                 <div class="block__content" spacing=".5">
 
-                      <!-- @foreach ($team as $team) @endforeach -->
                     <div class="trow layout-split-2--table">
                         <div class="column l-gray text-align-right">Team Name</div>
                         <div class="column d-gray">Manchester United</div>
@@ -209,5 +204,4 @@
             </div>
         </div>
 
-  @endif
 @endsection

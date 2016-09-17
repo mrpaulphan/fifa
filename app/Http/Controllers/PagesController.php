@@ -28,11 +28,6 @@ class PagesController extends Controller
         return view('styleguide.index');
     }
 
-    public function getSeasons()
-    {
-        return view('seasons.index');
-    }
-
     public function getSaves()
     {
         $userID = Auth::user()->id;
@@ -42,8 +37,15 @@ class PagesController extends Controller
             array_push($id, $save->id);
         }
         // return teams that belong to current user
-      return view('saves.index')->with('saves', $saves)->with('id', $id);
+        return view('saves.index')->with('saves', $saves)->with('id', $id);
     }
+
+    public function getSeasons()
+    {
+
+        return view('seasons.index');
+    }
+
 
     public function getTransfers()
     {

@@ -2,7 +2,7 @@
 
 @section('title', 'Page Title')
 
-    
+
 @section('content')
     @if($team->isEmpty()) {{-- Empty --}}
 
@@ -14,13 +14,13 @@
                 <header class="block__title">
                     <h3>Create a save</h3>
                 </header>
-
+kjlkj
 
             </div>
         </div>
     @else
       {{-- Not Empty --}}
-
+asdfs
 
 
       <div class="layout-split-2--wrapper" spacing="1">

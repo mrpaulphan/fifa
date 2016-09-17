@@ -18,8 +18,7 @@ class CreateSavesTable extends Migration
             $table->double('user_id');
             $table->string('save_name');
             $table->string('save_manager_name');
-            $table->string('save_team_name');
-            $table->string('save_color');
+            $table->string('slug');
             $table->timestamps();
         });
     }

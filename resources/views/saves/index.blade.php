@@ -17,10 +17,10 @@
                             <label for="">Save Name</label>
                             <input type="text" name="saveName" value="" required="required">
 
-                            <label for="">Save Manager</label>
+                            <label for="">Manager Name</label>
                             <input type="text" name="saveManager" value="" required="required">
 
-                            <label for="">Team Name</label>
+                            <!-- <label for="">Team Name</label>
                             <input type="text" name="teamName" value="" required="required">
 
                             <label for="">Color</label>
@@ -34,7 +34,7 @@
                             <input type="radio" name="saveColor" value="magenta">
                             <input type="radio" name="saveColor" value="red">
                             <input type="radio" name="saveColor" value="gold">
-
+                             -->
                         <button type="submit" name="button">Save</button>
 
                     </form>
@@ -54,24 +54,24 @@
                     <label for="">Save Name</label>
                     <input type="text" name="saveName" value="" required="required">
 
-                    <label for="">Save Manager</label>
+                    <label for="">Manager Name</label>
                     <input type="text" name="saveManager" value="" required="required">
 
-                    <label for="">Team Name</label>
-                    <input type="text" name="teamName" value="" required="required">
+                <!--     <label for="">Team Name</label>
+                <input type="text" name="teamName" value="" required="required">
 
-                    <label for="">Color</label>
-                    <input type="radio" name="saveColor" value="navyBlue" checked="checked">
-                    <input type="radio" name="saveColor" value="royalBlue">
-                    <input type="radio" name="saveColor" value="paleBlue">
-                    <input type="radio" name="saveColor" value="turqouise">
-                    <input type="radio" name="saveColor" value="green">
-                    <input type="radio" name="saveColor" value="darkGrey">
-                    <input type="radio" name="saveColor" value="purple">
-                    <input type="radio" name="saveColor" value="magenta">
-                    <input type="radio" name="saveColor" value="red">
-                    <input type="radio" name="saveColor" value="gold">
-
+                <label for="">Color</label>
+                <input type="radio" name="saveColor" value="navyBlue" checked="checked">
+                <input type="radio" name="saveColor" value="royalBlue">
+                <input type="radio" name="saveColor" value="paleBlue">
+                <input type="radio" name="saveColor" value="turqouise">
+                <input type="radio" name="saveColor" value="green">
+                <input type="radio" name="saveColor" value="darkGrey">
+                <input type="radio" name="saveColor" value="purple">
+                <input type="radio" name="saveColor" value="magenta">
+                <input type="radio" name="saveColor" value="red">
+                <input type="radio" name="saveColor" value="gold">
+                 -->
                 <button type="submit" name="button">Save</button>
 
             </form>
@@ -89,12 +89,12 @@
                 </div>
                 <div class="layout-split-2">
                     <div class="column">
-                        <p>Teams 1</p>
-                        <p>Seasons 1</p>
+                        <p>Teams 0</p>
+                        <p>Seasons 0</p>
                         <p>Trophies 0</p>
                     </div>
                     <div class="column">
-                        <p><a href="{{ route('show.seasons') }}">open</a></p>
+                        <p><a href="{{ route('show.seasons', [Auth::user()->username, $save->slug ]) }}">open</a></p>
                     </div>
                 </div>
 
@@ -113,10 +113,10 @@
                                 <label for="">Save Name</label>
                                 <input type="text" name="saveName" value="{{ $save->save_name }}" required="required">
 
-                                <label for="">Save Manager</label>
-                                <input type="text" name="saveManager" value="{{ $save->save_name }}" required="required">
+                                <label for="">Manager Name</label>
+                                <input type="text" name="saveManager" value="{{ $save->save_manager_name }}" required="required">
 
-                                <label for="">Team Name</label>
+                                <!-- <label for="">Team Name</label>
                                 <input type="text" name="teamName" value="{{ $save->save_team_name }}" required="required">
 
                                 <label for="">Color</label>
@@ -130,7 +130,7 @@
                                 <input type="radio" name="saveColor" value="magenta" {{ $save->save_color == 'magenta' ? ' checked="checked"' : false }}>
                                 <input type="radio" name="saveColor" value="red" {{ $save->save_color == 'red' ? ' checked="checked"' : false }}>
                                 <input type="radio" name="saveColor" value="gold" {{ $save->save_color == 'gold' ? ' checked="checked"' : false }}>
-
+                                 -->
                             <button type="submit" name="button" formaction="{{ route('update.saves', [Auth::user()->username ]) }}">Save</button>
 
                         </form>

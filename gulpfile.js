@@ -86,9 +86,9 @@ gulp.task('scripts', function() {
  */
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: 'localhost:4000',
+        proxy: 'http://localhost:4000/',
         port: 4000,
-        open: false
+        open: true
 
     });
 });
