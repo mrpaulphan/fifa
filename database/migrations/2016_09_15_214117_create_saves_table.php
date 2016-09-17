@@ -16,9 +16,8 @@ class CreateSavesTable extends Migration
         Schema::create('saves', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('team_id')->nullable();
-            $table->string('save_name');
-            $table->string('save_manager_name');
+            $table->string('name');
+            $table->string('manager');
             $table->string('slug');
             $table->timestamps();
         });

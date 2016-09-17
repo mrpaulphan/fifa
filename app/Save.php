@@ -8,8 +8,8 @@ class Save extends Model
 {
     protected $fillable = [
         'id',
-        'save_name',
-        'save_manager_name',
+        'name',
+        'manager',
         'user_id',
     ];
 }

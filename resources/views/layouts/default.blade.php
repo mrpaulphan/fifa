@@ -69,7 +69,7 @@
         <div class="team__content column">
             <img src="assets/img/team_image.png" alt="" />
             <div class="team__content-text">
-                <h2>@yield('save_name')</h2><span class="team__name">@yield('save_manager_name')</span>
+                <h2>@yield('name')</h2><span class="team__name">@yield('manager')</span>
 
             </div>
 

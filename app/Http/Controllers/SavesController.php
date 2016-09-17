@@ -22,35 +22,37 @@ class SavesController extends Controller
         // Store
         $save = new Save();
         $save->user_id = Auth::user()->id;
-        $save->save_name = $request->saveName;
-        $save->save_manager_name = $request->saveManager;
+        $save->name = $request->saveName;
+        $save->manager = $request->saveManager;
         $save->slug = $slug;
         $save->save();
 
         // Redirect
         $username = Auth::user()->username;
+
         return redirect()->route('show.saves', [$username]);
     }
 
     public function edit(Request $request)
     {
 
+
+
         // Validate
         $this->validate($request, [
-               'saveName' => 'required|max:255',
-               'saveManager' => 'required|max:255',
+               'name' => 'required|max:255',
+               'manager' => 'required|max:255',
          ]);
 
-         // Update
-          $save = new Save();
+         // Update data
+        $save = new Save();
         $save = Save::where('id', $request->id)->update([
-            'save_name' => $request->saveName,
-            'save_manager_name' => $request->saveManager,
+            'name' => $request->name,
+            'manager' => $request->manager,
           ]);
 
           // Redirect
           $username = Auth::user()->username;
-
         return redirect()->route('show.saves', [$username]);
     }
 

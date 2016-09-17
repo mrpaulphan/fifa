@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('title', 'Season')
-@section('save_name', $save->save_name)
-@section('save_manager_name', $save->save_manager_name)
+@section('name', $save->name)
+@section('manager', $save->manager)
 @section('content')
     @if($team->isEmpty())
         <div class="block--modal-overlay">
