@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>Fifa | @yield('title')</title>
 
     <!-- Styles -->
     <link href="/assets/css/screen.css" rel="stylesheet">

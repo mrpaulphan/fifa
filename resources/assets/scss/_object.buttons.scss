@@ -2,13 +2,19 @@
     display: inline-block;
     padding: 10px;
     text-decoration: none;
+    border-radius: 5px;
+
     &--primary {
+        @extend .button;
         background: $royalBlue;
+        border: 1px solid $royalBlue;
         color: $white;
+
     }
     &--secondary {
+        @extend .button;
+        background: $grey;
         border: 1px solid black;
-        background: $green;
         color: $white;
     }
 }

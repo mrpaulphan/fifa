@@ -25,16 +25,16 @@
       <div class="header layout-split-2--apart">
         <div class="logo__column ">
             <img class="logo__column-img" src="http://placehold.it/200x30" alt="" />
-          
+
         </div>
 
         <div class="account__column">
           @if (Auth::guest())
-              <li><a href="{{ url('/login') }}">Login</a></li>
-              <li><a href="{{ url('/register') }}">Register</a></li>
+              <p><a class="button button--secondary" href="{{ url('/login') }}">Login</a></p>
+              <p><a class="button button--primary" href="{{ url('/register') }}">Register</a></p>
           @else
               <li class="dropdown">
-                  <img class="account__column-img" src="assets/img/account_image.jpg" alt="" />
+                  <img class="account__column-img" src="/assets/images/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" />
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                       {{ Auth::user()->name }} <span class="caret"></span>
                   </a>

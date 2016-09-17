@@ -3,11 +3,12 @@
 @section('title', 'login')
 @section('content')
 
-  <div class="block--modal">
+  <div class="block block--modal block-color--default">
     <header class="block__title">
       <h3>Login</h3>
     </header>
-    <form class="form" role="form" method="POST" action="{{ url('/login') }}">
+    <div class="block__content">
+        <form class="form" role="form" method="POST" action="{{ url('/login') }}">
         {{ csrf_field() }}
 
         <div class="form__group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -38,16 +39,23 @@
                 </div>
         </div>
 
+        <div class="layout-split-2--apart">
+            <div class="column">
+                <p><a href="{{ route('show.landing')}}" class="button--secondary">Cancel</a></p>
+            </div>
+            <div class="column">
+                <button type="submit" class="button--primary">Login</button>
+            </div>
+        </div>
         <div class="form__group">
-                <button type="submit" class="btn btn-primary">
-                    Login
-                </button>
 
                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                     Forgot Your Password?
                 </a>
         </div>
     </form>
+</div>
+
   </div>
 
 

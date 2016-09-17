@@ -10,54 +10,72 @@
         background-color: $white;
         padding: 20px;
     }
-
 }
 
 .block-color {
-    .block__title {
-        background-color: $default;
+    &--default {
+        .block__title {
+            background-color: $default;
+        }
     }
 
-}
-
-.border-top {
-    &.navyBlue {
-        border-top: 10px solid $navyBlue;
+    &--navyBlue {
+        .block__title {
+            background-color: $navyBlue;
+        }
     }
 
-    &.royalBlue {
-        border-top: 10px solid $royalBlue;
+    &--royalBlue {
+        .block__title {
+            background-color: $royalBlue;
+        }
     }
 
-    &.paleBlue {
-        border-top: 10px solid $paleBlue;
+    &--paleBlue {
+        .block__title {
+            background-color: $paleBlue;
+        }
     }
 
-    &.turqouise {
-        border-top: 10px solid $turqouise;
+    &--turqouise {
+        .block__title {
+            background-color: $turqouise;
+        }
     }
 
-    &.green {
-        border-top: 10px solid $green;
+    &--green {
+        .block__title {
+            background-color: $green;
+        }
     }
 
-    &.darkGrey {
-        border-top: 10px solid $darkGrey;
+    &--darkGrey {
+        .block__title {
+            background-color: $darkGrey;
+        }
     }
 
-    &.purple {
-        border-top: 10px solid $purple;
+    &--purple {
+        .block__title {
+            background-color: $purple;
+        }
     }
 
-    &.magenta {
-        border-top: 10px solid $magenta;
+    &--magenta {
+        .block__title {
+            background-color: $magenta;
+        }
     }
 
-    &.red {
-        border-top: 10px solid $red;
+    &--red {
+        .block__title {
+            background-color: $red;
+        }
     }
 
-    &.gold {
-        border-top: 10px solid $gold;
+    &--gold {
+        .block__title {
+            background-color: $gold;
+        }
     }
 }

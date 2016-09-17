@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@getIndex');
+Route::get('/', 'PagesController@getIndex')->name('show.landing');
 Auth::routes();
 Route::get('{username}/saves', 'PagesController@getSaves')->name('show.saves');
 Route::post('{username}/saves/create', 'SavesController@store')->name('post.saves');

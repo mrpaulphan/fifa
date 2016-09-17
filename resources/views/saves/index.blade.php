@@ -2,29 +2,41 @@
 @section('title', 'Saves')
 @section('content')
 <div class="page-gutterless">
-        @if($saves->isEmpty())
-            Looks like you dont have any saves set up yet.
-            <p><a href="#" class="button" data-toggle="create-team">Create Save</a></p>
+    @if($saves->isEmpty())
+        <div spacing="1">
+            <p>Looks like you dont have any saves set up yet</p>
+            <p class="align-center"><a href="#" class="button--primary" data-toggle="create-team">Create Save</a></p>
+        </div>
 
-            <div class="block--modal-overlay hide" data-target="create-team">
-                <div class="block--modal">
-                    <header class="block__title">
-                        <h3>Create a save</h3>
-                    </header>
-                    <form class="" action="{{ route('post.saves', [Auth::user()->username ]) }}" method="post">
-                        {{ csrf_field() }}
-
-                            <label for="">Save Name</label>
-                            <input type="text" name="saveName" value="" required="required">
-
-                            <label for="">Manager Name</label>
-                            <input type="text" name="saveManager" value="" required="required">
-
-                        <button type="submit" name="button">Save</button>
-
-                    </form>
+    <div class="block--modal-overlay hide" data-target="create-team">
+        <div class="block block-color--default block--modal">
+            <header class="block__title">
+                <h3>Create a save</h3>
+            </header>
+            <div class="block__content">
+            <form class="form" action="{{ route('post.saves', [Auth::user()->username ]) }}" method="post">
+                {{ csrf_field() }}
+                <div class="form__group">
+                    <label class="form__label"for="">Save Name</label>
+                    <input class="form__input"type="text" name="saveName" value="" required="required">
                 </div>
+                <div class="form__group">
+                    <label class="form__label"for="">Manager Name</label>
+                    <input class="form__input"type="text" name="saveManager" value="" required="required">
+                </div>
+                <div class="layout-split-2--apart">
+                    <div class="column">
+                        <p><a href="#" class="button--secondary">Cancel</a></p>
+                    </div>
+                    <div class="column">
+                        <button type="submit" name="button--primary">Save</button>
+                    </div>
+                </div>
+            </form>
             </div>
+        </div>
+    </div>
+
 @else
     <p><a href="#" class="button button--secondary" data-toggle="create-team">Create Save</a></p>
 

@@ -1,12 +1,12 @@
 .block {
-    background: $white;
     display: flex;
     flex-direction: column;
 
 
     &__content {
+        background-color: $white;
+        border: 1px solid $grey;
         border-top: 0;
-        border: 1px solid #666;
     }
 
     &__edit {
