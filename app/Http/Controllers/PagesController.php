@@ -33,12 +33,13 @@ class PagesController extends Controller
     {
         $userID = Auth::user()->id;
         $saves = Save::where('user_id', $userID)->get();
+        $team = Team::where('user_id', $userID)->get();
         $id = array();
         foreach ($saves as $save) {
             array_push($id, $save->id);
         }
         // return teams that belong to current user
-        return view('saves.index')->with('saves', $saves)->with('id', $id);
+        return view('saves.index')->with('saves', $saves)->with('id', $id)->with('team', $team);
     }
 
     public function getSeasons(Request $request)

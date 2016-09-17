@@ -14,66 +14,110 @@
 
 .block-color {
     &--default {
+        &.border-top {
+            border-top: 10px solid $default;
+        }
+
         .block__title {
             background-color: $default;
         }
     }
 
     &--navyBlue {
+        &.border-top {
+            border-top: 10px solid $navyBlue;
+        }
+
         .block__title {
             background-color: $navyBlue;
         }
     }
 
     &--royalBlue {
+        &.border-top {
+            border-top: 10px solid $royalBlue;
+        }
+
         .block__title {
             background-color: $royalBlue;
         }
     }
 
     &--paleBlue {
+        &.border-top {
+            border-top: 10px solid $paleBlue;
+        }
+
         .block__title {
             background-color: $paleBlue;
         }
     }
 
     &--turqouise {
+        &.border-top {
+            border-top: 10px solid $turqouise;
+        }
+
         .block__title {
             background-color: $turqouise;
         }
     }
 
     &--green {
+        &.border-top {
+            border-top: 10px solid $green;
+        }
+
         .block__title {
             background-color: $green;
         }
     }
 
     &--darkGrey {
+        &.border-top {
+            border-top: 10px solid $darkGrey;
+        }
+
         .block__title {
             background-color: $darkGrey;
         }
     }
 
     &--purple {
+        &.border-top {
+            border-top: 10px solid $purple;
+        }
+
         .block__title {
             background-color: $purple;
         }
     }
 
     &--magenta {
+        &.border-top {
+            border-top: 10px solid $magenta;
+        }
+
         .block__title {
             background-color: $magenta;
         }
     }
 
     &--red {
+        &.border-top {
+            border-top: 10px solid $red;
+        }
+
         .block__title {
             background-color: $red;
         }
     }
 
     &--gold {
+        &.border-top {
+            border-top: 10px solid $gold;
+        }
+
         .block__title {
             background-color: $gold;
         }

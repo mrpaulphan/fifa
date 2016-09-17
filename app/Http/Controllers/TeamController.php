@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Team;
+use App\Save;
 
 class TeamController extends Controller
 {
@@ -41,6 +42,9 @@ class TeamController extends Controller
         $team->club_worth            = $request->club_worth;
         $team->transfer_budget       = $request->transfer_budget;
         $team->save();
+
+        // Store TeamID to SavesID
+    
 
         // Redirect
         return redirect()->route('show.seasons', [Auth::user()->username, $request->slug ]);

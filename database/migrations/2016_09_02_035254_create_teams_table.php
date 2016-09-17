@@ -15,9 +15,9 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('user_id');
-            $table->double('save_id');
-            $table->double('season')->default('2016');
+            $table->integer('user_id');
+            $table->integer('save_id');
+            $table->integer('season')->default('2016');
             $table->string('team_color');
             $table->string('team_name')->default('--');
             $table->string('domestic_objective')->default('--');

@@ -61,12 +61,12 @@
     </div>
     <div class="layout-split-3" spacing="2">
         @foreach($saves as $save)
-            <div class="column block border-top {{ $save->save_color }}">
+            <div class="column block {{$team->isEmpty() ? 'block-color--default' : 'block-color--'.$team[0]->team_color}} border-top">
                 <div class="layout-split-full">
                     <div class="column">
                         <h2>{{ $save->save_name }} <span data-toggle="edit-{{ $save->id }}">edit</span></h2>
                         <p>{{ $save->save_manager_name }}</p>
-                        <p>{{ $save->save_team_name }}</p>
+                        <p>{{$team->isEmpty() ? '' : $team[0]->team_name}}</p>
                     </div>
                 </div>
                 <div class="layout-split-2">

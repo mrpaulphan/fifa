@@ -1417,35 +1417,68 @@ select {
   background-color: #fff;
   padding: 20px; }
 
+.block-color--default.border-top {
+  border-top: 10px solid #bfbfbf; }
+
 .block-color--default .block__title {
   background-color: #bfbfbf; }
+
+.block-color--navyBlue.border-top {
+  border-top: 10px solid #203d8a; }
 
 .block-color--navyBlue .block__title {
   background-color: #203d8a; }
 
+.block-color--royalBlue.border-top {
+  border-top: 10px solid #0567c7; }
+
 .block-color--royalBlue .block__title {
   background-color: #0567c7; }
+
+.block-color--paleBlue.border-top {
+  border-top: 10px solid #4f9cd4; }
 
 .block-color--paleBlue .block__title {
   background-color: #4f9cd4; }
 
+.block-color--turqouise.border-top {
+  border-top: 10px solid #02a098; }
+
 .block-color--turqouise .block__title {
   background-color: #02a098; }
+
+.block-color--green.border-top {
+  border-top: 10px solid #008000; }
 
 .block-color--green .block__title {
   background-color: #008000; }
 
+.block-color--darkGrey.border-top {
+  border-top: 10px solid #2c3e50; }
+
 .block-color--darkGrey .block__title {
   background-color: #2c3e50; }
+
+.block-color--purple.border-top {
+  border-top: 10px solid #8e44ad; }
 
 .block-color--purple .block__title {
   background-color: #8e44ad; }
 
+.block-color--magenta.border-top {
+  border-top: 10px solid #a3214b; }
+
 .block-color--magenta .block__title {
   background-color: #a3214b; }
 
+.block-color--red.border-top {
+  border-top: 10px solid #d33120; }
+
 .block-color--red .block__title {
   background-color: #d33120; }
+
+.block-color--gold.border-top {
+  border-top: 10px solid #f39c12; }
 
 .block-color--gold .block__title {
   background-color: #f39c12; }

@@ -15,24 +15,24 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
           $table->increments('id');
-          $table->double('user_id');
+          $table->integer('user_id');
           $table->string('name');
           $table->string('season');
           $table->string('status')->default('First Team');
           $table->string('position');
-          $table->double('age');
-          $table->double('overall');
-          $table->double('appearances')->nullable();
-          $table->double('goals')->nullable();
-          $table->double('assists')->nullable();
-          $table->double('joined')->nullable();
+          $table->integer('age');
+          $table->integer('overall');
+          $table->integer('appearances')->nullable();
+          $table->integer('goals')->nullable();
+          $table->integer('assists')->nullable();
+          $table->integer('joined')->nullable();
           $table->decimal('form')->nullable();
           $table->string('contract')->nullable();
           $table->string('nationality')->nullable();
-          $table->double('value')->nullable();
-          $table->double('wages')->nullable();
-          $table->double('potential_low')->nullable();
-          $table->double('potential_high')->nullable();
+          $table->integer('value')->nullable();
+          $table->integer('wages')->nullable();
+          $table->integer('potential_low')->nullable();
+          $table->integer('potential_high')->nullable();
           $table->timestamps('');
         });
     }
