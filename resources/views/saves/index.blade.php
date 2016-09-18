@@ -84,11 +84,9 @@
 
                     </div>
                     <div class="column">
-                        <form class="" action="{{ route('show.seasons', [Auth::user()->username, $save->slug ]) }}" method="post">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="id" value="{{ $save->id }}">
-                            <button type="submit" class="button--primary" name="button">Open</button>
-                        </form>
+                        <p>
+                            <a class="button--primary" href="{{ route('show.seasons', [Auth::user()->username, $save->slug ]) }}">Open</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -152,6 +150,7 @@
                 </div>
 
             </div>
+        </div>
         @endforeach
     </div>
 @endif

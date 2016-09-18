@@ -11,13 +11,22 @@ use App\Save;
 
 class SeasonController extends Controller
 {
+    // Get Save ID
+    public function getSaveId($slug) {
+        $save = new Save();
+        $save = Save::where('slug', $slug)->get();
+        return $save[0]->id;
+    }
+
     public function store(Request $request)
     {
+        $save_id= $this->getSaveId($request->slug);
+
         // Store
         $season                        = new Season();
         $season->color                 = $request->color;
         $season->name                  = $request->name;
-        $season->save_id               = $request->save_id;
+        $season->save_id               = $save_id;
         $season->domestic_objective    = $request->domestic_objective;
         $season->continental_objective = $request->continental_objective;
         $season->brand_objective       = $request->brand_objective;

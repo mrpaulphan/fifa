@@ -20,7 +20,6 @@ Route::delete('{username}/saves/delete', 'SavesController@delete')->name('delete
 
 // Season
 Route::get('{username}/{slug}/season', 'PagesController@getSeasons')->name('show.seasons');
-Route::post('{username}/{slug}/season', 'PagesController@getSeasons')->name('post.seasons');
 Route::post('{username}/{slug}/season/create', 'SeasonController@store')->name('store.team');
 
 

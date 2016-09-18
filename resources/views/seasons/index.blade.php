@@ -151,12 +151,12 @@
 
                     <div class="trow layout-split-2--table">
                         <div class="column l-gray text-align-right">Club Worth</div>
-                        <div class="column d-gray">{{ $season->isEmpty() || $season[0]->club_worth == '' ? '--' : '$'.$season[0]->club_worth }}</div>
+                        <div class="column d-gray">{{ $season->isEmpty()  ? '--' : '$'.$season[0]->club_worth }}</div>
                     </div>
 
                     <div class="trow layout-split-2--table">
                         <div class="column l-gray text-align-right">Transfer Budget</div>
-                        <div class="column d-gray">{{ $season->isEmpty() || $season[0]->transfer_budget == '' ? '--' : $season[0]->transfer_budget }}</div>
+                        <div class="column d-gray">{{ $season->isEmpty() ? '--' : '$'. $season[0]->transfer_budget }}</div>
                     </div>
 
 
