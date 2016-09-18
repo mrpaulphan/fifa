@@ -851,6 +851,12 @@ p {
 .has-error .block-help {
   color: #d33120; }
 
+.content {
+  background: #fff; }
+
+.background-white {
+  background-color: #fff; }
+
 .button, .button--primary, .button--secondary {
   display: inline-block;
   padding: 10px;
@@ -1207,50 +1213,8 @@ select {
 .post__byline__date {
   display: inline-block; }
 
-.nav__item {
-  display: inline-block; }
-
-.nav__link {
-  display: block;
-  padding: 10px; }
-
-.nav-main {
-  width: 100%; }
-  .nav-main::before {
-    background-color: #16c3b9;
-    content: ''; }
-  .nav-main__item {
-    display: block; }
-    .nav-main__item:nth-child(1) {
-      background-color: #136d68; }
-    .nav-main__item:nth-child(2) {
-      background-color: #1a7e78; }
-    .nav-main__item:nth-child(3) {
-      background-color: #1f968f; }
-    .nav-main__item:nth-child(4) {
-      background-color: #23a49d; }
-    .nav-main__item:nth-child(5) {
-      background-color: #28ada6; }
-    .nav-main__item:focus, .nav-main__item:hover {
-      background-color: #c91b74; }
-      .nav-main__item:focus .nav-main__link, .nav-main__item:hover .nav-main__link {
-        color: #fff; }
-      .nav-main__item:focus .inner, .nav-main__item:hover .inner {
-        fill: #fff; }
-  .nav-main__item.active {
-    background: #fff; }
-    .nav-main__item.active .nav-main__link {
-      color: #111; }
-    .nav-main__item.active .inner {
-      fill: #111; }
-  .nav-main__link {
-    display: block;
-    padding: 20px 0; }
-    .nav-main__link svg {
-      margin-left: 5px;
-      margin-right: 5px; }
-    .nav-main__link:hover svg > * {
-      fill: #111; }
+.navigation {
+  background: #fff; }
 
 .band {
   padding: 40px;
@@ -1411,6 +1375,17 @@ select {
 .block__content {
   background-color: #fff;
   padding: 20px; }
+
+.block__action {
+  display: none;
+  float: right; }
+  .block__action svg {
+    cursor: pointer;
+    height: 15px;
+    width: inherit; }
+
+.block:hover .block__action {
+  display: inline-block; }
 
 .block-color--default.border-top {
   border-top: 10px solid #bfbfbf; }

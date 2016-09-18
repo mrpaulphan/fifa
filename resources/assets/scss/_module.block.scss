@@ -10,6 +10,23 @@
         background-color: $white;
         padding: 20px;
     }
+
+    &__action {
+        display: none;
+        float: right;
+
+        svg {
+            cursor: pointer;
+            height: 15px;
+            width: inherit;
+        }
+    }
+
+    &:hover {
+        .block__action {
+            display: inline-block;
+        }
+    }
 }
 
 .block-color {

@@ -15,9 +15,17 @@
     .form__input {
         border: 1px solid $error;
     }
-    
+
     .block-help {
         @extend .strong;
         color: $error;
     }
+}
+
+.content {
+    background: $white;
+}
+
+.background-white {
+    background-color: $white;
 }

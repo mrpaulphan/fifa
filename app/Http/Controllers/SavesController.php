@@ -8,16 +8,19 @@ use App\Save;
 
 class SavesController extends Controller
 {
+    // Create slug from save name
+    public function generateSlug($slug) {
+        $slug = str_slug($slug, '-');
+        return $slug;
+    }
     public function store(Request $request)
     {
         // Validate
         $this->validate($request, [
-               'saveName' => 'required|max:255',
+                'saveName' => 'required|unique:saves,name,NULL,id,user_id,'. Auth::user()->id .'|max:255',
                'saveManager' => 'required|max:255',
          ]);
-
-         // Convert name to url friendly slug
-         $slug = str_slug($request->saveName, '-');
+         $slug = $this->generateSlug($request->saveName);
 
         // Store
         $save = new Save();

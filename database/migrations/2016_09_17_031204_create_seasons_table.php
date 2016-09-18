@@ -15,6 +15,17 @@ class CreateSeasonsTable extends Migration
     {
         Schema::create('seasons', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('save_id');
+            $table->integer('season')->default('2016');
+            $table->string('name')->default('--');
+            $table->string('color');
+            $table->string('domestic_objective')->default('--');
+            $table->string('continental_objective')->default('--');
+            $table->string('brand_objective')->default('--');
+            $table->string('financial_objective')->default('--');
+            $table->string('youth_objective')->default('--');
+            $table->integer('club_worth')->default('0');
+            $table->integer('transfer_budget')->default('0');
             $table->timestamps();
         });
     }

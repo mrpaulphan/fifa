@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Team;
+use App\Season;
 use App\Save;
 
 class PagesController extends Controller
@@ -33,23 +34,23 @@ class PagesController extends Controller
     {
         $userID = Auth::user()->id;
         $saves = Save::where('user_id', $userID)->get();
-        $team = Team::where('user_id', $userID)->get();
         $id = array();
         foreach ($saves as $save) {
             array_push($id, $save->id);
         }
         // return teams that belong to current user
-        return view('saves.index')->with('saves', $saves)->with('id', $id)->with('team', $team);
+        return view('saves.index')->with('saves', $saves);
     }
 
-    public function getSeasons(Request $request)
+    public function getSeasons(Request $request, $saveId)
     {
+        // Get user id
         $userID = Auth::user()->id;
-        $team = Team::where('user_id', $userID)->get();
         $save = Save::where('user_id', $userID)->where('slug', $request->slug)->get();
-        // Get first object
-        $save = $save[0];
-        return view('seasons.index')->with('team', $team)->with('slug', $request->slug)->with('save', $save);
+        $save->slug = $request->slug;
+        $save->id = $request->id;
+        $season = Season::where('save_id', $save->id)->get();
+        return view('seasons.index')->with('season', $season)->with('save', $save);
     }
 
 
