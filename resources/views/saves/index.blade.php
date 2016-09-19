@@ -72,7 +72,8 @@
 
 
 
-            <div class="column border-top block block-color--default @foreach($save->seasons as $season)block-color--{{ $season->color }}@endforeach">
+
+            <div class="column border-top block block-color--default @foreach($save->seasons as $season)block-color--{{ $season->color }} @endforeach">
                 <div class="block__content">
                     <h2>{{ $save->name }}
                         <div class="block__action">

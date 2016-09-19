@@ -42,13 +42,10 @@ class PagesController extends Controller
             ->orderBy('season', 'desc')
             ->get();
 
-
-        //    $season = $saves->find(1)->seasons()->orderBy('season', 'desc')->get();
-
-
         // return teams that belong to current user
         return view('saves.index')
-            ->with('saves', $saves);
+            ->with('saves', $saves)
+            ->with('seasons', $seasons);
     }
 
     public function getSeasons(Request $request)
