@@ -12,4 +12,11 @@ class Save extends Model
         'manager',
         'user_id',
     ];
+
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
+    public function seasons() {
+        return $this->hasMany('App\Season');
+    }
 }

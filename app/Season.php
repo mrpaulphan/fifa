@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     protected $fillable = [
-      'save_id',
+    'save_id',
       'season',
       'color',
       'name',
@@ -17,6 +17,11 @@ class Season extends Model
       'financial_objective',
       'youth_objective',
       'club_worth',
-      'transfer_budget'
+      'transfer_budget',
     ];
+
+    public function saves() {
+        return $this->belongsTo('App\Save');
+    }
+
 }

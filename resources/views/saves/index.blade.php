@@ -69,7 +69,10 @@
     </div>
     <div class="layout-split-3" spacing="2">
         @foreach($saves as $save)
-            <div class="column block block-color--default border-top">
+
+
+
+            <div class="column border-top block block-color--default @foreach($save->seasons as $season)block-color--{{ $season->color }}@endforeach">
                 <div class="block__content">
                     <h2>{{ $save->name }}
                         <div class="block__action">
@@ -78,7 +81,7 @@
                         </div>
                     </h2>
                     <p>{{ $save->manager }}</p>
-                    <p></p>
+                    <p>@foreach($save->seasons as $season){{ $season->name }}@endforeach</p>
                 <div class="layout-split-2">
                     <div class="column">
 
@@ -151,7 +154,8 @@
 
             </div>
         </div>
-        @endforeach
+    @endforeach
+
     </div>
 @endif
 </div>
