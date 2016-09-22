@@ -13,10 +13,31 @@ class Save extends Model
         'user_id',
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
-    public function seasons() {
+    public function seasons()
+    {
         return $this->hasMany('App\Season');
+    }
+    public function recentSeason()
+    {
+        return $this->hasMany('App\Season')->orderBy('season','desc');
+    }
+    public function seasonCount()
+    {
+        return $this->hasMany('App\Season')->count();
+    }
+
+    public function hasSeason()
+    {
+        return (bool) $this->seasons()->first();
+    }
+
+    public function mostRecentSeason()
+    {
+        $relation->getQuery()->orderBy('created_at', 'desc');
+
     }
 }

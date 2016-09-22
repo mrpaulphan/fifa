@@ -29,114 +29,142 @@
     }
 }
 
-.block-color {
-    &--default {
-        &.border-top {
-            border-top: 10px solid $default;
-        }
-
-        .block__title {
-            background-color: $default;
-        }
+[data-block-color="default"] {
+    &.border-top {
+        border-top: 10px solid $default;
     }
 
-    &--navyBlue {
-        &.border-top {
-            border-top: 10px solid $navyBlue;
-        }
+    .block__title {
+        background-color: $default;
+    }
+}
 
-        .block__title {
-            background-color: $navyBlue;
-        }
+[data-block-color="navyBlue"] {
+    &.border-top {
+        border-top: 10px solid $navyBlue;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $navyBlue;
     }
 
-    &--royalBlue {
-        &.border-top {
-            border-top: 10px solid $royalBlue;
-        }
+    .block__title {
+        background-color: $navyBlue;
+    }
+}
 
-        .block__title {
-            background-color: $royalBlue;
-        }
+[data-block-color="royalBlue"] {
+    &.border-top {
+        border-top: 10px solid $royalBlue;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $royalBlue;
     }
 
-    &--paleBlue {
-        &.border-top {
-            border-top: 10px solid $paleBlue;
-        }
+    .block__title {
+        background-color: $royalBlue;
+    }
+}
 
-        .block__title {
-            background-color: $paleBlue;
-        }
+[data-block-color="paleBlue"] {
+    &.border-top {
+        border-top: 10px solid $paleBlue;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $paleBlue;
     }
 
-    &--turqouise {
-        &.border-top {
-            border-top: 10px solid $turqouise;
-        }
+    .block__title {
+        background-color: $paleBlue;
+    }
+}
 
-        .block__title {
-            background-color: $turqouise;
-        }
+[data-block-color="turqouise"] {
+    &.border-top {
+        border-top: 10px solid $turqouise;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $turqouise;
     }
 
-    &--green {
-        &.border-top {
-            border-top: 10px solid $green;
-        }
+    .block__title {
+        background-color: $turqouise;
+    }
+}
 
-        .block__title {
-            background-color: $green;
-        }
+[data-block-color="green"] {
+    &.border-top {
+        border-top: 10px solid $green;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $green;
     }
 
-    &--darkGrey {
-        &.border-top {
-            border-top: 10px solid $darkGrey;
-        }
+    .block__title {
+        background-color: $green;
+    }
+}
 
-        .block__title {
-            background-color: $darkGrey;
-        }
+[data-block-color="darkGrey"] {
+    &.border-top {
+        border-top: 10px solid $darkGrey;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $darkGrey;
     }
 
-    &--purple {
-        &.border-top {
-            border-top: 10px solid $purple;
-        }
+    .block__title {
+        background-color: $darkGrey;
+    }
+}
 
-        .block__title {
-            background-color: $purple;
-        }
+[data-block-color="purple"] {
+    &.border-top {
+        border-top: 10px solid $purple;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $purple;
     }
 
-    &--magenta {
-        &.border-top {
-            border-top: 10px solid $magenta;
-        }
+    .block__title {
+        background-color: $purple;
+    }
+}
 
-        .block__title {
-            background-color: $magenta;
-        }
+[data-block-color="magenta"] {
+    &.border-top {
+        border-top: 10px solid $magenta;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $magenta;
     }
 
-    &--red {
-        &.border-top {
-            border-top: 10px solid $red;
-        }
+    .block__title {
+        background-color: $magenta;
+    }
+}
 
-        .block__title {
-            background-color: $red;
-        }
+[data-block-color="red"] {
+    &.border-top {
+        border-top: 10px solid $red;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $red;
     }
 
-    &--gold {
-        &.border-top {
-            border-top: 10px solid $gold;
-        }
+    .block__title {
+        background-color: $red;
+    }
+}
 
-        .block__title {
-            background-color: $gold;
-        }
+[data-block-color="gold"] {
+    &.border-top {
+        border-top: 10px solid $gold;
+    }
+    &[data-toggle="colorPicker"] {
+        background-color: $gold;
+    }
+
+    .block__title {
+        background-color: $gold;
     }
 }

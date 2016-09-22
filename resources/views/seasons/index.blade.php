@@ -4,20 +4,82 @@
 <div class="content">
     @if($season->isEmpty())
         <div class="block--modal-overlay">
-            <div class="block--modal {{$season->isEmpty() ? 'block-color--default' : 'block-color--'.$season[0]->color}}">
+            <div class="block--modal" data-block-color="default">
                 <section class="season-direction" data-target="show-team-form">
                     <header class="block__title">
                         <h3>Create a save</h3>
                     </header>
                     <div class="block__content">
-                        <form class="form" action="{{ route('store.team', [Auth::user()->username, $save->slug ]) }}" method="POST">
+                        <form class="form" action="{{ route('store.team', [Auth::user()->username, $save->slug ]) }}" method="POST" data-form="postTeam">
                             {{ csrf_field() }}
                             <input type="hidden" name="save_id" value="{{ $save->id }}">
+
                             <fieldset class="form__fieldset">
                                 <div class="layout-split-2">
-                                    <div class="column form__group">
-                                        <label class="form__label" for="">Team Name</label>
-                                        <input type="text" name="name" value="">
+                                    <div class="column layout-split-2--aside">
+                                        <div class="column form__group">
+                                            <label class="form__label" for="">Team Name</label>
+                                            <input type="text" name="name" value="">
+                                        </div>
+                                        <div class="column">
+                                            <div class="form__group form__group--color-picker">
+                                                <label class="form__label" for="">Color</label>
+                                                <div class="form__radio-label" data-toggle="colorPicker" data-block-color="default"></div>
+                                                <div class="layout-split-5 form__group--color-picker-group" spacing="1" data-target="colorPicker">
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="navyBlue" id="navyBlue">
+                                                    <label class="form__radio-label" for="navyBlue"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="royalBlue" id="royalBlue">
+                                                    <label class="form__radio-label" for="royalBlue"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="paleBlue" id="paleBlue">
+                                                    <label class="form__radio-label" for="paleBlue"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="turqouise" id="turqouise">
+                                                    <label class="form__radio-label" for="turqouise"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="green" id="green">
+                                                    <label class="form__radio-label" for="green"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="darkGrey" id="darkGrey">
+                                                    <label class="form__radio-label" for="darkGrey"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="purple" id="purple">
+                                                    <label class="form__radio-label" for="purple"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="magenta" id="magenta">
+                                                    <label class="form__radio-label" for="magenta"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="red" id="red">
+                                                    <label class="form__radio-label" for="red"></label>
+                                                </div>
+
+                                                <div class="column">
+                                                    <input class="form__radio" type="radio" name="color" value="gold" id="gold">
+                                                    <label class="form__radio-label" for="gold"></label>
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                     <div class="column form__group">
                                         <label class="form__label" for="">Continental Objective</label>
@@ -47,66 +109,12 @@
                                         <label class="form__label" for="">Youth Objective</label>
                                         <input class="form__input" type="text" name="youth_objective" value="">
                                     </div>
-                                    <div class="colum form__group">
-                                        <label class="form__label" for="">Team Color</label>
-                                        <div class="layout-split-5" spacing="1">
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="navyBlue" id="navyBlue" checked="checked">
-                                                <label class="form__radio-label" for="navyBlue"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="royalBlue" id="royalBlue">
-                                                <label class="form__radio-label" for="royalBlue"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="paleBlue" id="paleBlue">
-                                                <label class="form__radio-label" for="paleBlue"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="turqouise" id="turqouise">
-                                                <label class="form__radio-label" for="turqouise"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="green" id="green">
-                                                <label class="form__radio-label" for="green"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="darkGrey" id="darkGrey">
-                                                <label class="form__radio-label" for="darkGrey"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="purple" id="purple">
-                                                <label class="form__radio-label" for="purple"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="magenta" id="magenta">
-                                                <label class="form__radio-label" for="magenta"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="red" id="red">
-                                                <label class="form__radio-label" for="red"></label>
-                                            </div>
-
-                                            <div class="column">
-                                                <input class="form__radio" type="radio" name="color" value="gold" id="gold">
-                                                <label class="form__radio-label" for="gold"></label>
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
                             </fieldset>
                             <div class="">
                                 <button type="button" name="button">Back</button>
                                 <button type="button" name="button">Skip</button>
-                                <button type="submit" name="button">Next</button>
+                                <button type="button" name="button" data-ajax="postTeam">Next</button>
                             </div>
                         </form>
                     </div>
@@ -115,7 +123,7 @@
         </div>
     @endif
     <div class="layout-split-2--wrapper" spacing="1">
-          <div class="column block {{$season->isEmpty() ? 'block-color--default' : 'block-color--'.$season[0]->color}}">
+          <div class="column block" data-block-color="default">
               <header class="block__title">
                 <h3>Information</h3>
             </header>
@@ -141,7 +149,7 @@
                     </div>
 
                     <div class="trow layout-split-2--table">
-                        <div class="column l-gray text-align-right">Finanvial Objective</div>
+                        <div class="column l-gray text-align-right">Financial Objective</div>
                         <div class="column d-gray">{{ $season->isEmpty() || $season[0]->financial_objective == '' ? '--' : $season[0]->financial_objective }}</div>
                     </div>
                     <div class="trow layout-split-2--table">
@@ -163,7 +171,7 @@
 
                 </div>
           </div>
-          <div class="column block {{$season->isEmpty() ? 'block-color--default' : 'block-color--'.$season[0]->color}}">
+          <div class="column block" data-block-color="default">
               <div class="block__title">
                 <h3>Overview</h3>
               </div>
@@ -197,7 +205,7 @@
     </div>
 
             <div class="layout-split-4" >
-            <div class="column block {{$season->isEmpty() ? 'block-color--default' : 'block-color--'.$season[0]->color}}">
+            <div class="column block" data-block-color="default">
                             <div class="block__title">
                               <h3>Premier League</h3>
                             </div>
@@ -220,7 +228,7 @@
                                   </div>
             </div>
             </div>
-            <div class="column block {{$season->isEmpty() ? 'block-color--default' : 'block-color--'.$season[0]->color}}">
+            <div class="column block" data-block-color="default">
                 <div class="block__title">
                   <h3>FA Cup</h3>
                 </div>
@@ -243,7 +251,7 @@
                       </div>
             </div>
             </div>
-            <div class="column block {{$season->isEmpty() ? 'block-color--default' : 'block-color--'.$season[0]->color}}">
+            <div class="column block" data-block-color="default">
                 <div class="block__title">
                   <h3>Capital One Cup</h3>
                 </div>
@@ -266,7 +274,7 @@
                       </div>
             </div>
             </div>
-            <div class="column block {{$season->isEmpty() ? 'block-color--default' : 'block-color--'.$season[0]->color}}">
+            <div class="column block" data-block-color="default">
                 <div class="block__title">
                   <h3>Europa League</h3>
                 </div>

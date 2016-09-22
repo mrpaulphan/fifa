@@ -2,16 +2,22 @@
     @include media ('>large') {
         @include autolayout( '|[column]-[column]|');
     }
-    &--sidebar {
-        @include media ('>large') {
-            @include autolayout( '|[column(#{percentage(4/12)})]-[column(#{percentage(8/12)})]|');
+    &--aside {
+        @include media('>large') {
+            @include autolayout('|[column(#{percentage(8 / 12)})]-[column(#{percentage(4 / 12)})]|');
         }
 
 
     }
     &--apart {
+        @include autolayout('|[column(#{percentage(6 / 12)})]-[column(#{percentage(6 / 12)})]|');
         display: flex;
         justify-content: space-between;
+
+        > .column:nth-child(even) {
+            text-align: right;
+        }
+
 
     }
     &--apart-center {

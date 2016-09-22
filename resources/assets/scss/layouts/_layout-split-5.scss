@@ -1,5 +1,5 @@
 .layout-split-5 {
-    @include autolayout( '|[column(20%)]-[column(20%)]-[column(20%)]-[column(20%)]-[column(20%)]|');
+    @include autolayout( '|[column(20%)][column(20%)][column(20%)][column(20%)][column(20%)]|');
 }
 
 [class*="layout-split-5"] {

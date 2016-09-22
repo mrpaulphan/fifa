@@ -10101,7 +10101,7 @@ module.exports = (function() {
                             thisTarget.show();
                             break;
                     default:
-                        thisTarget.show();
+                        thisTarget.toggle();
                 }
             });
         },

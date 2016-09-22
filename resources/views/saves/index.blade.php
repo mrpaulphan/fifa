@@ -5,7 +5,7 @@
     @if($saves->isEmpty())
         <div spacing="1">
             <p>Looks like you dont have any saves set up yet</p>
-            <p class="align-center"><a href="#" class="button--primary" data-toggle="create-team">Create Save</a></p>
+            <p class="align-center"><a href="#" class="button--primary" data-toggle="create-team">Add Save</a></p>
         </div>
 
     <div class="block--modal-overlay hide" data-target="create-team">
@@ -38,11 +38,11 @@
     </div>
 
 @else
-    <p><a href="#" class="button button--secondary" data-toggle="create-team">Create Save</a></p>
+    <p><a href="#" class="button button--secondary" data-toggle="create-team">Add Save</a></p>
     <div class="block--modal-overlay {{ $errors->has('saveName') ? '' : 'hide' }}" data-target="create-team">
         <div class="block block-color--default block--modal">
             <header class="block__title">
-                <h3>Create a save</h3>
+                <h3>Add a save</h3>
             </header>
             <div class="block__content">
                 <form class="" action="{{ route('post.saves', [Auth::user()->username ]) }}" method="post">
@@ -69,11 +69,7 @@
     </div>
     <div class="layout-split-3" spacing="2">
         @foreach($saves as $save)
-
-
-
-
-            <div class="column border-top block block-color--default @foreach($save->seasons as $season)block-color--{{ $season->color }} @endforeach">
+            <div class="column border-top block " data-block-color="{{ $save->hasSeason() ? $save->recentSeason->first()->color : 'default' }}">
                 <div class="block__content">
                     <h2>{{ $save->name }}
                         <div class="block__action">
@@ -82,9 +78,33 @@
                         </div>
                     </h2>
                     <p>{{ $save->manager }}</p>
-                    <p>@foreach($save->seasons as $season){{ $season->name }}@endforeach</p>
+                    <p>{{ $save->hasSeason() ? $save->recentSeason->first()->name : '--' }}</p>
                 <div class="layout-split-2">
                     <div class="column">
+                        <div class="layout-split-2--apart">
+                            <div class="column">
+                                <p>Teams</p>
+                            </div>
+                            <div class="column">
+                                <p>{{ $save->hasSeason() ? count($save->seasons) : '--' }}</p>
+                            </div>
+                        </div>
+                        <div class="layout-split-2--apart">
+                            <div class="column">
+                                <p>Seasons</p>
+                            </div>
+                            <div class="column">
+                                <p>{{ $save->hasSeason() ? count($save->seasons) : '--' }}</p>
+                            </div>
+                        </div>
+                        <div class="layout-split-2--apart">
+                            <div class="column">
+                                <p>Trophies</p>
+                            </div>
+                            <div class="column">
+                                <p>--</p>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="column">
@@ -96,7 +116,7 @@
             </div>
                 {{-- Update Modal --}}
                 <div class="block--modal-overlay hide" data-target="edit-{{ $save->id }}">
-                    <div class="block block--modal block-color--default">
+                    <div class="block block--modal " data-block-color="{{ $save->hasSeason() ? $save->recentSeason->first()->color : 'default' }}">
                         <header class="block__title">
                             <h3>Edit Save</h3>
                         </header>
@@ -131,7 +151,7 @@
                 {{-- Delete Modal --}}
 
                 <div class="block--modal-overlay hide" data-target="delete-{{ $save->id }}">
-                    <div class="block block--modal block-color--default">
+                    <div class="block block--modal " data-block-color="{{ $save->hasSeason() ? $save->recentSeason->first()->color : 'default' }}">
                         <header class="block__title">
                             <h3>Delete Save</h3>
                         </header>

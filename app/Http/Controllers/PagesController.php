@@ -11,11 +11,11 @@ use App\User;
 
 class PagesController extends Controller
 {
-
     public function getIndex()
     {
         if (Auth::check()) {
             $username = Auth::user()->username;
+
             return redirect()->route('show.saves', [$username]);
         } else {
             return view('landing');
@@ -33,19 +33,12 @@ class PagesController extends Controller
 
     public function getSaves()
     {
-    //    $season = Season::where('user_id', $userID)->get();
-
         // Get saves that belong to user
         $saves = User::find(1)->saves;
-        $seasons = Save::find(1)
-            ->seasons()
-            ->orderBy('season', 'desc')
-            ->get();
 
         // return teams that belong to current user
         return view('saves.index')
-            ->with('saves', $saves)
-            ->with('seasons', $seasons);
+            ->with('saves', $saves);
     }
 
     public function getSeasons(Request $request)
@@ -64,7 +57,6 @@ class PagesController extends Controller
             ->with('season', $season)
             ->with('save', $save->first());
     }
-
 
     public function getTransfers()
     {
