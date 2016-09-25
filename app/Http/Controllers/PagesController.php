@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Team;
 use App\Season;
-use App\Save;
 use App\User;
 
 class PagesController extends Controller
@@ -43,19 +42,11 @@ class PagesController extends Controller
 
     public function getSeasons(Request $request)
     {
-        // Get user id
-        $userID = Auth::user()->id;
-
-        $save = Save::where('user_id', $userID)
-            ->where('slug', $request->slug)
-            ->first();
-
-        $season = Season::where('save_id', $save->id)
-            ->get();
+        $saveId = Season::first()->belongsToSave->id;
+        $seasons = Season::where('save_id', $saveId)->orderBy('season', 'desc')->first();
 
         return view('seasons.index')
-            ->with('season', $season)
-            ->with('save', $save->first());
+            ->with('seasons', $seasons);
     }
 
     public function getTransfers()

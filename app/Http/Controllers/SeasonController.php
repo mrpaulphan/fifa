@@ -20,27 +20,25 @@ class SeasonController extends Controller
 
     public function store(Request $request)
     {
-        $save_id= $this->getSaveId($request->slug);
+        $season                        = new Season();
+        $season->save_id               = $request->save_id;
+        $season->color                 = $request->color;
+        $season->name                  = $request->name;
+        $season->domestic_objective    = $request->domestic_objective;
+        $season->continental_objective = $request->continental_objective;
+        $season->brand_objective       = $request->brand_objective;
+        $season->financial_objective   = $request->financial_objective;
+        $season->youth_objective       = $request->youth_objective;
+        $season->club_worth            = $request->club_worth;
+        $season->transfer_budget       = $request->transfer_budget;
+        $season->save();
 
         // Store
         if ($request->isMethod('post')){
-
-            $season                        = new Season();
-            $season->save_id               = $save_id;
-            $season->color                 = $request->color;
-            $season->name                  = $request->name;
-            $season->domestic_objective    = $request->domestic_objective;
-            $season->continental_objective = $request->continental_objective;
-            $season->brand_objective       = $request->brand_objective;
-            $season->financial_objective   = $request->financial_objective;
-            $season->youth_objective       = $request->youth_objective;
-            $season->club_worth            = $request->club_worth;
-            $season->transfer_budget       = $request->transfer_budget;
-            $season->save();
-
             return response()->json([
-                    'name' =>  $request->color,
-                    'color' => $request->name,
+                    'save_id' =>  $request->save_id,
+                    'name' =>  $request->name,
+                    'color' => $request->color,
                     'domestic_objective' => $request->domestic_objective,
                     'continental_objective' => $request->continental_objective,
                     'brand_objective' => $request->brand_objective,
@@ -49,13 +47,8 @@ class SeasonController extends Controller
                     'club_worth' => $request->club_worth,
                     'transfer_budget' => $request->transfer_budget
                 ]);
-            }
-
-
-        // Store TeamID to SavesID
-
-
-        // Redirect
-        return redirect()->route('show.seasons', [Auth::user()->username, $request->slug ]);
+        } else {
+            return redirect()->route('show.seasons', [Auth::user()->username, $request->slug ]);
+        }
     }
 }

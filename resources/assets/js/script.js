@@ -6,6 +6,7 @@ var relatedResources = require('./modules/relatedResources');
 var skipLink = require('./modules/skipLink');
 var ajax = require('./modules/ajax');
 var colorChange = require('./modules/colorChange');
+var modal = require('./modules/modal');
 
 /*-------------------------------------------
   DOCUMENT READY FUNCTIONS
@@ -18,4 +19,5 @@ $(document).ready(function() {
     skipLink.init();
     colorChange.init();
     ajax.init();
+    modal.init();
 });

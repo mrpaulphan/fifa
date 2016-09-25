@@ -10077,31 +10077,6 @@ return jQuery;
 },{}],2:[function(require,module,exports){
 var $ = require('jquery');
 
-// Modules Dependencies
-var toggle = require('./modules/toggle');
-var relatedResources = require('./modules/relatedResources');
-var skipLink = require('./modules/skipLink');
-var ajax = require('./modules/ajax');
-var colorChange = require('./modules/colorChange');
-var modal = require('./modules/modal');
-
-/*-------------------------------------------
-  DOCUMENT READY FUNCTIONS
-  All functions to be called on
-  doc ready
--------------------------------------------*/
-$(document).ready(function() {
-    toggle.init();
-    relatedResources();
-    skipLink.init();
-    colorChange.init();
-    ajax.init();
-    modal.init();
-});
-
-},{"./modules/ajax":3,"./modules/colorChange":4,"./modules/modal":5,"./modules/relatedResources":6,"./modules/skipLink":7,"./modules/toggle":8,"jquery":1}],3:[function(require,module,exports){
-var $ = require('jquery');
-
 module.exports = (function() {
     var storeButton = $('[data-ajax]');
     var form = $('[data-form]');
@@ -10152,30 +10127,6 @@ module.exports = (function() {
                         },
                         success: function(data) {
                             console.log(data);
-                            var name = data.name;
-                            var color = data.color = '' ? '--' : data.color;
-                            var domestic_objective = data.domestic_objective == '' ? '--' : data.domestic_objective;
-                            var continental_objective = data.continental_objective == '' ? '--' : data.continental_objective;
-                            var brand_objective = data.brand_objective == '' ? '--' : data.brand_objective;
-                            var financial_objective = data.financial_objective == '' ? '--' : data.financial_objective;
-                            var youth_objective = data.youth_objective == '' ? '--' : data.youth_objective;
-                            var transfer_budget = data.transfer_budget == '' ? '--' : data.transfer_budget;
-                            var club_worth = data.club_worth == '' ? '--' : data.club_worth;
-
-                            // Update Page
-                            $('[data-ajax-get="name"]').text(name);
-                            $('[data-ajax-get="color"]').text(color);
-                            $('[data-ajax-get="domestic_objective"]').text(domestic_objective);
-                            $('[data-ajax-get="continental_objective"]').text(continental_objective);
-                            $('[data-ajax-get="brand_objective"]').text(brand_objective);
-                            $('[data-ajax-get="financial_objective"]').text(financial_objective);
-                            $('[data-ajax-get="youth_objective"]').text(youth_objective);
-                            $('[data-ajax-get="transfer_budget"]').text(transfer_budget);
-                            $('[data-ajax-get="club_worth"]').text(club_worth);
-
-
-
-
                         },
                         error: function(xhr, b, c) {
                             console.log("xhr=" + xhr + " b=" + b + " c=" + c);
@@ -10187,137 +10138,6 @@ module.exports = (function() {
 
             });
 
-        }
-    }
-})();
-
-},{"jquery":1}],4:[function(require,module,exports){
-var $ = require('jquery');
-
-module.exports = (function() {
-    var blockColor = $('[data-block-color]');
-    var colorPicker = $('[name="color"]');
-
-    return {
-        init: function() {
-            colorPicker.change(function() {
-                var color = $(this).val();
-                blockColor.each(function() {
-                    $(this).attr('data-block-color', color);
-                })
-            });
-        }
-
-    }
-})();
-
-},{"jquery":1}],5:[function(require,module,exports){
-var $ = require('jquery');
-
-module.exports = (function() {
-    var directionModalButton = $('#showTeamModal');
-    return {
-
-        init: function() {
-            directionModalButton.click(function() {
-                console.log('hey');
-
-            })
-
-
-        }
-    }
-})();
-
-},{"jquery":1}],6:[function(require,module,exports){
-var $ = require('jquery');
-
-module.exports = function() {
-    var tab = $('[data-related-tab]');
-
-    tab.click(function(e) {
-        e.preventDefault();
-        var type = 'GET',
-            url = '/data/related-resources/',
-            data = {
-                'targetType': $(this).data('related-target'),
-                'sourceType': $(this).closest('ul').data('related-source-type'),
-                'sourceId': $(this).closest('ul').data('related-source-id')
-            };
-        $.ajax({
-            type: type,
-            url: url,
-            data: data,
-            cache: false,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            success: function(json) {
-                $('#related-resources').html(json.response);
-            }
-        });
-
-    });
-
-};
-
-},{"jquery":1}],7:[function(require,module,exports){
-var $ = require('jquery');
-
-
-/*
- *   skipLink();
- *   -----------------------------------
- *   Used to prevent default behavior on
- *   any link with an attribute href="#"
- */
-module.exports = {
-    init: function() {
-        $('a[href="#"]').click(function(event) {
-            event.preventDefault();
-        });
-    }
-};
-
-},{"jquery":1}],8:[function(require,module,exports){
-var $ = require('jquery');
-
-module.exports = (function() {
-    return {
-        init: function() {
-            var trigger = $('[data-trigger]');
-            var triggerAttr = 'data-trigger';
-            var toggle = $('[data-toggle]');
-            var duration = 200;
-            var easing = 'swing';
-
-            trigger.click(function() {
-                var triggerId = $(this).attr('data-trigger');
-                var thisTarget = $('[data-toggle="' + triggerId + '"]');
-                var thisTriggerParent = $('[data-trigger-parent="' + triggerId + '"]');
-                var thisText = $('[data-trigger-text="' + triggerId + '"]');
-                var currentText = thisText.text();
-                console.log($(this).attr('data-toggle'));
-
-                switch (triggerId) {
-                    case 'contributor':
-                        thisTarget.slideToggle(duration, easing);
-                        break;
-                    case 'edit-save':
-                        thisTarget.show();
-                        break;
-                    case 'showCompetition':
-                        thisTarget.toggle();
-                        thisTriggerParent.toggle();
-                        break;
-                    default:
-                        thisTarget.toggle();
-                        thisTriggerParent.toggle();
-
-                }
-            });
-        },
-        closeAll: function() {
-            console.log('closeall');
         }
     }
 })();

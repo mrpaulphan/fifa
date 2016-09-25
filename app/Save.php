@@ -25,11 +25,6 @@ class Save extends Model
     {
         return $this->hasMany('App\Season')->orderBy('season','desc');
     }
-    public function seasonCount()
-    {
-        return $this->hasMany('App\Season')->count();
-    }
-
     public function hasSeason()
     {
         return (bool) $this->seasons()->first();

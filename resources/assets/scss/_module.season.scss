@@ -1,3 +1,21 @@
+.season-direction {
+    &--intro {
+
+    }
+    &--team {
+        display: none;
+
+    }
+    &--competition {
+        display: none;
+
+    }
+    &--player {
+        display: none;
+
+    }
+}
+
 .block {
     display: flex;
     flex-direction: column;

@@ -1316,6 +1316,15 @@ select {
   .menu__nav a {
     margin-right: 45px; }
 
+.season-direction--team {
+  display: none; }
+
+.season-direction--competition {
+  display: none; }
+
+.season-direction--player {
+  display: none; }
+
 .block {
   display: -ms-flexbox;
   display: flex;

@@ -33,11 +33,11 @@
           @else
               <li class="dropdown">
                   <img class="avatar" src="/assets/images/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" />
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                  <a href="#" class="dropdown-toggle" data-trigger="dropdown" role="button" aria-expanded="false">
                       {{ Auth::user()->name }} <span class="caret"></span>
                   </a>
 
-                  <ul class="dropdown-menu" role="menu" data-target="dropdown">
+                  <ul class="dropdown-menu" role="menu" data-toggle="dropdown">
                       <li>
                           <a href="{{ url('/logout') }}"
                               onclick="event.preventDefault();
