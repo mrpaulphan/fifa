@@ -31,7 +31,6 @@ module.exports = (function() {
                     default:
                         thisTarget.toggle();
                         thisTriggerParent.toggle();
-
                 }
             });
         },

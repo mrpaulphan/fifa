@@ -9,6 +9,7 @@ class Season extends Model
     protected $fillable = [
         'save_id',
         'season',
+        'activated',
         'color',
         'name',
         'domestic_objective',

@@ -10112,7 +10112,7 @@ module.exports = (function() {
                     });
                     $.ajax({
                         url: url,
-                        type: "POST",
+                        type: "PUT",
                         data: {
                             'save_id': save_id,
                             'name': name,

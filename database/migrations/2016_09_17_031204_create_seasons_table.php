@@ -17,6 +17,7 @@ class CreateSeasonsTable extends Migration
             $table->increments('id');
             $table->integer('save_id')->unsigned();
             $table->integer('season')->default('2016');
+            $table->boolean('activated')->default(false);
             $table->string('name')->default('--');
             $table->string('color')->default('default');
             $table->string('domestic_objective')->default('--');

@@ -21,23 +21,11 @@ Route::delete('{username}/saves/delete', 'SavesController@delete')->name('delete
 // Season
 Route::get('{username}/{slug}/season', 'PagesController@getSeasons')->name('show.seasons');
 Route::post('{username}/{slug}/season/create', 'SeasonController@store')->name('store.team');
-Route::put('{username}/{slug}/season/edit', 'SavesController@edit')->name('update.seasons');
+Route::put('{username}/{slug}/season/update', 'SeasonController@update')->name('update.seasons');
 
 
-
-Route::get('/season/create', 'TeamController@create')->name('create.team');
-Route::put('/season', 'TeamController@edit')->name('edit.team');
-
-Route::get('/team', 'PagesController@getPlayers')->name('show.players');
-Route::get('/transfer', 'PagesController@getTransfers')->name('show.transfers');
-Route::get('/youth', 'PagesController@getYouth')->name('show.youth');
-Route::get('/career', 'PagesController@getCareers')->name('show.careers');
-Route::get('/teamselect', 'PagesController@getTeamSelect')->name('show.teamselect');
+// Players
+Route::post('{username}/{slug}/player/create', 'PlayerController@store')->name('store.players');
 
 
-Route::get('/team/create', 'PlayerController@getIndex')->name('create.player');
-Route::post('/team/create', 'PlayerController@store')->name('post.player');
-Route::post('/team/delete', 'PlayerController@destroy')->name('delete.player');
-
-Route::get('/transfers', 'PagesController@getTransfers');
 Route::get('/styleguide', 'PagesController@getStyleGuide')->name('show.styleguide');

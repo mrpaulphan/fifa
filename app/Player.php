@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Player extends Model
 {
   protected $fillable = [
+    'season_id',
     'position',
     'name',
     'age',
