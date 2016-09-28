@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Mail;
-
+use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -26,8 +26,18 @@ class ConfirmRegister extends Mailable
      *
      * @return $this
      */
-    public function build()
+
+    public function generateToken() {
+        $token = str_random(38);
+        return $token;
+     }
+    public function build(Request $request)
     {
-        return $this->view('view.name');
+        // generate token
+        $token = $this->generateToken();
+
+        return $this->from('example@example.com')
+               ->view('emails.register')
+               ->with('token', $token);
     }
 }

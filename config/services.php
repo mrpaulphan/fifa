@@ -35,9 +35,4 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-    'mailgun' => [
-        'domain' => 'https://api.mailgun.net/v3/fifa.com',
-        'secret' => 'key-43deec8f2e5725a3c383bf0999cc60d9',
-    ],
-
 ];

@@ -14,10 +14,13 @@ class PagesController extends Controller
     {
         if (Auth::check()) {
             $username = Auth::user()->username;
-
+            if (Auth::user()->verified == false) {
+                return view('auth.register-check-email');
+            }
             return redirect()->route('show.saves', [$username]);
         } else {
             return view('landing');
+
         }
     }
 
