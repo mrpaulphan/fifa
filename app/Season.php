@@ -9,16 +9,18 @@ class Season extends Model
     protected $fillable = [
         'save_id',
         'season',
-        'activated',
-        'color',
         'name',
-        'domestic_objective',
+        'color',
+        'manager_popularity',
         'continental_objective',
+        'domestic_objective',
         'brand_objective',
         'financial_objective',
         'youth_objective',
         'club_worth',
         'transfer_budget',
+        'earnings',
+        'expenses',
     ];
 
     public function belongsToSave()

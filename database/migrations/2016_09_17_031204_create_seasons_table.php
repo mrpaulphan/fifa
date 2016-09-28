@@ -16,18 +16,22 @@ class CreateSeasonsTable extends Migration
         Schema::create('seasons', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('save_id')->unsigned();
-            $table->integer('season')->default('2016');
             $table->boolean('activated')->default(false);
-            $table->string('name')->default('--');
+            $table->integer('season');
+            $table->string('name')->nullable();
             $table->string('color')->default('default');
-            $table->string('domestic_objective')->default('--');
-            $table->string('continental_objective')->default('--');
-            $table->string('brand_objective')->default('--');
-            $table->string('financial_objective')->default('--');
-            $table->string('youth_objective')->default('--');
-            $table->integer('club_worth')->default('0');
-            $table->integer('transfer_budget')->default('0');
+            $table->integer('manager_popularity')->nullable();
+            $table->integer('continental_objective')->nullable();
+            $table->integer('domestic_objective')->nullable();
+            $table->integer('brand_objective')->nullable();
+            $table->integer('financial_objective')->nullable();
+            $table->integer('youth_objective')->nullable();
+            $table->integer('club_worth')->nullable();
+            $table->integer('transfer_budget')->nullable();
+            $table->integer('earnings')->nullable();
+            $table->integer('expenses')->nullable();
             $table->timestamps();
+
             $table->foreign('save_id')
                 ->references('id')
                 ->on('saves')

@@ -23,6 +23,7 @@
     "vue-resource": "^0.9.3"
   },
   "dependencies": {
+    "chart.js": "^2.3.0",
     "normalize.css": "^4.2.0"
   }
 }

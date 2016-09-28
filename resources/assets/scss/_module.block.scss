@@ -2,8 +2,8 @@
     &__title {
         border-radius: 7px 7px 0 0;
         color: $white;
-        padding: 5px 0;
-        text-align: center;
+        padding: 5px 20px;
+        text-align: left;
     }
 
     &__content {
@@ -31,11 +31,15 @@
 
 [data-block-color="default"] {
     &.border-top {
-        border-top: 10px solid $default;
+        border-top: 10px solid $brandBlack;
+    }
+
+    &.sidebar {
+        background-color: $brandBlack;
     }
 
     .block__title {
-        background-color: $default;
+        background-color: $brandBlack;
     }
 }
 
@@ -43,7 +47,12 @@
     &.border-top {
         border-top: 10px solid $navyBlue;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $navyBlue;
+    }
+
+    &.sidebar {
         background-color: $navyBlue;
     }
 
@@ -56,7 +65,12 @@
     &.border-top {
         border-top: 10px solid $royalBlue;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $royalBlue;
+    }
+
+    &.sidebar {
         background-color: $royalBlue;
     }
 
@@ -69,7 +83,12 @@
     &.border-top {
         border-top: 10px solid $paleBlue;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $paleBlue;
+    }
+
+    &.sidebar {
         background-color: $paleBlue;
     }
 
@@ -82,7 +101,12 @@
     &.border-top {
         border-top: 10px solid $turqouise;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $turqouise;
+    }
+
+    &.sidebar {
         background-color: $turqouise;
     }
 
@@ -95,7 +119,12 @@
     &.border-top {
         border-top: 10px solid $green;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $green;
+    }
+
+    &.sidebar {
         background-color: $green;
     }
 
@@ -108,7 +137,12 @@
     &.border-top {
         border-top: 10px solid $darkGrey;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $darkGrey;
+    }
+
+    &.sidebar {
         background-color: $darkGrey;
     }
 
@@ -121,7 +155,12 @@
     &.border-top {
         border-top: 10px solid $purple;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $purple;
+    }
+
+    &.sidebar {
         background-color: $purple;
     }
 
@@ -134,7 +173,12 @@
     &.border-top {
         border-top: 10px solid $magenta;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $magenta;
+    }
+
+    &.sidebar {
         background-color: $magenta;
     }
 
@@ -147,7 +191,12 @@
     &.border-top {
         border-top: 10px solid $red;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $red;
+    }
+
+    &.sidebar {
         background-color: $red;
     }
 
@@ -160,7 +209,12 @@
     &.border-top {
         border-top: 10px solid $gold;
     }
+
     &[data-toggle="colorPicker"] {
+        background-color: $gold;
+    }
+
+    &.sidebar {
         background-color: $gold;
     }
 

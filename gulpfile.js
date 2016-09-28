@@ -96,12 +96,12 @@ gulp.task('images', () =>
  */
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: 'http://localhost:4000/',
+        proxy: 'localhost:4000',
         port: 4000,
-        open: true
-
+        open: false
     });
 });
+
 
 gulp.task('sync', shell.task([
     'echo "Cleaning up public folder..."',

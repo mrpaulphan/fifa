@@ -18,7 +18,7 @@ module.exports = (function() {
                 console.log($(this).attr('data-toggle'));
 
                 switch (triggerId) {
-                    case 'contributor':
+                    case 'dropdown-menu':
                         thisTarget.slideToggle(duration, easing);
                         break;
                     case 'edit-save':

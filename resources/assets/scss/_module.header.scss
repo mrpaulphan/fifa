@@ -1,13 +1,28 @@
 .header {
-    padding: 20px 0;
+    background-color: $brandBlack;
+    padding: 10px 0;
+
+    &__button {
+        p {
+            display: inline-block;
+        }
+    }
 }
 
 .logo {
     display: block;
 
-    svg {
+    img {
         height: 40px;
+    }
+
+    &__svg {
+        height: 30px;
         width: inherit;
+
+        .inner {
+            fill: $white;
+        }
     }
 }
 
@@ -17,44 +32,36 @@
     width: 25px;
 }
 
-.body__background {
-    background-color: $bgColor;
+.avatar-name {
+    color: $white;
+    text-decoration: none;
 }
 
-.main__content {
-    background-color: #fff;
-    box-shadow: 0 0 3px rgba(0,0,0,0.35);
-}
-
-.team__content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    &-text {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-
-        & > * {
-            margin-right: 10px;
-        }
-    }
-
-    & > * {
-        margin-right: 10px;
-    }
+.dropdown {
+    position: relative;
 }
 
 .dropdown-menu {
+    background: $white;
     display: none;
-}
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 165px;
 
-.menu__nav {
-    display: flex;
-    border-bottom: 1px solid #ededed;
+    li {
+        text-align: left;
+        border-bottom: 1px solid $grey;
+
+        &:last-child {
+            border-bottom: 1px solid transparent;
+        }
+    }
 
     a {
-        margin-right: 45px;
+        color: $black;
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
     }
 }

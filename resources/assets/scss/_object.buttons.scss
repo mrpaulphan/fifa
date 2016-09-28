@@ -6,11 +6,12 @@
 
     &--primary {
         @extend .button;
-        background: $royalBlue;
-        border: 1px solid $royalBlue;
+        background: $brandGold;
+        border: 1px solid $brandGold;
         color: $white;
 
     }
+
     &--secondary {
         @extend .button;
         background: $grey;

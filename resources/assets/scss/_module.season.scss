@@ -1,25 +1,33 @@
-.season-direction {
-    &--intro {
+.season-stats {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 
+    &__chart {
+        height: 100px!important;
+        width: 200px!important;
     }
+}
+
+.season-direction {
+    &--intro {}
+
     &--team {
         display: none;
-
     }
+
     &--competition {
         display: none;
-
     }
+
     &--player {
         display: none;
-
     }
 }
 
 .block {
     display: flex;
     flex-direction: column;
-
 
     &__content {
         background-color: $white;

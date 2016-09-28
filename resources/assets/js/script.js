@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var Chart = require('chart.js');
 
 // Modules Dependencies
 var toggle = require('./modules/toggle');
@@ -7,6 +8,7 @@ var skipLink = require('./modules/skipLink');
 var ajax = require('./modules/ajax');
 var colorChange = require('./modules/colorChange');
 var modal = require('./modules/modal');
+var chart = require('./modules/chart');
 
 /*-------------------------------------------
   DOCUMENT READY FUNCTIONS
@@ -20,4 +22,5 @@ $(document).ready(function() {
     colorChange.init();
     ajax.init();
     modal.init();
+    chart.init();
 });

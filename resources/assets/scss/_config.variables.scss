@@ -1,25 +1,26 @@
 /**
  *  Colors
  */
+$brandBlack: #323232;
+$brandGold: #f8cf43;
 $black: #111; // All text, large avatar outlines
 $white: #fff; // Background, text and links on a solid color, active navigation tab
+$bgColor: #ededed;
+
+
+
 $code: #f2f2f2; // <pre>
 $codeBorder: #c5c5c2; // <pre>
-$bgColor: #EDEDED;
 $textColor: #2B2D32;
 $error: #d33120;
-
-
-$posG:#DE533B;
-$posD:#EFBE50;
-$posM:#96C060;
-$posA:#0060BF;
-
-$ovr1:#8DC153;
-$ovr2:#F6BB43;
-$ovr3:#E77E23;
-$ovr4:#E9573E;
-
+$posG: #DE533B;
+$posD: #EFBE50;
+$posM: #96C060;
+$posA: #0060BF;
+$ovr1: #8DC153;
+$ovr2: #F6BB43;
+$ovr3: #E77E23;
+$ovr4: #E9573E;
 $default: #bfbfbf;
 $navyBlue: #203d8a;
 $royalBlue: #0567c7;
@@ -31,8 +32,6 @@ $purple: #8e44ad;
 $magenta: #a3214b;
 $red: #d33120;
 $gold: #f39c12;
-
-
 $navLink: #666666;
 $teal: #16c3b9; // Header bar and navigation background color, small links, heavy horizontal rules
 $darkTeal: #01aea4; // Header bar and navigation background color, small links, heavy horizontal rules
@@ -58,20 +57,10 @@ $spacingMobile: 14px;
  *  Layouts
  */
 $autolayoutDefaultGutter: 20px;
-$maxWidth: 1160px;
+$maxWidth: 1280px;
 $extendBackground: 100 - percentage(1 / 7); // For extended background. Matches .layout-split-2--wrapper
 /**
  *  Fonts
  */
-$fontBold: 'larsseitbold';
-$fontBoldItalic: 'larsseitbold_italic';
-$fontExtraBold: 'larsseitextrabold';
-$fontExtraBoldItalic: 'larsseitextrabold_italic';
-$fontLight: 'larsseitlight';
-$fontLightItalic: 'larsseitlight_italic';
-$fontMedium: 'larsseitmedium';
-$fontMediumItalic: 'larsseitmedium_italic';
-$fontThin: 'larsseitthin';
-$fontThinItalic: 'larsseitthin_italic';
-$fontRegular: 'larsseitregular';
-$fontItalic: 'larsseititalic';
+$fontRoboto: 'Roboto Condensed Regular';
+$fontRegular: 'Source Sans Pro Regular';

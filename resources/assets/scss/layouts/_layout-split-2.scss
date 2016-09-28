@@ -1,7 +1,17 @@
+[class*="layout-split-2"] {
+    @include media ('>large') {
+        > .column:nth-child(1),
+        > .column:nth-child(2) {
+            margin-top: 0;
+        }
+    }
+}
+
 .layout-split-2 {
     @include media ('>large') {
         @include autolayout( '|[column]-[column]|');
     }
+
     &--aside {
         @include media('>large') {
             @include autolayout('|[column(#{percentage(8 / 12)})]-[column(#{percentage(4 / 12)})]|');
@@ -9,6 +19,19 @@
 
 
     }
+
+    &--dashboard {
+        @include media('>large') {
+            @include autolayout('|[column(#{percentage(2 / 12)})]-[column(#{percentage(10 / 12)})]-|');
+            > .column:nth-child(2) {
+                margin-top: 20px;
+            }
+
+        }
+
+
+    }
+
     &--apart {
         @include autolayout('|[column(#{percentage(6 / 12)})]-[column(#{percentage(6 / 12)})]|');
         display: flex;
@@ -17,13 +40,12 @@
         > .column:nth-child(even) {
             text-align: right;
         }
+        
+        &-center {
+            @extend .layout-split-2--apart;
+            align-items: center;
+        }
 
-
-    }
-    &--apart-center {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
     }
 
@@ -32,32 +54,22 @@
         @include media ('>large') {
             @include autolayout( '|-30px-[column(#{percentage(5/12)})]-30px-[column(#{percentage(7/12)})]-30px-|');
         }
-
-
     }
+
     &--table{
         @include media ('>large') {
-            @include autolayout( '|-15px-[column(#{percentage(4/10)})]-15px-[column(#{percentage(6/10)})]-15px-|');
+            @include autolayout('|-15px-[column(#{percentage(4/10)})]-15px-[column(#{percentage(6/10)})]-15px-|');
         }
     }
+
     &--wrapper-gutterless {
         display: flex; // Nav Specific
         @include media ('>large') {
             @include autolayout( '|[column(#{percentage(5/12)})]-[column(#{percentage(7/12)})]|');
         }
-
-
     }
 
 
 
 }
 // Allows you to apply spacing class to parent div
-[class*="layout-split-2"] {
-    @include media ('>large') {
-        & > .column:nth-child(1),
-        & > .column:nth-child(2) {
-            margin-top: 0;
-        }
-    }
-}

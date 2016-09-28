@@ -20,31 +20,30 @@
         ]); ?>
     </script>
 </head>
-<body class="body__background">
-    <header class="header page">
-      <div class="layout-split-2--apart-center">
+<body>
+    <header class="header">
+        <div class="page">
+
+      <div class="layout-split-2--apart">
         <div class="column ">
             <a href="#" class="logo"><?php echo file_get_contents('assets/svgs/logo.svg'); ?></a>
         </div>
-        <div class="column">
+        <div class="column header__button">
           @if (Auth::guest())
               <p><a class="button button--secondary" href="{{ url('/login') }}">Login</a></p>
               <p><a class="button button--primary" href="{{ url('/register') }}">Register</a></p>
           @else
               <li class="dropdown">
                   <img class="avatar" src="/assets/images/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" />
-                  <a href="#" class="dropdown-toggle" data-trigger="dropdown" role="button" aria-expanded="false">
+                  <a class="avatar-name" href="#" class="dropdown-toggle" data-trigger="dropdown-menu" role="button" aria-expanded="false">
                       {{ Auth::user()->name }} <span class="caret"></span>
                   </a>
 
-                  <ul class="dropdown-menu" role="menu" data-toggle="dropdown">
+                  <ul class="dropdown-menu" role="menu" data-toggle="dropdown-menu">
+                      <li><a href="#">Profile</a></li>
+                      <li><a href="#">Settings</a></li>
                       <li>
-                          <a href="{{ url('/logout') }}"
-                              onclick="event.preventDefault();
-                                       document.getElementById('logout-form').submit();">
-                              Logout
-                          </a>
-
+                          <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                           <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                               {{ csrf_field() }}
                           </form>
@@ -54,10 +53,11 @@
           @endif
         </div>
       </div>
+  </div>
 
     </header>
 
-    <main class="page">
+    <main class="@yield('class-main')">
         @yield('content')
     </main>
 

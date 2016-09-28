@@ -4,7 +4,7 @@
 html {
     color: $black;
     font-family: $fontRegular, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-smoothing: antialiased;
     letter-spacing: .02em;
     line-height: 23px;
@@ -12,89 +12,19 @@ html {
 }
 
 h1 {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    line-height: 14px;
+    font-family: $fontRoboto, Helvetica, Arial, sans-serif;
+    font-size: 22px;
 }
-.bold{
-    font-weight: bold;
-}
-.team__name{
-    font-size: 16px;
-    color: $default;
-}
-.nav__link{
- font-size: 14px;
- color: $navLink;
- text-decoration: none;
-
-}
-.active {
-    color: $default;
-     border-bottom: 3px solid $default;
-}
-.text-align-right{
-    text-align: right;
-}
-
-.posG{
-    color: $posG;
-}
-
-.posD{
-    color: $posD;
-}
-.posM{
-    color: $posM;
-}
-.posA {
-    color: $posA;
-}
-
-
-
-
-
-
-
 h2 {
-    font-family:  Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    letter-spacing: .05em;
-    line-height: 23px;
+    font-family: $fontRoboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
 }
-
 h3 {
-    font-family: $fontRegular, Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    letter-spacing: .02em;
-    line-height: 23px;
-}
-
-h4 {
-    font-family: $fontMedium, Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: .05em;
-    line-height: 18px;
-}
-
-h5 {
-    font-family: $fontMedium, Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    letter-spacing: .05em;
-    line-height: 18px;
-}
-
-p {
-    font-family: $fontRegular, Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    letter-spacing: .02em;
-    line-height: 23px;
+    font-family: $fontRoboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
 }
 
 .small {
-    font-family: $fontMedium, Helvetica, Arial, sans-serif;
     font-size: 12px;
-    letter-spacing: .05em;
-    line-height: 18px;
+
 }

@@ -1,9 +1,9 @@
-@extends('layouts.empty')
+@extends('layouts.layout')
 
 @section('title', 'login')
 @section('content')
 
-  <div class="block block--modal block-color--default">
+  <div class="block block--modal " data-block-color="default">
     <header class="block__title">
       <h3>Login</h3>
     </header>
