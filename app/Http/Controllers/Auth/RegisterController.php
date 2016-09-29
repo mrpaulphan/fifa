@@ -32,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-     protected $redirectTo = '/';
+     protected $redirectTo = '/register/confirm';
 
     /**
      * Create a new controller instance.
@@ -60,6 +60,11 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function generateToken() {
+        $token = str_random(38);
+        return $token;
+     }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -69,18 +74,22 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-
+        $token = $this->generateToken();
+        $data['token'] = $token;
         // Send confirmation email
         Mail::to('pphan23@me.com')
         ->cc('paul@mrpaulphan.com')
         ->bcc('paul@mrpaulphan.com')
-        ->send(new ConfirmRegister());
+        ->send(new ConfirmRegister($token));
 
         return User::create([
           'name' => $data['name'],
           'username' => $data['username'],
           'email' => $data['email'],
+          'token' => $data['token'],
           'password' => bcrypt($data['password']),
         ]);
     }
+
+
 }

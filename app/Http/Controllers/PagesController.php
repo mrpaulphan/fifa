@@ -10,17 +10,15 @@ use App\User;
 
 class PagesController extends Controller
 {
-    public function getIndex()
+    public function getIndex(Request $request)
     {
+
         if (Auth::check()) {
             $username = Auth::user()->username;
-            if (Auth::user()->verified == false) {
-                return view('auth.register-check-email');
-            }
+        
             return redirect()->route('show.saves', [$username]);
         } else {
             return view('landing');
-
         }
     }
 
@@ -68,4 +66,19 @@ class PagesController extends Controller
     {
         return view('teamselect.index');
     }
+
+    public function confirmEmail()
+    {
+        return view('auth.register-confirm-account');
+    }
+
+    public function confirmToken(Request $request)
+    {
+        echo 'hey';
+        echo $request;
+
+        echo Auth::user()->token;
+        return view('auth.register-check-email');
+    }
+
 }

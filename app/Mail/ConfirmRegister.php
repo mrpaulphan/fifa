@@ -6,6 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\User;
+
 
 class ConfirmRegister extends Mailable
 {
@@ -16,9 +18,9 @@ class ConfirmRegister extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**
@@ -27,15 +29,10 @@ class ConfirmRegister extends Mailable
      * @return $this
      */
 
-    public function generateToken() {
-        $token = str_random(38);
-        return $token;
-     }
-    public function build(Request $request)
-    {
-        // generate token
-        $token = $this->generateToken();
 
+    public function build()
+    {
+        $token = $this->token;
         return $this->from('example@example.com')
                ->view('emails.register')
                ->with('token', $token);

@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'PagesController@getIndex')->name('show.landing');
+Route::get('/register/confirm/{token}', 'RegisterConfirmation@confirmAccount')->name('confirm.email');
+Route::get('/register/confirm', 'RegisterConfirmation@checkEmailToConfirm')->name('check.email');
+Route::post('/register/confirm', 'RegisterConfirmation@activeAccount')->name('confirm.token');
+
 Auth::routes();
 Route::get('{username}/saves', 'PagesController@getSaves')->name('show.saves');
 Route::post('{username}/saves/create', 'SavesController@store')->name('post.saves');
