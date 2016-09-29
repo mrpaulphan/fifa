@@ -7,13 +7,15 @@
         <header class="block__title">
             <h2>Create a season</h2>
         </header>
-        <!-- Getting Started -->
-            <div class="block__content" data-toggle="showTeam">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <!-- Getting Started -->
+            <div class="block__content" data-toggle="showTeam" >
+                <h3>Season Setup</h3>
+                <p>Let's add some information for this season. Data is carried over each season so you won't have to worry about setting everything up again. All required information can be found in your FIFA career mode save.</p>
+                <div class="form__group">
+                    <label class="form__label" for="">Select starting season</label>
+                    <input class="form__input" type="number" name="season" required="required" value="" placeholder="2016" data-season-value>
+                </div>
 
-                    <input type="text" name="season" value="" data-season-value>
-                </p>
                 <div class="layout-split-2--apart">
                     <div class="column">
                     </div>
@@ -22,7 +24,7 @@
                     </div>
                 </div>
             </div>
-        <!-- Overview -->
+            <!-- Overview -->
             <div class="block__content hide" data-toggle="showTeam" data-trigger-parent="showCompetition">
                 <form class="form" action="{{ route('update.seasons', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="postTeam" spacing="1">
                     {{ csrf_field() }}
@@ -175,19 +177,22 @@
                         </div>
                         <div class="layout-split-2--apart">
                             <div class="column">
-                                <button type="button" name="button">Back</button>
+                                <button type="button" name="button" data-trigger="showTeam">Back</button>
                             </div>
                             <div class="column">
-                                <button type="button" name="button">Skip</button>
+                                <button type="button" name="button" data-trigger="showCompetition">Skip</button>
                                 <button type="button" name="button" data-ajax="postTeam" data-trigger="showCompetition">Nextt</button>
                             </div>
                         </div>
                 </form>
             </div>
             <!-- Competitions -->
-            <div class="block__content hide" data-toggle="showCompetition">
-                <form class="form" action="{{ route('update.seasons', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="postTeam" spacing="1">
+            <div class="block__content hide" data-toggle="showCompetition" data-trigger-parent="showPlayer">
+                <form class="form" action="{{ route('store.competition', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="updateCompetition" spacing="1">
                     {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+
+                    <input type="hidden" name="season_id" value="{{ $seasons->id }}">
                     <h3>Competition</h3>
                     <table>
                         <thead>
@@ -201,23 +206,76 @@
                                 <td class="small">Action</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="" data-row>
-                                <td class=""><input type="text" name="row[0][name]" value=""></td>
-                                <td class=""><input type="text" name="row[0][result]" value=""></td>
-                                <td class=""><input type="text" name="row[0][played]" value=""></td>
-                                <td class=""><input type="text" name="row[0][won]" value=""></td>
-                                <td class=""><input type="text" name="row[0][tied]" value=""></td>
-                                <td class=""><input type="text" name="row[0][lost]" value=""></td>
+                        <tbody data-row-body="competition">
+                            <tr class="" data-row="competition" data-delete-row="competition">
+                                <td class=""><input type="text" name="row[0][name]" value="" required="required"></td>
+                                <td class=""><input type="number" name="row[0][result]" value="" required="required"></td>
+                                <td class=""><input type="number" name="row[0][played]" value="" required="required"></td>
+                                <td class=""><input type="number" name="row[0][won]" value="" required="required"></td>
+                                <td class=""><input type="number" name="row[0][tied]" value="" required="required"></td>
+                                <td class=""><input type="number" name="row[0][lost]" value="" required="required"></td>
+                                <td class="" data-delete="competition">X</td>
                             </tr>
                         </tbody>
                     </table>
-                    <p><a href="#" data-row-add>Add more Compeititon</a></p>
-
+                    <p><a href="#" data-row-add="competition">Add more Compeititon</a></p>
+                    <div class="layout-split-2--apart">
+                        <div class="column">
+                            <button type="button" name="button" data-trigger="showTeam">Back</button>
+                        </div>
+                        <div class="column">
+                            <button type="button" name="button" data-trigger="showPlayer">Skip</button>
+                            <button type="submit" name="button" data-ajax="updateCompetition" data-trigger="showPlayer">Nextt POST </button>
+                        </div>
+                    </div>
                 </form>
 
             </div>
             <!-- Squad -->
+            <div class="block__content hide" data-toggle="showPlayer">
+                <form class="form" action="{{ route('store.competition', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="updateCompetition" spacing="1">
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+
+                    <input type="hidden" name="season_id" value="{{ $seasons->id }}">
+                    <h3>Squad</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td class="small">Compeition Name</td>
+                                <td class="small">Result</td>
+                                <td class="small">Played</td>
+                                <td class="small">Won</td>
+                                <td class="small">Tied</td>
+                                <td class="small">Lost</td>
+                                <td class="small">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody data-row-body="players">
+                            <tr class="" data-row="players" data-delete-row="players">
+                                <td class=""><input type="text" name="row[0][name]" value=""></td>
+                                <td class=""><input type="number" name="row[0][result]" value=""></td>
+                                <td class=""><input type="number" name="row[0][played]" value=""></td>
+                                <td class=""><input type="number" name="row[0][won]" value=""></td>
+                                <td class=""><input type="number" name="row[0][tied]" value=""></td>
+                                <td class=""><input type="number" name="row[0][lost]" value=""></td>
+                                <td class="" data-delete="players">X</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><a href="#" data-row-add="players">Add more Compeititon</a></p>
+                    <div class="layout-split-2--apart">
+                        <div class="column">
+                            <button type="button" name="button">Back</button>
+                        </div>
+                        <div class="column">
+                            <button type="button" name="button">Skip</button>
+                            <button type="submit" name="button" data-ajax="updateCompetition" data-trigger="showPlayer">Nextt POST </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
     </div>
 </div>
 

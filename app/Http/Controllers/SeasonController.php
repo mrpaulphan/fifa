@@ -26,7 +26,7 @@ class SeasonController extends Controller
         $season->save_id = $request->save_id;
         $season->season = $requet->season;
         $season->name = $request->name;
-        $season->color = $request->color;
+        $season->color = $request->color != null ? $request->color : 'default';
         $season->manager_popularity = $request->manager_popularity;
         $season->continental_objective = $request->continental_objective;
         $season->domestic_objective = $request->domestic_objective;
@@ -45,7 +45,7 @@ class SeasonController extends Controller
                     'save_id' => $request->save_id,
                     'season' => $request->season,
                     'name' => $request->name,
-                    'color' => $request->color,
+                    'color' => $request->color != null ? $request->color : 'default',
                     'manager_popularity' => $request->manager_popularity,
                     'continental_objective' => $request->continental_objective,
                     'domestic_objective' => $request->domestic_objective,

@@ -62,11 +62,46 @@ module.exports = (function() {
                             console.log(data);
 
                         },
-                        error: function( data) {
+                        error: function(data) {
                             console.log(data);
                         }
                     });
 
+
+                } else if (id == 'updateCompetition') {
+                    var url = $('[data-form="' + id + '"]').attr('action');
+                    var form = '[data-form="' + id + '"]';
+                    var row = $('[data-row="' + id + '"]');
+                    var count = $('[data-row="updateCompetition"]').length;
+                    $('[data-form="updateCompetition"]').on('submit', function(e) {
+                        e.preventDefault();
+                        var data = $(this).serialize();
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+                        $.ajax({
+                            url: url,
+                            type: "put",
+                            data: data,
+                            success: function(data) {
+                                console.log(data);
+                                var currentCompetitionID = data.id;
+                                console.log(currentCompetitionID);
+                                var idInput = '<input type="hidden" name="id" value="'+currentCompetitionID+'">'
+                                $('[data-row="competition"]').last().after(row);
+                                $(form).prepend(idInput);
+
+                            },
+                            error: function(data) {
+                                console.log(data);
+                            }
+                        });
+
+
+
+                    })
 
                 }
 

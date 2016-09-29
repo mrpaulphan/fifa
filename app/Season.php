@@ -27,4 +27,8 @@ class Season extends Model
     {
         return $this->belongsTo('App\Save', 'save_id');
     }
+    public function competition()
+    {
+        return $this->hasMany('App\Competition');
+    }
 }

@@ -24943,6 +24943,7 @@ var ajax = require('./modules/ajax');
 var colorChange = require('./modules/colorChange');
 var modal = require('./modules/modal');
 var chart = require('./modules/chart');
+var addMore = require('./modules/addMore');
 
 /*-------------------------------------------
   DOCUMENT READY FUNCTIONS
@@ -24957,9 +24958,31 @@ $(document).ready(function() {
     ajax.init();
     modal.init();
     chart.init();
+    addMore.init();
 });
 
-},{"./modules/ajax":47,"./modules/chart":48,"./modules/colorChange":49,"./modules/modal":50,"./modules/relatedResources":51,"./modules/skipLink":52,"./modules/toggle":53,"chart.js":1,"jquery":44}],47:[function(require,module,exports){
+},{"./modules/addMore":47,"./modules/ajax":48,"./modules/chart":49,"./modules/colorChange":50,"./modules/modal":51,"./modules/relatedResources":52,"./modules/skipLink":53,"./modules/toggle":54,"chart.js":1,"jquery":44}],47:[function(require,module,exports){
+var $ = require('jquery');
+
+module.exports = (function() {
+    var addMoreButton = $('[data-row-add]');
+    return {
+
+        init: function() {
+            addMoreButton.on('click', function() {
+                var id = $(this).attr('data-row-add');
+                console.log(id);
+                var count = $('[data-row="'+id+'"]').length;
+                var row = '<tr class="" data-row="'+id+'" data-row-value="'+count+'"><td class=""><input type="text" name="row['+count+'][name]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][result]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][played]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][won]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][tied]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][lost]" value="" required="required"></td><td class="" data-delete="'+id+'">X</td></tr>'
+                $('[data-row="'+id+'"]').last().after(row);
+            })
+
+
+        }
+    }
+})();
+
+},{"jquery":44}],48:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = (function() {
@@ -25024,11 +25047,46 @@ module.exports = (function() {
                             console.log(data);
 
                         },
-                        error: function( data) {
+                        error: function(data) {
                             console.log(data);
                         }
                     });
 
+
+                } else if (id == 'updateCompetition') {
+                    var url = $('[data-form="' + id + '"]').attr('action');
+                    var form = '[data-form="' + id + '"]';
+                    var row = $('[data-row="' + id + '"]');
+                    var count = $('[data-row="updateCompetition"]').length;
+                    $('[data-form="updateCompetition"]').on('submit', function(e) {
+                        e.preventDefault();
+                        var data = $(this).serialize();
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+                        $.ajax({
+                            url: url,
+                            type: "put",
+                            data: data,
+                            success: function(data) {
+                                console.log(data);
+                                var currentCompetitionID = data.id;
+                                console.log(currentCompetitionID);
+                                var idInput = '<input type="hidden" name="id" value="'+currentCompetitionID+'">'
+                                $('[data-row="competition"]').last().after(row);
+                                $(form).prepend(idInput);
+
+                            },
+                            error: function(data) {
+                                console.log(data);
+                            }
+                        });
+
+
+
+                    })
 
                 }
 
@@ -25038,7 +25096,7 @@ module.exports = (function() {
     }
 })();
 
-},{"jquery":44}],48:[function(require,module,exports){
+},{"jquery":44}],49:[function(require,module,exports){
 var $ = require('jquery');
 var chart = require('chart.js');
 
@@ -25079,7 +25137,7 @@ module.exports = (function() {
     }
 })();
 
-},{"chart.js":1,"jquery":44}],49:[function(require,module,exports){
+},{"chart.js":1,"jquery":44}],50:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = (function() {
@@ -25099,7 +25157,7 @@ module.exports = (function() {
     }
 })();
 
-},{"jquery":44}],50:[function(require,module,exports){
+},{"jquery":44}],51:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = (function() {
@@ -25117,7 +25175,7 @@ module.exports = (function() {
     }
 })();
 
-},{"jquery":44}],51:[function(require,module,exports){
+},{"jquery":44}],52:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = function() {
@@ -25148,7 +25206,7 @@ module.exports = function() {
 
 };
 
-},{"jquery":44}],52:[function(require,module,exports){
+},{"jquery":44}],53:[function(require,module,exports){
 var $ = require('jquery');
 
 
@@ -25166,7 +25224,7 @@ module.exports = {
     }
 };
 
-},{"jquery":44}],53:[function(require,module,exports){
+},{"jquery":44}],54:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = (function() {

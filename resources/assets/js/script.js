@@ -9,6 +9,7 @@ var ajax = require('./modules/ajax');
 var colorChange = require('./modules/colorChange');
 var modal = require('./modules/modal');
 var chart = require('./modules/chart');
+var addMore = require('./modules/addMore');
 
 /*-------------------------------------------
   DOCUMENT READY FUNCTIONS
@@ -23,4 +24,5 @@ $(document).ready(function() {
     ajax.init();
     modal.init();
     chart.init();
+    addMore.init();
 });
