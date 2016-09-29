@@ -27,7 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function saves() {
+    public function getSaves() {
         return $this->hasMany('App\Save');
     }
 }

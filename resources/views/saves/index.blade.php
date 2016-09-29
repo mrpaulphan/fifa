@@ -24,10 +24,6 @@
                         <label class="form__label"for="">Manager Name</label>
                         <input class="form__input"type="text" name="saveManager" value="" required="required">
                     </div>
-                    <div class="form__group">
-                        <label class="form__label"for="">Starting Seson</label>
-                        <input class="form__input"type="number" name="startingSeason" value="<?php echo date("Y"); ?>" required="required">
-                    </div>
                     <div class="layout-split-2--apart">
                         <div class="column">
                             <p><a href="#" class="button--secondary">Cancel</a></p>
@@ -64,10 +60,7 @@
                             <label class="form__label" for="">Manager Name</label>
                             <input class="form__input" type="text" name="saveManager" value="" required="required">
                         </div>
-                        <div class="form__group">
-                            <label class="form__label"for="">Starting Seson</label>
-                            <input class="form__input"type="number" name="startingSeason" value="<?php echo date("Y"); ?>" required="required">
-                        </div>
+
 
                     <button type="submit" name="button">Save</button>
 

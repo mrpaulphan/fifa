@@ -17,7 +17,7 @@ class CreateSeasonsTable extends Migration
             $table->increments('id');
             $table->integer('save_id')->unsigned();
             $table->boolean('activated')->default(false);
-            $table->integer('season');
+            $table->integer('season')->nullable();
             $table->string('name')->nullable();
             $table->string('color')->default('default');
             $table->integer('manager_popularity')->nullable();

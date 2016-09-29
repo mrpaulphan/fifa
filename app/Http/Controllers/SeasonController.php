@@ -20,32 +20,42 @@ class SeasonController extends Controller
 
     public function store(Request $request)
     {
+
+
         $season = new Season();
         $season->save_id = $request->save_id;
-        $season->color = $request->color;
+        $season->season = $requet->season;
         $season->name = $request->name;
-        $season->domestic_objective = $request->domestic_objective;
+        $season->color = $request->color;
+        $season->manager_popularity = $request->manager_popularity;
         $season->continental_objective = $request->continental_objective;
+        $season->domestic_objective = $request->domestic_objective;
         $season->brand_objective = $request->brand_objective;
         $season->financial_objective = $request->financial_objective;
         $season->youth_objective = $request->youth_objective;
         $season->club_worth = $request->club_worth;
         $season->transfer_budget = $request->transfer_budget;
+        $season->earnings = $request->earnings;
+        $season->expenses = $request->expenses;
         $season->save();
 
         // Store
         if ($request->isMethod('post')) {
             return response()->json([
                     'save_id' => $request->save_id,
+                    'season' => $request->season,
                     'name' => $request->name,
                     'color' => $request->color,
-                    'domestic_objective' => $request->domestic_objective,
+                    'manager_popularity' => $request->manager_popularity,
                     'continental_objective' => $request->continental_objective,
+                    'domestic_objective' => $request->domestic_objective,
                     'brand_objective' => $request->brand_objective,
                     'financial_objective' => $request->financial_objective,
                     'youth_objective' => $request->youth_objective,
                     'club_worth' => $request->club_worth,
                     'transfer_budget' => $request->transfer_budget,
+                    'earnings' => $request->earnings,
+                    'expenses' => $request->expenses,
                 ]);
         } else {
             return redirect()->route('show.seasons', [Auth::user()->username, $request->slug]);
@@ -53,21 +63,24 @@ class SeasonController extends Controller
     }
     public function update(Request $request)
     {
-        echo $request->save_id;
         $saveId = $request->save_id;
          // Update data
         $season = new Season();
         $season = Season::where('save_id', $saveId)->update([
             'save_id' => $request->save_id,
+            'season' => $request->season,
             'name' => $request->name,
             'color' => $request->color,
-            'domestic_objective' => $request->domestic_objective,
+            'manager_popularity' => $request->manager_popularity,
             'continental_objective' => $request->continental_objective,
+            'domestic_objective' => $request->domestic_objective,
             'brand_objective' => $request->brand_objective,
             'financial_objective' => $request->financial_objective,
             'youth_objective' => $request->youth_objective,
             'club_worth' => $request->club_worth,
             'transfer_budget' => $request->transfer_budget,
+            'earnings' => $request->earnings,
+            'expenses' => $request->expenses,
             'activated' => true,
           ]);
 
@@ -76,16 +89,20 @@ class SeasonController extends Controller
         $slug = $request->slug;
         if ($request->isMethod('put')) {
             return response()->json([
-                      'save_id' => $request->save_id,
-                      'name' => $request->name,
-                      'color' => $request->color,
-                      'domestic_objective' => $request->domestic_objective,
-                      'continental_objective' => $request->continental_objective,
-                      'brand_objective' => $request->brand_objective,
-                      'financial_objective' => $request->financial_objective,
-                      'youth_objective' => $request->youth_objective,
-                      'club_worth' => $request->club_worth,
-                      'transfer_budget' => $request->transfer_budget,
+                'save_id' => $request->save_id,
+                'season' => $request->season,
+                'name' => $request->name,
+                'color' => $request->color,
+                'manager_popularity' => $request->manager_popularity,
+                'continental_objective' => $request->continental_objective,
+                'domestic_objective' => $request->domestic_objective,
+                'brand_objective' => $request->brand_objective,
+                'financial_objective' => $request->financial_objective,
+                'youth_objective' => $request->youth_objective,
+                'club_worth' => $request->club_worth,
+                'transfer_budget' => $request->transfer_budget,
+                'earnings' => $request->earnings,
+                'expenses' => $request->expenses,
                   ]);
         } else {
             return redirect()->route('show.seasons', [$username, $slug]);

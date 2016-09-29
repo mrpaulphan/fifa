@@ -8,9 +8,11 @@
             <h2>Create a season</h2>
         </header>
         <!-- Getting Started -->
-            <div class="block__content hide" data-toggle="showTeam">
+            <div class="block__content" data-toggle="showTeam">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                    <input type="text" name="season" value="" data-season-value>
                 </p>
                 <div class="layout-split-2--apart">
                     <div class="column">
@@ -21,12 +23,13 @@
                 </div>
             </div>
         <!-- Overview -->
-            <div class="block__content">
+            <div class="block__content hide" data-toggle="showTeam" data-trigger-parent="showCompetition">
                 <form class="form" action="{{ route('update.seasons', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="postTeam" spacing="1">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                     <input type="hidden" name="save_id" value="{{ $seasons->belongsToSave->id }}">
                     <input type="hidden" name="slug" value="{{ $seasons->belongsToSave->slug }}">
+                    <input type="hidden" name="season" value="{{ $seasons->belongsToSave->slug }}">
                         <h3>General</h3>
                         <div class="form__row">
                             <div class="form__group">
@@ -176,13 +179,13 @@
                             </div>
                             <div class="column">
                                 <button type="button" name="button">Skip</button>
-                                <button type="button" name="button" data-ajax="postTeam">Nextt</button>
+                                <button type="button" name="button" data-ajax="postTeam" data-trigger="showCompetition">Nextt</button>
                             </div>
                         </div>
                 </form>
             </div>
             <!-- Competitions -->
-            <div class="block__content hide">
+            <div class="block__content hide" data-toggle="showCompetition">
                 <form class="form" action="{{ route('update.seasons', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="postTeam" spacing="1">
                     {{ csrf_field() }}
                     <h3>Competition</h3>
@@ -215,39 +218,9 @@
 
             </div>
             <!-- Squad -->
-
-
-
-                            <div class="column form__group">
-                                <label class="form__label" for="">Club Worth (number)</label>
-                                <input class="form__input" type="number" name="club_worth" value="{{ $seasons->club_worth }}">
-                            </div>
-                            <div class="column form__group">
-                                <label class="form__label" for="">Brand Objective</label>
-                                <input class="form__input" type="text" name="brand_objective" value="{{ $seasons->brand_objective }}">
-                            </div>
-                            <div class="column form__group">
-                                <label class="form__label" for="">Transfer Budget (number)</label>
-                                <input class="form__input" type="number" name="transfer_budget" value="{{ $seasons->transfer_budget }}">
-                            </div>
-                            <div class="column form__group">
-                                <label class="form__label" for="">Financial Objective</label>
-                                <input class="form__input" type="text" name="financial_objective" value="{{ $seasons->financial_objective }}">
-                            </div>
-
-                            <div class="column form__group">
-                                <label class="form__label" for="">Youth Objective</label>
-                                <input class="form__input" type="text" name="youth_objective" value="{{ $seasons->youth_objective }}">
-                            </div>
-                            </div>
-                    </fieldset>
-
-                </form>
-            </div>
-        </section>
-
     </div>
 </div>
+
 <div class="layout-split-2--dashboard">
     <div class="sidebar column" data-block-color="{{ $seasons->color}}">
         <header class="sidebar__header">

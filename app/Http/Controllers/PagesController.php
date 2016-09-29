@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Team;
 use App\Season;
 use App\User;
+use App\Save;
 
 class PagesController extends Controller
 {
@@ -15,7 +16,7 @@ class PagesController extends Controller
 
         if (Auth::check()) {
             $username = Auth::user()->username;
-        
+
             return redirect()->route('show.saves', [$username]);
         } else {
             return view('landing');
@@ -33,9 +34,9 @@ class PagesController extends Controller
 
     public function getSaves()
     {
-        // Get saves that belong to user
-        $saves = User::find(1)->saves;
 
+        $id= Auth::user()->id;
+        $saves = User::findOrFail($id)->getSaves;
         // return teams that belong to current user
         return view('saves.index')
             ->with('saves', $saves);

@@ -33,7 +33,11 @@ class RegisterConfirmation extends Controller
            'verified' => true
          ]);
 
-         return 'It worked';
+         // Get saves that belong to user
+         $saves = User::find(1)->saves;
 
+         // return teams that belong to current user
+         return view('saves.index')
+             ->with('saves', $saves);
     }
 }

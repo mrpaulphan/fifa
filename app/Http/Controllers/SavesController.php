@@ -21,10 +21,9 @@ class SavesController extends Controller
         // Validate
         $this->validate($request, [
                 'saveName' => 'required|unique:saves,name,NULL,id,user_id,'.Auth::user()->id.'|max:255',
-               'saveManager' => 'required|max:255',
+                'saveManager' => 'required|max:255',
          ]);
         $slug = $this->generateSlug($request->saveName);
-        $startingSeason = $request->startingSeason;
 
         // Store
         $save = new Save();
@@ -34,19 +33,9 @@ class SavesController extends Controller
         $save->slug = $slug;
         $save->save();
 
-        // Create default Season
         $season = new Season();
         $season->save_id = $save->id;
-        $season->season = $startingSeason;
-        $season->color                 = 'default';
-        $season->name                  = '--';
-        $season->domestic_objective    = '--';
-        $season->continental_objective = '--';
-        $season->brand_objective       = '--';
-        $season->financial_objective   = '--';
-        $season->youth_objective       = '--';
-        $season->club_worth            = 0;
-        $season->transfer_budget       = 0;
+
         $season->save();
 
         // Redirect
