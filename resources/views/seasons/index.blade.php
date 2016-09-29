@@ -8,7 +8,7 @@
             <h2>Create a season</h2>
         </header>
             <!-- Getting Started -->
-            <div class="block__content" data-toggle="showTeam" >
+            <div class="block__content" data-toggle-target="showTeam" >
                 <h3>Season Setup</h3>
                 <p>Let's add some information for this season. Data is carried over each season so you won't have to worry about setting everything up again. All required information can be found in your FIFA career mode save.</p>
                 <div class="form__group">
@@ -20,12 +20,12 @@
                     <div class="column">
                     </div>
                     <div class="column">
-                        <button type="button" name="button" data-trigger="showTeam">Next</button>
+                        <button type="button" name="button" data-toggle-trigger="showTeam">Next</button>
                     </div>
                 </div>
             </div>
             <!-- Overview -->
-            <div class="block__content hide" data-toggle="showTeam" data-trigger-parent="showCompetition">
+            <div class="block__content hide" data-toggle-target="showTeam showCompetition">
                 <form class="form" action="{{ route('update.seasons', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="postTeam" spacing="1">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
@@ -36,12 +36,12 @@
                         <div class="form__row">
                             <div class="form__group">
                                 <label class="form__label" for="">Team Name</label>
-                                <input type="text" name="name" value="">
+                                <input type="text" name="name" value="" data-input="team_name">
                             </div>
                             <div class="form__group form__group--color-picker">
                                 <label class="form__label" for="">Color</label>
-                                <div class="form__radio-label" data-trigger="colorPicker" data-block-color="{{ $seasons->color}}"></div>
-                                <div class="form__group--color-picker-group" spacing="0" data-toggle="colorPicker">
+                                <div class="form__radio-label" data-toggle-trigger="colorPicker" data-block-color="{{ $seasons->color}}"></div>
+                                <div class="form__group--color-picker-group" spacing="0" data-toggle-target="colorPicker">
                                     <div class="form__group--color-picker__row">
                                         <div class="form__group--color-picker__block">
                                             <input class="form__radio" type="radio" name="color" value="navyBlue" id="navyBlue">
@@ -99,7 +99,7 @@
                             </div>
                             <div class="form__group">
                                 <label class="form__label" for="">Manager Popularity</label>
-                                <input type="number" name="manager_popularity" value="">
+                                <input type="number" name="manager_popularity" value="" data-input="manager_popularity">
                             </div>
                         </div>
                         <h3>Objective</h3>
@@ -177,17 +177,17 @@
                         </div>
                         <div class="layout-split-2--apart">
                             <div class="column">
-                                <button type="button" name="button" data-trigger="showTeam">Back</button>
+                                <button type="button" name="button" data-toggle-trigger="showTeam">Back</button>
                             </div>
                             <div class="column">
-                                <button type="button" name="button" data-trigger="showCompetition">Skip</button>
-                                <button type="button" name="button" data-ajax="postTeam" data-trigger="showCompetition">Nextt</button>
+                                <button type="button" name="button" data-toggle-trigger="showCompetition">Skip</button>
+                                <button type="button" name="button" data-toggle-trigger="showCompetition" data-ajax="postTeam">Nextt</button>
                             </div>
                         </div>
                 </form>
             </div>
             <!-- Competitions -->
-            <div class="block__content hide" data-toggle="showCompetition" data-trigger-parent="showPlayer">
+            <div class="block__content hide" data-toggle-target="showCompetition showPlayer">
                 <form class="form" action="{{ route('store.competition', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="updateCompetition" spacing="1">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
@@ -209,11 +209,18 @@
                         <tbody data-row-body="competition">
                             <tr class="" data-row="competition" data-delete-row="competition">
                                 <td class=""><input type="text" name="row[0][name]" value="" required="required"></td>
-                                <td class=""><input type="number" name="row[0][result]" value="" required="required"></td>
+                                <td class="">
+                                <select type="number" name="row[0][type]" value="" required="required">
+                                        <option value="League">League</option>
+                                        <option value="Cup">Cup</option>
+                                        <option value="International">International</option>
+                                </select>
+                                </td>
                                 <td class=""><input type="number" name="row[0][played]" value="" required="required"></td>
                                 <td class=""><input type="number" name="row[0][won]" value="" required="required"></td>
                                 <td class=""><input type="number" name="row[0][tied]" value="" required="required"></td>
                                 <td class=""><input type="number" name="row[0][lost]" value="" required="required"></td>
+                                <td class=""><input type="text" name="row[0][result]" value="" required="required"></td>
                                 <td class="" data-delete="competition">X</td>
                             </tr>
                         </tbody>
@@ -221,18 +228,18 @@
                     <p><a href="#" data-row-add="competition">Add more Compeititon</a></p>
                     <div class="layout-split-2--apart">
                         <div class="column">
-                            <button type="button" name="button" data-trigger="showTeam">Back</button>
+                            <button type="button" name="button" data-toggle-trigger="showCompetition">Back</button>
                         </div>
                         <div class="column">
-                            <button type="button" name="button" data-trigger="showPlayer">Skip</button>
-                            <button type="submit" name="button" data-ajax="updateCompetition" data-trigger="showPlayer">Nextt POST </button>
+                            <button type="button" name="button" data-toggle-trigger="showPlayer">Skip</button>
+                            <button type="submit" name="button" data-toggle-trigger="showPlayer" data-ajax="updateCompetition" >Nextt POST </button>
                         </div>
                     </div>
                 </form>
 
             </div>
             <!-- Squad -->
-            <div class="block__content hide" data-toggle="showPlayer">
+            <div class="block__content hide" data-toggle-target="showPlayer">
                 <form class="form" action="{{ route('store.competition', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="updateCompetition" spacing="1">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
@@ -266,11 +273,11 @@
                     <p><a href="#" data-row-add="players">Add more Compeititon</a></p>
                     <div class="layout-split-2--apart">
                         <div class="column">
-                            <button type="button" name="button">Back</button>
+                            <button type="button" name="button" data-toggle-trigger="showCompetition">Back</button>
                         </div>
                         <div class="column">
                             <button type="button" name="button">Skip</button>
-                            <button type="submit" name="button" data-ajax="updateCompetition" data-trigger="showPlayer">Nextt POST </button>
+                            <button type="submit" name="button" data-ajax="updateCompetition" data-toggle-trigger="showPlayer">Nextt POST </button>
                         </div>
                     </div>
                 </form>

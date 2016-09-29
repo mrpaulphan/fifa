@@ -9,6 +9,10 @@ use App\Save;
 
 class SeasonController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // Get Save ID
     public function getSaveId($slug)
     {
@@ -26,7 +30,7 @@ class SeasonController extends Controller
         $season->save_id = $request->save_id;
         $season->season = $requet->season;
         $season->name = $request->name;
-        $season->color = $request->color != null ? $request->color : 'default';
+        $season->color = $request->color ;
         $season->manager_popularity = $request->manager_popularity;
         $season->continental_objective = $request->continental_objective;
         $season->domestic_objective = $request->domestic_objective;
@@ -42,10 +46,11 @@ class SeasonController extends Controller
         // Store
         if ($request->isMethod('post')) {
             return response()->json([
+                    'id' => $season->id,
                     'save_id' => $request->save_id,
                     'season' => $request->season,
                     'name' => $request->name,
-                    'color' => $request->color != null ? $request->color : 'default',
+                    'color' => $request->color,
                     'manager_popularity' => $request->manager_popularity,
                     'continental_objective' => $request->continental_objective,
                     'domestic_objective' => $request->domestic_objective,

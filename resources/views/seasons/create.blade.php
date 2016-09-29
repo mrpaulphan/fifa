@@ -4,7 +4,7 @@
     @if($seasons->activated == false)
         <div class="block--modal-overlay">
           <div class="block--modal" data-block-color="{{ $seasons->color}}">
-              <section class="season-direction--intro" data-trigger-parent="showTeam">
+              <section class="season-direction--intro" data-toggle-trigger-parent="showTeam">
                   <header class="block__title">
                       <h3>Get started</h3>
                   </header>
@@ -16,12 +16,12 @@
                           <div class="column">
                           </div>
                           <div class="column">
-                              <button type="button" name="button" data-trigger="showTeam">Next</button>
+                              <button type="button" name="button" data-toggle-trigger="showTeam">Next</button>
                           </div>
                       </div>
                   </div>
               </section>
-              <section class="season-direction--team" data-toggle="showTeam"  data-trigger-parent="showCompetition" >
+              <section class="season-direction--team" data-toggle-target="showTeam"  data-toggle-trigger-parent="showCompetition" >
                   <header class="block__title">
                       <h3>Create a save</h3>
                   </header>
@@ -41,8 +41,8 @@
                                       <div class="column">
                                           <div class="form__group form__group--color-picker">
                                               <label class="form__label" for="">Color</label>
-                                              <div class="form__radio-label" data-trigger="colorPicker" data-block-color="{{ $seasons->color}}"></div>
-                                              <div class="layout-split-5 form__group--color-picker-group" spacing="1" data-toggle="colorPicker">
+                                              <div class="form__radio-label" data-toggle-trigger="colorPicker" data-block-color="{{ $seasons->color}}"></div>
+                                              <div class="layout-split-5 form__group--color-picker-group" spacing="1" data-toggle-target="colorPicker">
                                               <div class="column">
                                                   <input class="form__radio" type="radio" name="color" value="default" id="default">
                                                   <label class="form__radio-label" for="default"></label>
@@ -138,19 +138,19 @@
                               </div>
                               <div class="column">
                                   <button type="button" name="button">Skip</button>
-                                  <button type="button" name="button" data-trigger="showCompetition" data-ajax="postTeam">Nextt</button>
+                                  <button type="button" name="button" data-toggle-trigger="showCompetition" data-ajax="postTeam">Nextt</button>
                               </div>
                           </div>
                       </form>
                   </div>
               </section>
-              <section class="season-direction--competition" data-toggle="showCompetition" data-trigger-parent="showPlayer">
+              <section class="season-direction--competition" data-toggle-target="showCompetition" data-toggle-trigger-parent="showPlayer">
                   <div class="block__content">
-                      <button type="button" name="button" data-trigger="showPlayer" data-ajax="postTeam">Nextt</button>
+                      <button type="button" name="button" data-toggle-trigger="showPlayer" data-ajax="postTeam">Nextt</button>
 
                   </div>
               </section>
-              <section class="season-direction--player" data-toggle="showPlayer">
+              <section class="season-direction--player" data-toggle-target="showPlayer">
                   <header class="block__title">
                       <h3>Create a Player</h3>
                   </header>

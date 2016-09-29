@@ -24973,7 +24973,7 @@ module.exports = (function() {
                 var id = $(this).attr('data-row-add');
                 console.log(id);
                 var count = $('[data-row="'+id+'"]').length;
-                var row = '<tr class="" data-row="'+id+'" data-row-value="'+count+'"><td class=""><input type="text" name="row['+count+'][name]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][result]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][played]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][won]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][tied]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][lost]" value="" required="required"></td><td class="" data-delete="'+id+'">X</td></tr>'
+                var row = '<tr class="" data-row="competition" data-delete-row="competition"><td class=""><input type="text" name="row['+count+'][name]" value="" required="required"></td><td class=""><select type="number" name="row['+count+'][type]" value="" required="required"><option value="League">League</option><option value="Cup">Cup</option><option value="International">International</option></select></td><td class=""><input type="number" name="row['+count+'][played]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][won]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][tied]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][lost]" value="" required="required"></td><td class=""><input type="text" name="row['+count+'][result]" value="" required="required"></td><td class="" data-delete="competition">X</td></tr>'
                 $('[data-row="'+id+'"]').last().after(row);
             })
 
@@ -25018,6 +25018,23 @@ module.exports = (function() {
                     if (color == undefined) {
                         var color = "default";
                     }
+                    var data = {
+                        'save_id': save_id,
+                        'season': season,
+                        'name': name,
+                        'color': color,
+                        'manager_popularity': manager_popularity,
+                        'domestic_objective': domestic_objective,
+                        'continental_objective': continental_objective,
+                        'brand_objective': brand_objective,
+                        'financial_objective': financial_objective,
+                        'youth_objective': youth_objective,
+                        'club_worth': club_worth,
+                        'transfer_budget': transfer_budget,
+                        'earnings': earnings,
+                        'expenses': expenses
+                    }
+                    console.log(data);
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -25026,25 +25043,13 @@ module.exports = (function() {
                     $.ajax({
                         url: url,
                         type: "PUT",
-                        data: {
-                            'save_id': save_id,
-                            'season': season,
-                            'name': name,
-                            'color': color,
-                            'manager_popularity': manager_popularity,
-                            'domestic_objective': domestic_objective,
-                            'continental_objective': continental_objective,
-                            'brand_objective': brand_objective,
-                            'financial_objective': financial_objective,
-                            'youth_objective': youth_objective,
-                            'club_worth': club_worth,
-                            'transfer_budget': transfer_budget,
-                            'earnings': earnings,
-                            'expenses': expenses
-
-                        },
+                        data: data,
                         success: function(data) {
                             console.log(data);
+                            var currentCompetitionID = data.id;
+                            var idInput = '<input type="hidden" name="id" value="' + currentCompetitionID + '">'
+                            $('[data-row="competition"]').last().after(row);
+                            $(form).prepend(idInput);
 
                         },
                         error: function(data) {
@@ -25071,10 +25076,8 @@ module.exports = (function() {
                             type: "put",
                             data: data,
                             success: function(data) {
-                                console.log(data);
                                 var currentCompetitionID = data.id;
-                                console.log(currentCompetitionID);
-                                var idInput = '<input type="hidden" name="id" value="'+currentCompetitionID+'">'
+                                var idInput = '<input type="hidden" name="id" value="' + currentCompetitionID + '">'
                                 $('[data-row="competition"]').last().after(row);
                                 $(form).prepend(idInput);
 
@@ -25230,39 +25233,34 @@ var $ = require('jquery');
 module.exports = (function() {
     return {
         init: function() {
-            var trigger = $('[data-trigger]');
-            var triggerAttr = 'data-trigger';
+            var trigger = $('[data-toggle-trigger]');
             var toggle = $('[data-toggle]');
-            var duration = 200;
-            var easing = 'swing';
+            var settings = {
+                duration: 200,
+                easing: 'swing'
+            };
 
             trigger.click(function() {
-                var triggerId = $(this).attr('data-trigger');
-                var thisTarget = $('[data-toggle="' + triggerId + '"]');
-                var thisTriggerParent = $('[data-trigger-parent="' + triggerId + '"]');
-                var thisText = $('[data-trigger-text="' + triggerId + '"]');
-                var currentText = thisText.text();
-                console.log($(this).attr('data-toggle'));
+                var triggerId = $(this).attr('data-toggle-trigger');
+                var thisTarget = $('[data-toggle-target*="' + triggerId + '"]');
 
                 switch (triggerId) {
                     case 'dropdown-menu':
-                        thisTarget.slideToggle(duration, easing);
+                        thisTarget.slideToggle(settings.duration, settings.easing);
                         break;
                     case 'edit-save':
                         thisTarget.show();
                         break;
                     case 'showCompetition':
                         thisTarget.toggle();
-                        thisTriggerParent.toggle();
                         break;
                     default:
                         thisTarget.toggle();
-                        thisTriggerParent.toggle();
                 }
             });
         },
         closeAll: function() {
-            console.log('closeall');
+            console.log('close all');
         }
     }
 })();

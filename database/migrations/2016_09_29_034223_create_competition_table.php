@@ -17,11 +17,12 @@ class CreateCompetitionTable extends Migration
           $table->increments('id');
           $table->integer('season_id')->unsigned();
           $table->string('name');
-          $table->integer('result');
+          $table->string('type');
           $table->integer('played');
           $table->integer('won');
           $table->integer('tied');
           $table->integer('lost');
+          $table->string('result');
           $table->timestamps();
           $table->foreign('season_id')
               ->references('id')

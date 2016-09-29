@@ -3,39 +3,34 @@ var $ = require('jquery');
 module.exports = (function() {
     return {
         init: function() {
-            var trigger = $('[data-trigger]');
-            var triggerAttr = 'data-trigger';
+            var trigger = $('[data-toggle-trigger]');
             var toggle = $('[data-toggle]');
-            var duration = 200;
-            var easing = 'swing';
+            var settings = {
+                duration: 200,
+                easing: 'swing'
+            };
 
             trigger.click(function() {
-                var triggerId = $(this).attr('data-trigger');
-                var thisTarget = $('[data-toggle="' + triggerId + '"]');
-                var thisTriggerParent = $('[data-trigger-parent="' + triggerId + '"]');
-                var thisText = $('[data-trigger-text="' + triggerId + '"]');
-                var currentText = thisText.text();
-                console.log($(this).attr('data-toggle'));
+                var triggerId = $(this).attr('data-toggle-trigger');
+                var thisTarget = $('[data-toggle-target*="' + triggerId + '"]');
 
                 switch (triggerId) {
                     case 'dropdown-menu':
-                        thisTarget.slideToggle(duration, easing);
+                        thisTarget.slideToggle(settings.duration, settings.easing);
                         break;
                     case 'edit-save':
                         thisTarget.show();
                         break;
                     case 'showCompetition':
                         thisTarget.toggle();
-                        thisTriggerParent.toggle();
                         break;
                     default:
                         thisTarget.toggle();
-                        thisTriggerParent.toggle();
                 }
             });
         },
         closeAll: function() {
-            console.log('closeall');
+            console.log('close all');
         }
     }
 })();

@@ -35,11 +35,11 @@
           @else
               <li class="dropdown">
                   <img class="avatar" src="/assets/images/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" />
-                  <a class="avatar-name" href="#" class="dropdown-toggle" data-trigger="dropdown-menu" role="button" aria-expanded="false">
+                  <a class="avatar-name" href="#" class="dropdown-toggle" data-toggle-trigger="dropdown-menu" role="button" aria-expanded="false">
                       {{ Auth::user()->name }} <span class="caret"></span>
                   </a>
 
-                  <ul class="dropdown-menu" role="menu" data-toggle="dropdown-menu">
+                  <ul class="dropdown-menu" role="menu" data-toggle-target="dropdown-menu">
                       <li><a href="#">Profile</a></li>
                       <li><a href="#">Settings</a></li>
                       <li>

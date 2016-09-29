@@ -7,9 +7,9 @@
     @if($team->isEmpty()) {{-- Empty --}}
 
         Please create team
-        <p><a href="#" class="button" data-trigger="create-team">Create Save</a></p>
+        <p><a href="#" class="button" data-toggle-trigger="create-team">Create Save</a></p>
 
-        <div class="block--modal-overlay hide" data-toggle="create-team">
+        <div class="block--modal-overlay hide" data-toggle-target="create-team">
             <div class="block--modal">
                 <header class="block__title">
                     <h3>Create a save</h3>

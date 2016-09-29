@@ -225,7 +225,7 @@ if (typeof jQuery === 'undefined') {
 
   Button.prototype.toggle = function () {
     var changed = true
-    var $parent = this.$element.closest('[data-toggle="buttons"]')
+    var $parent = this.$element.closest('[data-toggle-target="buttons"]')
 
     if ($parent.length) {
       var $input = this.$element.find('input')
@@ -555,8 +555,8 @@ if (typeof jQuery === 'undefined') {
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
-    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
-                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
+    this.$trigger      = $('[data-toggle-target="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle-target="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
 
     if (this.options.parent) {
@@ -676,7 +676,7 @@ if (typeof jQuery === 'undefined') {
 
   Collapse.prototype.getParent = function () {
     return $(this.options.parent)
-      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
+      .find('[data-toggle-target="collapse"][data-parent="' + this.options.parent + '"]')
       .each($.proxy(function (i, element) {
         var $element = $(element)
         this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
@@ -735,7 +735,7 @@ if (typeof jQuery === 'undefined') {
   // COLLAPSE DATA-API
   // =================
 
-  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
+  $(document).on('click.bs.collapse.data-api', '[data-toggle-target="collapse"]', function (e) {
     var $this   = $(this)
 
     if (!$this.attr('data-target')) e.preventDefault()
@@ -765,7 +765,7 @@ if (typeof jQuery === 'undefined') {
   // =========================
 
   var backdrop = '.dropdown-backdrop'
-  var toggle   = '[data-toggle="dropdown"]'
+  var toggle   = '[data-toggle-target="dropdown"]'
   var Dropdown = function (element) {
     $(element).on('click.bs.dropdown', this.toggle)
   }
@@ -1236,7 +1236,7 @@ if (typeof jQuery === 'undefined') {
   // MODAL DATA-API
   // ==============
 
-  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
+  $(document).on('click.bs.modal.data-api', '[data-toggle-target="modal"]', function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
     var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7
@@ -2135,12 +2135,12 @@ if (typeof jQuery === 'undefined') {
         .find('> .dropdown-menu > .active')
           .removeClass('active')
         .end()
-        .find('[data-toggle="tab"]')
+        .find('[data-toggle-target="tab"]')
           .attr('aria-expanded', false)
 
       element
         .addClass('active')
-        .find('[data-toggle="tab"]')
+        .find('[data-toggle-target="tab"]')
           .attr('aria-expanded', true)
 
       if (transition) {
@@ -2155,7 +2155,7 @@ if (typeof jQuery === 'undefined') {
           .closest('li.dropdown')
             .addClass('active')
           .end()
-          .find('[data-toggle="tab"]')
+          .find('[data-toggle-target="tab"]')
             .attr('aria-expanded', true)
       }
 
@@ -2209,8 +2209,8 @@ if (typeof jQuery === 'undefined') {
   }
 
   $(document)
-    .on('click.bs.tab.data-api', '[data-toggle="tab"]', clickHandler)
-    .on('click.bs.tab.data-api', '[data-toggle="pill"]', clickHandler)
+    .on('click.bs.tab.data-api', '[data-toggle-target="tab"]', clickHandler)
+    .on('click.bs.tab.data-api', '[data-toggle-target="pill"]', clickHandler)
 
 }(jQuery);
 

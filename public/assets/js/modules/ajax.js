@@ -10110,6 +10110,23 @@ module.exports = (function() {
                     if (color == undefined) {
                         var color = "default";
                     }
+                    var data = {
+                        'save_id': save_id,
+                        'season': season,
+                        'name': name,
+                        'color': color,
+                        'manager_popularity': manager_popularity,
+                        'domestic_objective': domestic_objective,
+                        'continental_objective': continental_objective,
+                        'brand_objective': brand_objective,
+                        'financial_objective': financial_objective,
+                        'youth_objective': youth_objective,
+                        'club_worth': club_worth,
+                        'transfer_budget': transfer_budget,
+                        'earnings': earnings,
+                        'expenses': expenses
+                    }
+                    console.log(data);
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -10118,25 +10135,13 @@ module.exports = (function() {
                     $.ajax({
                         url: url,
                         type: "PUT",
-                        data: {
-                            'save_id': save_id,
-                            'season': season,
-                            'name': name,
-                            'color': color,
-                            'manager_popularity': manager_popularity,
-                            'domestic_objective': domestic_objective,
-                            'continental_objective': continental_objective,
-                            'brand_objective': brand_objective,
-                            'financial_objective': financial_objective,
-                            'youth_objective': youth_objective,
-                            'club_worth': club_worth,
-                            'transfer_budget': transfer_budget,
-                            'earnings': earnings,
-                            'expenses': expenses
-
-                        },
+                        data: data,
                         success: function(data) {
                             console.log(data);
+                            var currentCompetitionID = data.id;
+                            var idInput = '<input type="hidden" name="id" value="' + currentCompetitionID + '">'
+                            $('[data-row="competition"]').last().after(row);
+                            $(form).prepend(idInput);
 
                         },
                         error: function(data) {
@@ -10163,10 +10168,8 @@ module.exports = (function() {
                             type: "put",
                             data: data,
                             success: function(data) {
-                                console.log(data);
                                 var currentCompetitionID = data.id;
-                                console.log(currentCompetitionID);
-                                var idInput = '<input type="hidden" name="id" value="'+currentCompetitionID+'">'
+                                var idInput = '<input type="hidden" name="id" value="' + currentCompetitionID + '">'
                                 $('[data-row="competition"]').last().after(row);
                                 $(form).prepend(idInput);
 

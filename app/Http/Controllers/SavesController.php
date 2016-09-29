@@ -9,6 +9,10 @@ use App\Season;
 
 class SavesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // Create slug from save name
     public function generateSlug($slug)
     {

@@ -7,6 +7,10 @@ use App\Competition;
 
 class CompetitionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function store(Request $request)
     {
         //        dd($request->row);
@@ -18,6 +22,7 @@ class CompetitionController extends Controller
                 $competition = new Competition();
                 $competition->season_id = $season_id;
                 $competition->name = $row['name'];
+                $competition->type = $row['type'];
                 $competition->result = $row['result'];
                 $competition->played = $row['played'];
                 $competition->won = $row['won'];
@@ -30,6 +35,7 @@ class CompetitionController extends Controller
                 $competition = new Competition();
                 $competition = Competition::where('id', $request->id)->update([
                 'name' => $competition->name,
+                'type' => $competition->type,
                 'result' => $competition->result,
                 'played' => $competition->played,
                 'won' => $competition->won,
@@ -44,6 +50,7 @@ class CompetitionController extends Controller
             return response()->json([
                 'id' => $competition->id == null ? null : $competition->id,
                 'name' => $competition->name,
+                'type' => $competition->type,
                 'result' => $competition->result,
                 'played' => $competition->played,
                 'won' => $competition->won,

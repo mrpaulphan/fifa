@@ -5,10 +5,10 @@
     @if($saves->isEmpty())
         <div spacing="1">
             <p>Looks like you dont have any saves set up yet</p>
-            <p class="align-center"><a href="#" class="button--primary" data-trigger="create-team">Add Save</a></p>
+            <p class="align-center"><a href="#" class="button--primary" data-toggle-trigger="create-team">Add Save</a></p>
         </div>
 
-    <div class="block--modal-overlay hide" data-toggle="create-team">
+    <div class="block--modal-overlay hide" data-toggle-target="create-team">
         <div class="block block--modal" data-block-color="default">
             <header class="block__title">
                 <h3>Create a save</h3>
@@ -38,8 +38,8 @@
     </div>
 
 @else
-    <p><a href="#" class="button button--secondary" data-trigger="create-team">Add Save</a></p>
-    <div class="block--modal-overlay {{ $errors->has('saveName') ? '' : 'hide' }}" data-toggle="create-team">
+    <p><a href="#" class="button button--secondary" data-toggle-trigger="create-team">Add Save</a></p>
+    <div class="block--modal-overlay {{ $errors->has('saveName') ? '' : 'hide' }}" data-toggle-target="create-team">
         <div class="block block-color--default block--modal">
             <header class="block__title">
                 <h3>Add a save</h3>
@@ -74,8 +74,8 @@
                 <div class="block__content">
                     <h2>{{ $save->name }}
                         <div class="block__action">
-                            <span class="block__actions-edit" data-trigger="edit-{{ $save->id }}"><?php echo file_get_contents('assets/svgs/edit.svg'); ?></span>
-                            <span class="block__actions-delete" data-trigger="delete-{{ $save->id }}"><?php echo file_get_contents('assets/svgs/delete.svg'); ?></span>
+                            <span class="block__actions-edit" data-toggle-trigger="edit-{{ $save->id }}"><?php echo file_get_contents('assets/svgs/edit.svg'); ?></span>
+                            <span class="block__actions-delete" data-toggle-trigger="delete-{{ $save->id }}"><?php echo file_get_contents('assets/svgs/delete.svg'); ?></span>
                         </div>
                     </h2>
                     <p>{{ $save->manager }}</p>
@@ -116,7 +116,7 @@
                 </div>
             </div>
                 {{-- Update Modal --}}
-                <div class="block--modal-overlay hide" data-toggle="edit-{{ $save->id }}">
+                <div class="block--modal-overlay hide" data-toggle-target="edit-{{ $save->id }}">
                     <div class="block block--modal " data-block-color="{{ $save->hasSeason() ? $save->recentSeason->first()->color : 'default' }}">
                         <header class="block__title">
                             <h3>Edit Save</h3>
@@ -151,7 +151,7 @@
                 </div>
                 {{-- Delete Modal --}}
 
-                <div class="block--modal-overlay hide" data-toggle="delete-{{ $save->id }}">
+                <div class="block--modal-overlay hide" data-toggle-target="delete-{{ $save->id }}">
                     <div class="block block--modal " data-block-color="{{ $save->hasSeason() ? $save->recentSeason->first()->color : 'default' }}">
                         <header class="block__title">
                             <h3>Delete Save</h3>

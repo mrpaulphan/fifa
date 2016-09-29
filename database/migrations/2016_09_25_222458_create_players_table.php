@@ -14,8 +14,9 @@ class CreatePlayersTable extends Migration
         Schema::create('players', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('season_id')->unsigned();
-          $table->string('name');
+          $table->integer('status')->default('squad');
           $table->string('position');
+          $table->string('name');
           $table->integer('age');
           $table->integer('overall');
           $table->string('status')->nullable();

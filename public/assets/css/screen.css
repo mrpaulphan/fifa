@@ -1474,7 +1474,7 @@ select {
 [data-block-color="navyBlue"].border-top {
   border-top: 10px solid #203d8a; }
 
-[data-block-color="navyBlue"][data-toggle="colorPicker"] {
+[data-block-color="navyBlue"][data-toggle-target="colorPicker"] {
   background-color: #203d8a; }
 
 [data-block-color="navyBlue"].sidebar {
@@ -1486,7 +1486,7 @@ select {
 [data-block-color="royalBlue"].border-top {
   border-top: 10px solid #0567c7; }
 
-[data-block-color="royalBlue"][data-toggle="colorPicker"] {
+[data-block-color="royalBlue"][data-toggle-target="colorPicker"] {
   background-color: #0567c7; }
 
 [data-block-color="royalBlue"].sidebar {
@@ -1498,7 +1498,7 @@ select {
 [data-block-color="paleBlue"].border-top {
   border-top: 10px solid #4f9cd4; }
 
-[data-block-color="paleBlue"][data-toggle="colorPicker"] {
+[data-block-color="paleBlue"][data-toggle-target="colorPicker"] {
   background-color: #4f9cd4; }
 
 [data-block-color="paleBlue"].sidebar {
@@ -1510,7 +1510,7 @@ select {
 [data-block-color="turqouise"].border-top {
   border-top: 10px solid #02a098; }
 
-[data-block-color="turqouise"][data-toggle="colorPicker"] {
+[data-block-color="turqouise"][data-toggle-target="colorPicker"] {
   background-color: #02a098; }
 
 [data-block-color="turqouise"].sidebar {
@@ -1522,7 +1522,7 @@ select {
 [data-block-color="green"].border-top {
   border-top: 10px solid #008000; }
 
-[data-block-color="green"][data-toggle="colorPicker"] {
+[data-block-color="green"][data-toggle-target="colorPicker"] {
   background-color: #008000; }
 
 [data-block-color="green"].sidebar {
@@ -1534,7 +1534,7 @@ select {
 [data-block-color="darkGrey"].border-top {
   border-top: 10px solid #2c3e50; }
 
-[data-block-color="darkGrey"][data-toggle="colorPicker"] {
+[data-block-color="darkGrey"][data-toggle-target="colorPicker"] {
   background-color: #2c3e50; }
 
 [data-block-color="darkGrey"].sidebar {
@@ -1546,7 +1546,7 @@ select {
 [data-block-color="purple"].border-top {
   border-top: 10px solid #8e44ad; }
 
-[data-block-color="purple"][data-toggle="colorPicker"] {
+[data-block-color="purple"][data-toggle-target="colorPicker"] {
   background-color: #8e44ad; }
 
 [data-block-color="purple"].sidebar {
@@ -1558,7 +1558,7 @@ select {
 [data-block-color="magenta"].border-top {
   border-top: 10px solid #a3214b; }
 
-[data-block-color="magenta"][data-toggle="colorPicker"] {
+[data-block-color="magenta"][data-toggle-target="colorPicker"] {
   background-color: #a3214b; }
 
 [data-block-color="magenta"].sidebar {
@@ -1570,7 +1570,7 @@ select {
 [data-block-color="red"].border-top {
   border-top: 10px solid #d33120; }
 
-[data-block-color="red"][data-toggle="colorPicker"] {
+[data-block-color="red"][data-toggle-target="colorPicker"] {
   background-color: #d33120; }
 
 [data-block-color="red"].sidebar {
@@ -1582,7 +1582,7 @@ select {
 [data-block-color="gold"].border-top {
   border-top: 10px solid #f39c12; }
 
-[data-block-color="gold"][data-toggle="colorPicker"] {
+[data-block-color="gold"][data-toggle-target="colorPicker"] {
   background-color: #f39c12; }
 
 [data-block-color="gold"].sidebar {

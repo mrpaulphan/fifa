@@ -48,7 +48,7 @@
         border-top: 10px solid $navyBlue;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $navyBlue;
     }
 
@@ -66,7 +66,7 @@
         border-top: 10px solid $royalBlue;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $royalBlue;
     }
 
@@ -84,7 +84,7 @@
         border-top: 10px solid $paleBlue;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $paleBlue;
     }
 
@@ -102,7 +102,7 @@
         border-top: 10px solid $turqouise;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $turqouise;
     }
 
@@ -120,7 +120,7 @@
         border-top: 10px solid $green;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $green;
     }
 
@@ -138,7 +138,7 @@
         border-top: 10px solid $darkGrey;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $darkGrey;
     }
 
@@ -156,7 +156,7 @@
         border-top: 10px solid $purple;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $purple;
     }
 
@@ -174,7 +174,7 @@
         border-top: 10px solid $magenta;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $magenta;
     }
 
@@ -192,7 +192,7 @@
         border-top: 10px solid $red;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $red;
     }
 
@@ -210,7 +210,7 @@
         border-top: 10px solid $gold;
     }
 
-    &[data-toggle="colorPicker"] {
+    &[data-toggle-target="colorPicker"] {
         background-color: $gold;
     }
 
