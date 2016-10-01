@@ -29,6 +29,7 @@ Route::put('{username}/{slug}/season/update', 'SeasonController@update')->name('
 
 // Competition
 Route::put('{username}/{slug}/competition/update', 'CompetitionController@store')->name('store.competition');
+
 // Players
 Route::post('{username}/{slug}/player/create', 'PlayerController@store')->name('store.players');
 

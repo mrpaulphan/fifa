@@ -30,13 +30,6 @@ class PlayerController extends Controller
     {
         $input = $request->all();
 
-        echo $request;
-        $this->validate($request, [
-            'position' => 'required|max:255',
-            'name' => 'required|max:255',
-            'age' => 'required|integer',
-            'overall' => 'required|integer',
-        ]);
         $players = new Player();
 
         foreach ($request as $request) {

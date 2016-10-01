@@ -10092,22 +10092,22 @@ module.exports = (function() {
                 if (id == 'postTeam') {
                     var url = $('[data-form="' + id + '"]').attr('action');
                     var form = '[data-form="' + id + '"]';
-                    var season = seasonValue
-                    var token = $(form + ' input[name="_token"]').val()
-                    var name = $(form + ' input[name="name"]').val()
-                    var domestic_objective = $(form + ' select[name="domestic_objective"]').val()
-                    var continental_objective = $(form + ' select[name="continental_objective"]').val()
-                    var brand_objective = $(form + ' select[name="brand_objective"]').val()
-                    var financial_objective = $(form + ' select[name="financial_objective"]').val()
-                    var youth_objective = $(form + ' select[name="youth_objective"]').val()
-                    var club_worth = $(form + ' input[name="club_worth"]').val()
-                    var transfer_budget = $(form + ' input[name="transfer_budget"]').val()
-                    var save_id = $(form + ' input[name="save_id"]').val()
-                    var manager_popularity = $(form + ' input[name="manager_popularity"]').val()
-                    var expenses = $(form + ' input[name="expenses"]').val()
-                    var earnings = $(form + ' input[name="earnings"]').val()
+                    var season = seasonValue;
+                    var token = $(form + ' input[name="_token"]').val();
+                    var name = $(form + ' input[name="name"]').val();
+                    var domestic_objective = $(form + ' select[name="domestic_objective"]').val();
+                    var continental_objective = $(form + ' select[name="continental_objective"]').val();
+                    var brand_objective = $(form + ' select[name="brand_objective"]').val();
+                    var financial_objective = $(form + ' select[name="financial_objective"]').val();
+                    var youth_objective = $(form + ' select[name="youth_objective"]').val();
+                    var club_worth = $(form + ' input[name="club_worth"]').val();
+                    var transfer_budget = $(form + ' input[name="transfer_budget"]').val();
+                    var save_id = $(form + ' input[name="save_id"]').val();
+                    var manager_popularity = $(form + ' input[name="manager_popularity"]').val();
+                    var expenses = $(form + ' input[name="expenses"]').val();
+                    var earnings = $(form + ' input[name="earnings"]').val();
                     var color = $('input[name=color]:checked').val();
-                    if (color == undefined) {
+                    if (color === undefined) {
                         var color = "default";
                     }
                     var data = {
@@ -10125,7 +10125,7 @@ module.exports = (function() {
                         'transfer_budget': transfer_budget,
                         'earnings': earnings,
                         'expenses': expenses
-                    }
+                    };
                     console.log(data);
                     $.ajaxSetup({
                         headers: {
@@ -10139,7 +10139,7 @@ module.exports = (function() {
                         success: function(data) {
                             console.log(data);
                             var currentCompetitionID = data.id;
-                            var idInput = '<input type="hidden" name="id" value="' + currentCompetitionID + '">'
+                            var idInput = '<input type="hidden" name="id" value="' + currentCompetitionID + '">';
                             $('[data-row="competition"]').last().after(row);
                             $(form).prepend(idInput);
 
@@ -10150,7 +10150,8 @@ module.exports = (function() {
                     });
 
 
-                } else if (id == 'updateCompetition') {
+                }
+                if (id == 'updateCompetition') {
                     var url = $('[data-form="' + id + '"]').attr('action');
                     var form = '[data-form="' + id + '"]';
                     var row = $('[data-row="' + id + '"]');
@@ -10178,9 +10179,6 @@ module.exports = (function() {
                                 console.log(data);
                             }
                         });
-
-
-
                     })
 
                 }

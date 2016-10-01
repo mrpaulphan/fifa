@@ -24965,21 +24965,30 @@ $(document).ready(function() {
 var $ = require('jquery');
 
 module.exports = (function() {
-    var addMoreButton = $('[data-row-add]');
+    var addMoreButtonCompetition = $('[data-row-add="competition"]');
+    var addMoreButtonPlayers = $('[data-row-add]');
     return {
 
         init: function() {
-            addMoreButton.on('click', function() {
+            addMoreButtonCompetition.on('click', function() {
                 var id = $(this).attr('data-row-add');
                 console.log(id);
-                var count = $('[data-row="'+id+'"]').length;
-                var row = '<tr class="" data-row="competition" data-delete-row="competition"><td class=""><input type="text" name="row['+count+'][name]" value="" required="required"></td><td class=""><select type="number" name="row['+count+'][type]" value="" required="required"><option value="League">League</option><option value="Cup">Cup</option><option value="International">International</option></select></td><td class=""><input type="number" name="row['+count+'][played]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][won]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][tied]" value="" required="required"></td><td class=""><input type="number" name="row['+count+'][lost]" value="" required="required"></td><td class=""><input type="text" name="row['+count+'][result]" value="" required="required"></td><td class="" data-delete="competition">X</td></tr>'
-                $('[data-row="'+id+'"]').last().after(row);
-            })
+                var count = $('[data-row="' + id + '"]').length;
+                var row = '<tr class="" data-row="competition" data-delete-row="competition"><td class=""><input type="text" name="row[' + count + '][name]" value="" required="required"></td><td class=""><select type="number" name="row[' + count + '][type]" value="" required="required"><option value="League">League</option><option value="Cup">Cup</option><option value="International">International</option></select></td><td class=""><input type="number" name="row[' + count + '][played]" value="" required="required"></td><td class=""><input type="number" name="row[' + count + '][won]" value="" required="required"></td><td class=""><input type="number" name="row[' + count + '][tied]" value="" required="required"></td><td class=""><input type="number" name="row[' + count + '][lost]" value="" required="required"></td><td class=""><input type="text" name="row[' + count + '][result]" value="" required="required"></td><td class="" data-delete="competition">X</td></tr>';
+                $('[data-row="' + id + '"]').last().after(row);
+            });
+
+            addMoreButtonPlayers.on('click', function() {
+                var id = $(this).attr('data-row-add');
+                console.log(id);
+                var count = $('[data-row="' + id + '"]').length;
+                var row = '<tr class="" data-row="players" data-delete-row="players"><td class=""><input type="text" name="row[0][position]" value=""></td><td class=""><input type="text" name="row[0][name]" value=""></td><td class=""><input type="number" name="row[0][age]" value=""></td><td class=""><input type="number" name="row[0][overall]" value=""></td><td class="" data-delete="players">X</td></tr>';
+                $('[data-row="' + id + '"]').last().after(row);
+            });
 
 
         }
-    }
+    };
 })();
 
 },{"jquery":44}],48:[function(require,module,exports){
@@ -25000,22 +25009,22 @@ module.exports = (function() {
                 if (id == 'postTeam') {
                     var url = $('[data-form="' + id + '"]').attr('action');
                     var form = '[data-form="' + id + '"]';
-                    var season = seasonValue
-                    var token = $(form + ' input[name="_token"]').val()
-                    var name = $(form + ' input[name="name"]').val()
-                    var domestic_objective = $(form + ' select[name="domestic_objective"]').val()
-                    var continental_objective = $(form + ' select[name="continental_objective"]').val()
-                    var brand_objective = $(form + ' select[name="brand_objective"]').val()
-                    var financial_objective = $(form + ' select[name="financial_objective"]').val()
-                    var youth_objective = $(form + ' select[name="youth_objective"]').val()
-                    var club_worth = $(form + ' input[name="club_worth"]').val()
-                    var transfer_budget = $(form + ' input[name="transfer_budget"]').val()
-                    var save_id = $(form + ' input[name="save_id"]').val()
-                    var manager_popularity = $(form + ' input[name="manager_popularity"]').val()
-                    var expenses = $(form + ' input[name="expenses"]').val()
-                    var earnings = $(form + ' input[name="earnings"]').val()
+                    var season = seasonValue;
+                    var token = $(form + ' input[name="_token"]').val();
+                    var name = $(form + ' input[name="name"]').val();
+                    var domestic_objective = $(form + ' select[name="domestic_objective"]').val();
+                    var continental_objective = $(form + ' select[name="continental_objective"]').val();
+                    var brand_objective = $(form + ' select[name="brand_objective"]').val();
+                    var financial_objective = $(form + ' select[name="financial_objective"]').val();
+                    var youth_objective = $(form + ' select[name="youth_objective"]').val();
+                    var club_worth = $(form + ' input[name="club_worth"]').val();
+                    var transfer_budget = $(form + ' input[name="transfer_budget"]').val();
+                    var save_id = $(form + ' input[name="save_id"]').val();
+                    var manager_popularity = $(form + ' input[name="manager_popularity"]').val();
+                    var expenses = $(form + ' input[name="expenses"]').val();
+                    var earnings = $(form + ' input[name="earnings"]').val();
                     var color = $('input[name=color]:checked').val();
-                    if (color == undefined) {
+                    if (color === undefined) {
                         var color = "default";
                     }
                     var data = {
@@ -25033,7 +25042,7 @@ module.exports = (function() {
                         'transfer_budget': transfer_budget,
                         'earnings': earnings,
                         'expenses': expenses
-                    }
+                    };
                     console.log(data);
                     $.ajaxSetup({
                         headers: {
@@ -25047,7 +25056,7 @@ module.exports = (function() {
                         success: function(data) {
                             console.log(data);
                             var currentCompetitionID = data.id;
-                            var idInput = '<input type="hidden" name="id" value="' + currentCompetitionID + '">'
+                            var idInput = '<input type="hidden" name="id" value="' + currentCompetitionID + '">';
                             $('[data-row="competition"]').last().after(row);
                             $(form).prepend(idInput);
 
@@ -25058,7 +25067,8 @@ module.exports = (function() {
                     });
 
 
-                } else if (id == 'updateCompetition') {
+                }
+                if (id == 'updateCompetition') {
                     var url = $('[data-form="' + id + '"]').attr('action');
                     var form = '[data-form="' + id + '"]';
                     var row = $('[data-row="' + id + '"]');
@@ -25086,9 +25096,6 @@ module.exports = (function() {
                                 console.log(data);
                             }
                         });
-
-
-
                     })
 
                 }
@@ -25228,6 +25235,16 @@ module.exports = {
 };
 
 },{"jquery":44}],54:[function(require,module,exports){
+/**
+ * @author Paul Phan <phan@happycog.com>
+ * @description This file allows you to quickly show/hide elements by adding
+ * attributes to the trigger element and target element.
+ * @example <a href="#" data-toggle-trigger="showDropdown">click me</a>
+ * // Apply on the click trigger
+ * @example <div data-toggle-target="showDropdown">..</div>
+ * // Toggles element.
+ * @version 1.0
+ */
 var $ = require('jquery');
 
 module.exports = (function() {

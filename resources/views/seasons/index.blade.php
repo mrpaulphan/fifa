@@ -8,7 +8,7 @@
             <h2>Create a season</h2>
         </header>
             <!-- Getting Started -->
-            <div class="block__content" data-toggle-target="showTeam" >
+            <div class="block__content hide" data-toggle-target="showTeam" >
                 <h3>Season Setup</h3>
                 <p>Let's add some information for this season. Data is carried over each season so you won't have to worry about setting everything up again. All required information can be found in your FIFA career mode save.</p>
                 <div class="form__group">
@@ -239,45 +239,40 @@
 
             </div>
             <!-- Squad -->
-            <div class="block__content hide" data-toggle-target="showPlayer">
-                <form class="form" action="{{ route('store.competition', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" data-form="updateCompetition" spacing="1">
+            <div class="block__content" data-toggle-target="showPlayer">
+                <form class="form" action="{{ route('store.players', [Auth::user()->username, $seasons->belongsToSave->slug ]) }}" method="POST" spacing="1">
                     {{ csrf_field() }}
-                    {{ method_field('PUT') }}
 
                     <input type="hidden" name="season_id" value="{{ $seasons->id }}">
                     <h3>Squad</h3>
                     <table>
                         <thead>
                             <tr>
-                                <td class="small">Compeition Name</td>
-                                <td class="small">Result</td>
-                                <td class="small">Played</td>
-                                <td class="small">Won</td>
-                                <td class="small">Tied</td>
-                                <td class="small">Lost</td>
+                                <td class="small">Pos</td>
+                                <td class="small">Name</td>
+                                <td class="small">Age</td>
+                                <td class="small">Ovr</td>
                                 <td class="small">Action</td>
                             </tr>
                         </thead>
                         <tbody data-row-body="players">
                             <tr class="" data-row="players" data-delete-row="players">
+                                <td class=""><input type="text" name="row[0][position]" value=""></td>
                                 <td class=""><input type="text" name="row[0][name]" value=""></td>
-                                <td class=""><input type="number" name="row[0][result]" value=""></td>
-                                <td class=""><input type="number" name="row[0][played]" value=""></td>
-                                <td class=""><input type="number" name="row[0][won]" value=""></td>
-                                <td class=""><input type="number" name="row[0][tied]" value=""></td>
-                                <td class=""><input type="number" name="row[0][lost]" value=""></td>
+                                <td class=""><input type="number" name="row[0][age]" value=""></td>
+                                <td class=""><input type="number" name="row[0][overall]" value=""></td>
                                 <td class="" data-delete="players">X</td>
                             </tr>
                         </tbody>
                     </table>
-                    <p><a href="#" data-row-add="players">Add more Compeititon</a></p>
+                    <p><a href="#" data-row-add="players">Add more players</a></p>
                     <div class="layout-split-2--apart">
                         <div class="column">
                             <button type="button" name="button" data-toggle-trigger="showCompetition">Back</button>
                         </div>
                         <div class="column">
                             <button type="button" name="button">Skip</button>
-                            <button type="submit" name="button" data-ajax="updateCompetition" data-toggle-trigger="showPlayer">Nextt POST </button>
+                            <button type="submit" name="button" data-ajax="updatePlayer" data-toggle-trigger="showPlayer">Nextt POST </button>
                         </div>
                     </div>
                 </form>

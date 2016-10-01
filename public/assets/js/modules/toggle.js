@@ -10075,6 +10075,16 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
+/**
+ * @author Paul Phan <phan@happycog.com>
+ * @description This file allows you to quickly show/hide elements by adding
+ * attributes to the trigger element and target element.
+ * @example <a href="#" data-toggle-trigger="showDropdown">click me</a>
+ * // Apply on the click trigger
+ * @example <div data-toggle-target="showDropdown">..</div>
+ * // Toggles element.
+ * @version 1.0
+ */
 var $ = require('jquery');
 
 module.exports = (function() {
