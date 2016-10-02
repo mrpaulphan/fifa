@@ -13,8 +13,6 @@ class CompetitionController extends Controller
     }
     public function store(Request $request)
     {
-        //        dd($request->row);
-        // Mass Assign
 
         if ($request->id == null) {
             $season_id = $request->season_id;

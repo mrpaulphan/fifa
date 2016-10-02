@@ -10,9 +10,8 @@ module.exports = (function() {
                 var color = $(this).val();
                 blockColor.each(function() {
                     $(this).attr('data-block-color', color);
-                })
+                });
             });
         }
-
-    }
+    };
 })();

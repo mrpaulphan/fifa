@@ -41,6 +41,10 @@
     .block__title {
         background-color: $brandBlack;
     }
+
+    &.form__radio-label {
+        background-color: $brandBlack;
+    }
 }
 
 [data-block-color="navyBlue"] {
@@ -57,6 +61,10 @@
     }
 
     .block__title {
+        background-color: $navyBlue;
+    }
+
+    &.form__radio-label {
         background-color: $navyBlue;
     }
 }
@@ -77,6 +85,10 @@
     .block__title {
         background-color: $royalBlue;
     }
+
+    &.form__radio-label {
+        background-color: $royalBlue;
+    }
 }
 
 [data-block-color="paleBlue"] {
@@ -93,6 +105,10 @@
     }
 
     .block__title {
+        background-color: $paleBlue;
+    }
+
+    &.form__radio-label {
         background-color: $paleBlue;
     }
 }
@@ -113,6 +129,10 @@
     .block__title {
         background-color: $turqouise;
     }
+
+    &.form__radio-label {
+        background-color: $turqouise;
+    }
 }
 
 [data-block-color="green"] {
@@ -129,6 +149,10 @@
     }
 
     .block__title {
+        background-color: $green;
+    }
+
+    &.form__radio-label {
         background-color: $green;
     }
 }
@@ -149,6 +173,10 @@
     .block__title {
         background-color: $darkGrey;
     }
+
+    &.form__radio-label {
+        background-color: $darkGrey;
+    }
 }
 
 [data-block-color="purple"] {
@@ -165,6 +193,10 @@
     }
 
     .block__title {
+        background-color: $purple;
+    }
+
+    &.form__radio-label {
         background-color: $purple;
     }
 }
@@ -185,6 +217,10 @@
     .block__title {
         background-color: $magenta;
     }
+
+    &.form__radio-label {
+        background-color: $magenta;
+    }
 }
 
 [data-block-color="red"] {
@@ -203,6 +239,10 @@
     .block__title {
         background-color: $red;
     }
+
+    &.form__radio-label {
+        background-color: $red;
+    }
 }
 
 [data-block-color="gold"] {
@@ -219,6 +259,10 @@
     }
 
     .block__title {
+        background-color: $gold;
+    }
+
+    &.form__radio-label {
         background-color: $gold;
     }
 }

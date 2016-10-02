@@ -13,6 +13,10 @@ class SeasonController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function index() {
+        
+    }
     // Get Save ID
     public function getSaveId($slug)
     {

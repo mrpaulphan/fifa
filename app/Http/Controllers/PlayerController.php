@@ -25,30 +25,36 @@ class PlayerController extends Controller
 
         return view('team.index')->with('players', $players);
     }
-
+    /**
+     * Stores the player.
+     *
+     * @param Request $request [description]
+     *
+     * @return [type] [description]
+     */
     public function store(Request $request)
     {
-        $input = $request->all();
-
-        $players = new Player();
-
-        foreach ($request as $request) {
-            echo $request->name;
+        $season_id = $request->season_id;
+        foreach ($request->row as $row) {
+            $players = new Player();
+            $players->season_id = $season_id;
+            $players->position = $row['position'];
+            $players->name = $row['name'];
+            $players->age = $row['age'];
+            $players->overall = $row['overall'];
+            $players->save();
         }
-        die();
-        foreach ($request as $request) {
-            $players->save([
-                'name' => $request->name,
-                'position' => $request->position,
-                'age' => $request->age,
-                'season_id ' => $request->season_id,
-                'overall' => $request->overall ]);
-        }
-        die();
 
+        echo $request;
 
-        // Redirect
-        return redirect()->route('list.player');
+        return response()->json([
+                'id' => $players->id == null ? null : $players->id,
+                'position' => $players->position,
+                'name' => $players->name,
+                'age' => $players->age,
+                'overall' => $players->played,
+
+                ]);
     }
 
     public function edit(Request $request, $id)

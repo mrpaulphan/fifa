@@ -1471,6 +1471,9 @@ select {
 [data-block-color="default"] .block__title {
   background-color: #323232; }
 
+[data-block-color="default"].form__radio-label {
+  background-color: #323232; }
+
 [data-block-color="navyBlue"].border-top {
   border-top: 10px solid #203d8a; }
 
@@ -1481,6 +1484,9 @@ select {
   background-color: #203d8a; }
 
 [data-block-color="navyBlue"] .block__title {
+  background-color: #203d8a; }
+
+[data-block-color="navyBlue"].form__radio-label {
   background-color: #203d8a; }
 
 [data-block-color="royalBlue"].border-top {
@@ -1495,6 +1501,9 @@ select {
 [data-block-color="royalBlue"] .block__title {
   background-color: #0567c7; }
 
+[data-block-color="royalBlue"].form__radio-label {
+  background-color: #0567c7; }
+
 [data-block-color="paleBlue"].border-top {
   border-top: 10px solid #4f9cd4; }
 
@@ -1505,6 +1514,9 @@ select {
   background-color: #4f9cd4; }
 
 [data-block-color="paleBlue"] .block__title {
+  background-color: #4f9cd4; }
+
+[data-block-color="paleBlue"].form__radio-label {
   background-color: #4f9cd4; }
 
 [data-block-color="turqouise"].border-top {
@@ -1519,6 +1531,9 @@ select {
 [data-block-color="turqouise"] .block__title {
   background-color: #02a098; }
 
+[data-block-color="turqouise"].form__radio-label {
+  background-color: #02a098; }
+
 [data-block-color="green"].border-top {
   border-top: 10px solid #008000; }
 
@@ -1529,6 +1544,9 @@ select {
   background-color: #008000; }
 
 [data-block-color="green"] .block__title {
+  background-color: #008000; }
+
+[data-block-color="green"].form__radio-label {
   background-color: #008000; }
 
 [data-block-color="darkGrey"].border-top {
@@ -1543,6 +1561,9 @@ select {
 [data-block-color="darkGrey"] .block__title {
   background-color: #2c3e50; }
 
+[data-block-color="darkGrey"].form__radio-label {
+  background-color: #2c3e50; }
+
 [data-block-color="purple"].border-top {
   border-top: 10px solid #8e44ad; }
 
@@ -1553,6 +1574,9 @@ select {
   background-color: #8e44ad; }
 
 [data-block-color="purple"] .block__title {
+  background-color: #8e44ad; }
+
+[data-block-color="purple"].form__radio-label {
   background-color: #8e44ad; }
 
 [data-block-color="magenta"].border-top {
@@ -1567,6 +1591,9 @@ select {
 [data-block-color="magenta"] .block__title {
   background-color: #a3214b; }
 
+[data-block-color="magenta"].form__radio-label {
+  background-color: #a3214b; }
+
 [data-block-color="red"].border-top {
   border-top: 10px solid #d33120; }
 
@@ -1579,6 +1606,9 @@ select {
 [data-block-color="red"] .block__title {
   background-color: #d33120; }
 
+[data-block-color="red"].form__radio-label {
+  background-color: #d33120; }
+
 [data-block-color="gold"].border-top {
   border-top: 10px solid #f39c12; }
 
@@ -1589,4 +1619,7 @@ select {
   background-color: #f39c12; }
 
 [data-block-color="gold"] .block__title {
+  background-color: #f39c12; }
+
+[data-block-color="gold"].form__radio-label {
   background-color: #f39c12; }

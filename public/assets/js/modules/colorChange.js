@@ -10087,11 +10087,10 @@ module.exports = (function() {
                 var color = $(this).val();
                 blockColor.each(function() {
                     $(this).attr('data-block-color', color);
-                })
+                });
             });
         }
-
-    }
+    };
 })();
 
 },{"jquery":1}]},{},[2])
