@@ -6,7 +6,7 @@ html {
     font-family: $fontRegular, Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-smoothing: antialiased;
-    letter-spacing: .02em;
+    letter-spacing: 0.02em;
     line-height: 23px;
     text-size-adjust: 100%;
 }
@@ -15,10 +15,12 @@ h1 {
     font-family: $fontRoboto, Helvetica, Arial, sans-serif;
     font-size: 22px;
 }
+
 h2 {
     font-family: $fontRoboto, Helvetica, Arial, sans-serif;
     font-size: 18px;
 }
+
 h3 {
     font-family: $fontRoboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -26,5 +28,22 @@ h3 {
 
 .small {
     font-size: 12px;
+}
 
+.header-type {
+    color: #333;
+    font-family: $fontRoboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+.standard {
+    color: #333;
+    font-family: $fontRobotoRegular, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.header-type--small {
+    color: $greyMedium;
+    font-family: $fontRobotoRegular, Helvetica, Arial, sans-serif;
+    font-size: 12px;
 }

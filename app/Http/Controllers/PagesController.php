@@ -36,15 +36,6 @@ class PagesController extends Controller
         return view('styleguide.index');
     }
 
-    public function getSaves()
-    {
-
-        $id= Auth::user()->id;
-        $saves = User::findOrFail($id)->getSaves;
-        // return teams that belong to current user
-        return view('saves.index')
-            ->with('saves', $saves);
-    }
 
     public function getSeasons(Request $request)
     {

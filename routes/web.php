@@ -17,21 +17,28 @@ Route::get('/register/confirm', 'RegisterConfirmation@checkEmailToConfirm')->nam
 Route::post('/register/confirm', 'RegisterConfirmation@activeAccount')->name('confirm.token');
 
 Auth::routes();
-Route::get('{username}/saves', 'PagesController@getSaves')->name('show.saves');
-Route::post('{username}/saves/create', 'SavesController@store')->name('post.saves');
-Route::put('{username}/saves/edit', 'SavesController@edit')->name('update.saves');
-Route::delete('{username}/saves/delete', 'SavesController@delete')->name('delete.saves');
+
+// Saves
+Route::get('{CurrentUsername}/saves', 'SavesController@index')->name('get.saves');
+Route::post('{CurrentUsername}/saves/create', 'SavesController@store')->name('post.saves');
+Route::put('{CurrentUsername}/saves/edit', 'SavesController@edit')->name('update.saves');
+Route::delete('{CurrentUsername}/saves/delete', 'SavesController@delete')->name('delete.saves');
 
 // Season
-Route::get('{username}/{slug}/season', 'PagesController@getSeasons')->name('show.seasons');
-Route::post('{username}/{slug}/season/create', 'SeasonController@store')->name('store.team');
-Route::put('{username}/{slug}/season/update', 'SeasonController@update')->name('update.seasons');
+Route::get('{CurrentUsername}/{SaveSlug}/season', 'PagesController@getSeasons')->name('show.seasons');
+Route::post('{CurrentUsername}/{SaveSlug}/season/create', 'SeasonController@store')->name('store.team');
+Route::put('{CurrentUsername}/{SaveSlug}/season/update', 'SeasonController@update')->name('update.seasons');
+
+
+// Squad
+Route::get('{CurrentUsername}/{SaveSlug}/season/squad', 'SquadController@index')->name('get.squad');
+
 
 // Competition
-Route::put('{username}/{slug}/competition/update', 'CompetitionController@store')->name('store.competition');
+Route::put('{CurrentUsername}/{SaveSlug}/competition/update', 'CompetitionController@store')->name('store.competition');
 
 // Players
-Route::post('{username}/{slug}/player/create', 'PlayerController@store')->name('store.players');
+Route::post('{CurrentUsername}/{SaveSlug}/player/create', 'PlayerController@store')->name('store.players');
 
 
 Route::get('/styleguide', 'PagesController@getStyleGuide')->name('show.styleguide');

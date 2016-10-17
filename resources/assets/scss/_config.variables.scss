@@ -2,10 +2,17 @@
  *  Colors
  */
 $brandBlack: #323232;
-$brandGold: #f8cf43;
+$brandGold: #fad100;
 $black: #111; // All text, large avatar outlines
 $white: #fff; // Background, text and links on a solid color, active navigation tab
 $bgColor: #ededed;
+
+
+$greyLighter: #f4f4f4;
+$greyLight: #333;
+$greyMedium: #666;
+$greyDark: #999;
+
 
 
 
@@ -64,3 +71,4 @@ $extendBackground: 100 - percentage(1 / 7); // For extended background. Matches 
  */
 $fontRoboto: 'Roboto Condensed Regular';
 $fontRegular: 'Source Sans Pro Regular';
+$fontRobotoRegular:  'Roboto Regular';

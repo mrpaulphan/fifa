@@ -84,13 +84,17 @@ select {
     }
 
     &__label {
-        @extend .small;
+        @extend .header-type--small;
         display: block;
     }
 
     &__input {
         display: block;
         width: 100%;
+        text-indent: 10px;
+        &--error {
+            border: 1px solid $red;
+        }
     }
 
     &__dropdown {

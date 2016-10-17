@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Save;
 use App\Season;
+use App\User;
 
 class SavesController extends Controller
 {
@@ -20,20 +21,41 @@ class SavesController extends Controller
 
         return $slug;
     }
+
+    /**
+     * Displays the list of saves
+     * for the signed in user
+     * @param  Request $request
+     * @return Save Listing View
+     */
+    public function index(Request $request)
+    {
+        $id= Auth::user()->id;
+        $saves = User::findOrFail($id)->getSaves;
+        return view('saves.index')
+            ->with('saves', $saves);
+    }
+
+    /**
+     * Store Save
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function store(Request $request)
     {
         // Validate
         $this->validate($request, [
-                'saveName' => 'required|unique:saves,name,NULL,id,user_id,'.Auth::user()->id.'|max:255',
-                'saveManager' => 'required|max:255',
+                'name' => 'required|unique:saves,name,NULL,id,user_id,'.Auth::user()->id.'|max:255',
+                'manager' => 'required|max:255',
          ]);
-        $slug = $this->generateSlug($request->saveName);
+         // Genearte slug
+        $slug = $this->generateSlug($request->name);
 
         // Store
         $save = new Save();
         $save->user_id = Auth::user()->id;
-        $save->name = $request->saveName;
-        $save->manager = $request->saveManager;
+        $save->name = $request->name;
+        $save->manager = $request->manager;
         $save->slug = $slug;
         $save->save();
 
@@ -45,7 +67,7 @@ class SavesController extends Controller
         // Redirect
         $username = Auth::user()->username;
 
-        return redirect()->route('show.saves', [$username]);
+        return redirect()->route('get.saves', [$username]);
     }
 
     public function edit(Request $request)
@@ -53,21 +75,19 @@ class SavesController extends Controller
 
         // Validate
         $this->validate($request, [
-               'name' => 'required|max:255',
-               'manager' => 'required|max:255',
+                'name' => 'required|unique:saves,name,NULL,id,user_id,'.Auth::user()->id.'|max:255',
+                'manager' => 'required|max:255',
          ]);
 
          // Update data
-        $save = new Save();
         $save = Save::where('id', $request->id)->update([
             'name' => $request->name,
             'manager' => $request->manager,
           ]);
 
-          // Redirect
           $username = Auth::user()->username;
 
-        return redirect()->route('show.saves', [$username]);
+          return redirect()->route('get.saves', [$username]);
     }
 
     public function delete(Request $request)
@@ -77,6 +97,6 @@ class SavesController extends Controller
         // Redirect
         $username = Auth::user()->username;
 
-        return redirect()->route('show.saves', [$username]);
+        return redirect()->route('get.saves', [$username]);
     }
 }

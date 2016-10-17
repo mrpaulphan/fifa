@@ -26,14 +26,9 @@
 }
 
 .block {
-    display: flex;
-    flex-direction: column;
 
-    &__content {
-        background-color: $white;
-        border: 1px solid $grey;
-        border-top: 0;
-    }
+
+
 
     &__edit {
         cursor: pointer;
@@ -45,26 +40,7 @@
         }
     }
 
-    &--modal {
-        box-sizing: border-box;
-        left: 50%;
-        max-height: calc(100% - 100px);
-        position: fixed;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 51;
-
-        &-overlay {
-            background: rgba($black, .8);
-            height: 100%;
-            left: 0;
-            margin: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 50;
-        }
-    }
+    
 }
 
 .overview {

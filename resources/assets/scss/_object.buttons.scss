@@ -1,21 +1,32 @@
 .button {
-    display: inline-block;
-    padding: 10px;
-    text-decoration: none;
     border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $fontRegular;
+    font-size: 16px;
+    padding: 5px 10px;
+    text-decoration: none;
 
     &--primary {
         @extend .button;
         background: $brandGold;
-        border: 1px solid $brandGold;
-        color: $white;
-
+        border: 1px solid rgba($black, .35);
+        color: $greyLight;
     }
 
     &--secondary {
         @extend .button;
-        background: $grey;
-        border: 1px solid black;
-        color: $white;
+        border: 1px solid #999;
+        color: #666666;
+        background: #f2f2f2;
+        background: linear-gradient(to right, #f2f2f2 0%,#ffffff 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#f2f2f2', endColorstr='#ffffff',GradientType=1 );
+    }
+
+    &--cancel {
+        @extend .button;
+        background: #e3e3e3;
+        border: 1px solid rgba($black, .35);
+        color: #666;
     }
 }
