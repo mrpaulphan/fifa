@@ -16,6 +16,9 @@ Route::get('/register/confirm/{token}', 'RegisterConfirmation@confirmAccount')->
 Route::get('/register/confirm', 'RegisterConfirmation@checkEmailToConfirm')->name('check.email');
 Route::post('/register/confirm', 'RegisterConfirmation@activeAccount')->name('confirm.token');
 
+
+Route::get('auth', 'FacebookController@redirectToProvider');
+Route::get('auth/callback', 'FacebookController@handleProviderCallback');
 Auth::routes();
 
 // Saves

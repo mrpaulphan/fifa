@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Socialite;
 
 
 class RegisterConfirmation extends Controller
@@ -44,4 +45,5 @@ class RegisterConfirmation extends Controller
          return view('saves.index')
              ->with('saves', $saves);
     }
+
 }

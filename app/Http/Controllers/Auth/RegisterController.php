@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ConfirmRegister;
+use Socialite;
 
 
 
@@ -90,6 +91,5 @@ class RegisterController extends Controller
           'password' => bcrypt($data['password']),
         ]);
     }
-
 
 }
