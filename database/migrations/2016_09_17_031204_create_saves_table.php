@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeasonsTable extends Migration
+class CreateSavesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateSeasonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seasons', function (Blueprint $table) {
+        Schema::create('saves', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('save_id')->unsigned();
+            $table->integer('career_id')->unsigned();
             $table->boolean('activated')->default(false);
             $table->integer('season')->nullable();
             $table->string('name')->nullable();
@@ -32,9 +32,9 @@ class CreateSeasonsTable extends Migration
             $table->integer('expenses')->nullable();
             $table->timestamps();
 
-            $table->foreign('save_id')
+            $table->foreign('career_id')
                 ->references('id')
-                ->on('saves')
+                ->on('careers')
                 ->onDelete('cascade');
         });
     }
@@ -46,6 +46,7 @@ class CreateSeasonsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('saves');
+
     }
 }

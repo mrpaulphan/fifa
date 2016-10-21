@@ -7,32 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 class Save extends Model
 {
     protected $fillable = [
-        'id',
+        'career_id',
+        'season',
         'name',
-        'manager',
-        'user_id',
+        'color',
+        'manager_popularity',
+        'continental_objective',
+        'domestic_objective',
+        'brand_objective',
+        'financial_objective',
+        'youth_objective',
+        'club_worth',
+        'transfer_budget',
+        'earnings',
+        'expenses',
     ];
 
-    public function user()
+    public function belongsToCareer()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Career', 'career_id');
     }
-    public function seasons()
+    public function competition()
     {
-        return $this->hasMany('App\Season');
-    }
-    public function recentSeason()
-    {
-        return $this->hasMany('App\Season')->orderBy('season','desc');
-    }
-    public function hasSeason()
-    {
-        return (bool) $this->seasons()->first();
-    }
-
-    public function mostRecentSeason()
-    {
-        $relation->getQuery()->orderBy('created_at', 'desc');
-
+        return $this->hasMany('App\Competition');
     }
 }

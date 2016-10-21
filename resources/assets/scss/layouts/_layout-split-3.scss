@@ -14,7 +14,7 @@
         @include autolayout('|[column]-[column]-[column]|');
     }
 
-    &-60-15-15 {
+    &--overview {
         @include media('>large') {
             @include autolayout('|[column(#{percentage(6 / 12)})]-[column(#{percentage(3 / 12)})]-[column(#{percentage(3 / 12)})]|');
         }

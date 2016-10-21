@@ -13,13 +13,12 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('season_id')->unsigned();
-          $table->integer('status')->default('squad');
+          $table->integer('save_id')->unsigned();
+          $table->string('status')->default('squad');
           $table->string('position');
           $table->string('name');
           $table->integer('age');
           $table->integer('overall');
-          $table->string('status')->nullable();
           $table->integer('appearances')->nullable();
           $table->integer('goals')->nullable();
           $table->integer('assists')->nullable();
@@ -32,9 +31,9 @@ class CreatePlayersTable extends Migration
           $table->integer('potential_low')->nullable();
           $table->integer('potential_high')->nullable();
           $table->timestamps();
-      $table->foreign('season_id')
+      $table->foreign('save_id')
               ->references('id')
-              ->on('seasons')
+              ->on('saves')
               ->onDelete('cascade');
         });
     }

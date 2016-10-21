@@ -21,7 +21,7 @@ class PagesController extends Controller
         if (Auth::check()) {
             $username = Auth::user()->username;
 
-            return redirect()->route('show.saves', [$username]);
+            return redirect()->route('get.careers');
         } else {
             return view('landing');
         }

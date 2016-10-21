@@ -15,7 +15,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'role', 'token'
+        'name',
+        'email',
+        'password',
+        'role',
+        'token',
+        'facebook_id',
+        'avatar',
+        'avatar_original'
     ];
 
     /**
@@ -27,7 +34,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function getSaves() {
-        return $this->hasMany('App\Save');
+    public function getCareers() {
+        return $this->hasMany('App\Career');
     }
 }

@@ -15,7 +15,7 @@ class CreateCompetitionTable extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('season_id')->unsigned();
+          $table->integer('save_id')->unsigned();
           $table->string('name');
           $table->string('type');
           $table->integer('played');
@@ -24,9 +24,9 @@ class CreateCompetitionTable extends Migration
           $table->integer('lost');
           $table->string('result');
           $table->timestamps();
-          $table->foreign('season_id')
+          $table->foreign('save_id')
               ->references('id')
-              ->on('seasons')
+              ->on('saves')
               ->onDelete('cascade');
         });
     }

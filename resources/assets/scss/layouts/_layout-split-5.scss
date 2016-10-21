@@ -1,7 +1,3 @@
-.layout-split-5 {
-    @include autolayout( '|[column(20%)][column(20%)][column(20%)][column(20%)][column(20%)]|');
-}
-
 [class*="layout-split-5"] {
     @include media('>large') {
         & > .column:nth-child(1),
@@ -11,5 +7,13 @@
         & > .column:nth-child(5) {
             margin-top: 0;
         }
+    }
+}
+.layout-split-5 {
+    @include autolayout('|[column(20%)][column(20%)][column(20%)][column(20%)][column(20%)]|');
+
+    &--overview {
+        @include autolayout('|[column(40%)][column(15%)][column(15%)][column(15%)][column(15%)]|');
+
     }
 }

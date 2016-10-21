@@ -10,7 +10,7 @@ use App\User;
 class FacebookController extends Controller
 {
     /**
-         * Redirect the user to the GitHub authentication page.
+         * Redirect the user to the Facebook authentication page.
          *
          * @return Response
          */
@@ -20,7 +20,7 @@ class FacebookController extends Controller
         }
 
         /**
-         * Obtain the user information from GitHub.
+         * Obtain the user information from Facebook.
          *
          * @return Response
          */
@@ -34,26 +34,35 @@ class FacebookController extends Controller
 
             // OAuth One Providers
             $token = $facebook->token;
-            $tokenSecret = $facebook->tokenSecret;
 
-            // All Providers
-            $facebook->getId();
-            $facebook->getNickname();
-            $facebook->getName();
-            $facebook->getEmail();
-            $facebook->getAvatar();
+            // Check if login/register
+            $user = User::where('facebook_id', $facebook->id)->first();
+            if ($user == null) {
+                // Register user
+                $user = User::create([
+                    'name' => $facebook->name,
+                    'facebook_id' => $facebook->id,
+                    'email' => $facebook->email,
+                    'avatar' => $facebook->avatar,
+                    'avatar_original' => $facebook->avatar_original,
+                    'token' => $token,
+                    'verified' => true,
+                ]);
+                Auth::login($user);
+            } else {
+                    $user->name = $facebook->name;
+                    $user->facebook_id = $facebook->id;
+                    $user->email = $facebook->email;
+                    $user->avatar = $facebook->avatar;
+                    $user->avatar_original = $facebook->avatar_original;
+                    $user->token = $token;
+                    $user->verified = true;
+                Auth::login($user);
+            }
 
-            // Register user
-            $user = User::create([
-                'facebook_id' => $facebook->getId(),
-                'name' => $facebook->getName(),
-                'email' =>$facebook->getEmail(),
-                'avatar' =>$facebook->getAvatar(),
-            ]);
 
-
-            // Login user
-            auth()->login($user);
+            return redirect()->route('get.careers');
 
         }
+
 }

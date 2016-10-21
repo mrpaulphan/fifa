@@ -16,16 +16,24 @@ Route::get('/register/confirm/{token}', 'RegisterConfirmation@confirmAccount')->
 Route::get('/register/confirm', 'RegisterConfirmation@checkEmailToConfirm')->name('check.email');
 Route::post('/register/confirm', 'RegisterConfirmation@activeAccount')->name('confirm.token');
 
-
-Route::get('auth', 'FacebookController@redirectToProvider');
-Route::get('auth/callback', 'FacebookController@handleProviderCallback');
+Route::get('auth', 'FacebookController@redirectToProvider')->name('connect.facebook');
+Route::get('auth/callback', 'FacebookController@handleProviderCallback')->name('connect.facebook.callback');
 Auth::routes();
 
-// Saves
-Route::get('{CurrentUsername}/saves', 'SavesController@index')->name('get.saves');
-Route::post('{CurrentUsername}/saves/create', 'SavesController@store')->name('post.saves');
-Route::put('{CurrentUsername}/saves/edit', 'SavesController@edit')->name('update.saves');
-Route::delete('{CurrentUsername}/saves/delete', 'SavesController@delete')->name('delete.saves');
+/**
+ *  Careers
+ */
+Route::get('/careers', 'CareersController@index')->name('get.careers');
+Route::post('/career/store', 'CareersController@store')->name('store.career');
+Route::put('/career/update', 'CareersController@update')->name('update.career');
+Route::delete('/career/delete', 'CareersController@delete')->name('delete.career');
+
+/**
+ *  Save
+ */
+ Route::get('/save/create', 'SavesController@create')->name('create.save');
+
+
 
 // Season
 Route::get('{CurrentUsername}/{SaveSlug}/season', 'PagesController@getSeasons')->name('show.seasons');

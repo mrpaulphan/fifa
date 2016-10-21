@@ -18,11 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('user');
             $table->string('facebook_id');
             $table->string('name');
-            $table->string('username')->unique();
+            $table->string('username')->nullable();
             $table->string('email')->unique();
             $table->string('avatar')->default('default.jpg');
+            $table->string('avatar_original')->default('default.jpg');
             $table->boolean('verified')->default(false);
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('token')->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -34,7 +34,7 @@
               <p><a class="button button--primary" href="{{ url('/register') }}">Register</a></p>
           @else
               <li class="dropdown">
-                  <img class="avatar" src="/assets/images/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" />
+                  <img class="avatar" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" />
                   <a class="avatar-name" href="#" class="dropdown-toggle" data-toggle-trigger="dropdown-menu" role="button" aria-expanded="false">
                       {{ Auth::user()->name }} <span class="caret"></span>
                   </a>

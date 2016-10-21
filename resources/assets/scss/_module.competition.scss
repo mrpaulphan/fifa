@@ -1,0 +1,21 @@
+.competition {
+    &__header {
+        align-items: center;
+        border-bottom: 1px solid $greyMedium;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__body {
+        border-bottom: 1px solid $greyMedium;
+    }
+
+    &__data {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__total {
+        text-align: right;
+    }
+}
